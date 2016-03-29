@@ -206,7 +206,6 @@
     <Compile Include="BLL\UpLoad.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AtController.cs" />
-    <Compile Include="Controllers\EnumHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MutiButtonController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />

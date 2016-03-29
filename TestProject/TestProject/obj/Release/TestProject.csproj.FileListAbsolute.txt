@@ -1,9 +1,0 @@
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\bin\TestProject.dll.config
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\bin\TestProject.dll
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\bin\TestProject.pdb
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\bin\MySql.Data.dll
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\bin\Newtonsoft.Json.dll
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\bin\Newtonsoft.Json.xml
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\obj\Release\TestProject.csprojResolveAssemblyReference.cache
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\obj\Release\TestProject.dll
-C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\TestProject\obj\Release\TestProject.pdb
