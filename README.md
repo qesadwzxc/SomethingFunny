@@ -1,0 +1,2 @@
+# SomethingFunny
+Nothing~
