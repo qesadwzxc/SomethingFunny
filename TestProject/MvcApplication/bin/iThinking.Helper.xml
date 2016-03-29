@@ -1,0 +1,1258 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iThinking.Helper</name>
+    </assembly>
+    <members>
+        <member name="T:iThinking.Helper.Db.AccessHelper">
+            <summary>Access帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.#ctor(System.String)">
+            <summary>构造函数
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.Execute(System.String)">
+            <summary>执行Sql
+            </summary>
+            <param name="SQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.Reader(System.String)">
+            <summary>执行sql，返回DataReader
+            </summary>
+            <param name="SQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.Query(System.String)">
+            <summary>执行sql，返回DataTable
+            </summary>
+            <param name="SQL">SQL</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.Query(System.String,System.Object)">
+            <summary>执行sql，返回DataSet
+            </summary>
+            <param name="SQL">SQL</param>
+            <param name="inputNull">inputNull</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.GetValue(System.String,System.Int32)">
+            <summary>执行SQl，返回一串字符
+            </summary>
+            <param name="SQL">SQL</param>
+            <param name="ColumnIndex">ColumnIndex</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.GetValue(System.String,System.String)">
+            <summary>执行SQl，返回一串字符
+            </summary>
+            <param name="SQL">SQL</param>
+            <param name="ColumnName">ColumnName</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.Finalize">
+            <summary>析构函数
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Db.AccessHelper.Dispose">
+            <summary>
+            GC
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Db.AccessHelper.LastError">
+            <summary>最后出错信息
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.Img.CheckCodeHelper">
+            <summary>校验码帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Img.CheckCodeHelper.CreateCheckCode">
+            <summary>创建校验码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Img.CheckCodeHelper.CreateCodeImage(System.Web.HttpResponse,System.String,System.Int32,System.Int32,System.Single)">
+            <summary>创建校验码
+            </summary>
+            <param name="Response"></param>
+            <param name="code">校验码</param>
+            <param name="width">宽</param>
+            <param name="height">高</param>
+            <param name="fontSize">字体大小</param>
+        </member>
+        <member name="M:iThinking.Helper.Img.CheckCodeHelper.CreateCodeImage(System.String,System.Int32,System.Int32,System.Single)">
+            <summary>创建校验码
+            </summary>
+            <param name="code">校验码</param>
+            <param name="width">宽</param>
+            <param name="height">高</param>
+            <param name="fontSize">字体大小</param>
+            <returns></returns>
+        </member>
+        <member name="T:iThinking.Helper.Img.HtmlToImageHelper">
+            <summary>HTML代码转为图片
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.Web.CacheHelper">
+            <summary>缓存帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.CacheHelper.CleanCache">
+            <summary>清空所有缓存
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.CacheHelper.CleanCache(System.String)">
+            <summary>清空单个缓存
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:iThinking.Helper.Web.CacheHelper.IsCached(System.String)">
+            <summary>缓存是否存在
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.CacheHelper.SaveCacheByMinutes(System.String,System.Object,System.Int32)">
+            <summary>保存缓存(分钟)
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="absoluteExpiration">单位：分钟</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.CacheHelper.SaveCacheByHours(System.String,System.Object,System.Int32)">
+            <summary>保存缓存(小时)
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="absoluteExpiration">单位：小时</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.CacheHelper.SaveCacheByDays(System.String,System.Object,System.Int32)">
+            <summary>保存缓存(天)
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="absoluteExpiration">单位：天</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.CacheHelper.GetCache(System.String)">
+            <summary>获取缓存
+            </summary>
+            <param name="key"></param>
+            <returns>没有为null</returns>
+        </member>
+        <member name="T:iThinking.Helper.Web.CookieHelper">
+            <summary>Cookie帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.CookieHelper.GetCookie(System.String)">
+            <summary>获取Cookie（没有为null）
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.CookieHelper.SetCookie(System.String,System.String)">
+            <summary>保存Cookie
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:iThinking.Helper.Web.CookieHelper.SetCookie(System.String,System.String,System.Boolean)">
+            <summary>保存Cookie
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="httpOnly"></param>
+        </member>
+        <member name="M:iThinking.Helper.Web.CookieHelper.SetCookie(System.String,System.String,System.DateTime)">
+            <summary>保存Cookie(默认非HttpOnly)
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="expires"></param>
+        </member>
+        <member name="M:iThinking.Helper.Web.CookieHelper.SetCookie(System.String,System.String,System.DateTime,System.Boolean)">
+            <summary>保存Cookie
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="expires"></param>
+            <param name="httpOnly"></param>
+        </member>
+        <member name="P:iThinking.Helper.Web.CookieHelper.CookieExpires">
+            <summary>Cookie失效时间
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.EnumHelper">
+            <summary>枚举帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.EnumHelper.GetEnumDescription(System.Enum)">
+            <summary>获取枚举的描述
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.EnumHelper.ConvertEnumToListDisplayValue(System.Type)">
+            <summary>将枚举转化为集合（Text显示为枚举的Value）
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.EnumHelper.ConvertEnumToListDisplayDescription(System.Type)">
+            <summary>将枚举转化为集合（Text显示为枚举的Description）
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.EnumHelper.ConvertEnumToListDisplayDescriptionWithEmptyOption(System.Type)">
+            <summary>将枚举转化为集合（Text显示为枚举的Description），带空白选项
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iThinking.Helper.EnumHelper.LogEnum">
+            <summary>日志类型
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.LogEnum.Error">
+            <summary>错误/异常
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.LogEnum.Login">
+            <summary>登录
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.LogEnum.Insert">
+            <summary>新增
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.LogEnum.Update">
+            <summary>修改
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.LogEnum.Delete">
+            <summary>删除
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.LogEnum.ChangePassword">
+            <summary>修改密码
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.EnumHelper.CodeEnum">
+            <summary>接口全局返回码
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C_1">
+            <summary>系统繁忙
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C0">
+            <summary>请求成功
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40001">
+            <summary>token无效、未启用，或已过期
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40002">
+            <summary>调用的URL不正确
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40003">
+            <summary>重复调用
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40004">
+            <summary>缺少身份验证参数
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40005">
+            <summary>nonce无效
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40006">
+            <summary>接口已过期或不存在
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40007">
+            <summary>没有调用权限
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C40008">
+            <summary>Token已超过调用单个API的每分钟最大请求次数
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C50001">
+            <summary>缺少必要参数
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C50002">
+            <summary>账号或密码错误，无法通过OA登录验证
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.EnumHelper.CodeEnum.C50003">
+            <summary>参数值未通过验证
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.FunctionHelper">
+            <summary>公共方法类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.DeepClone``1(``0)">
+            <summary>深克隆
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.SortListBox(System.Web.UI.WebControls.ListBox)">
+            <summary>
+            对ListBox进行排序
+            </summary>
+            <param name="listbox"></param>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetRandomMembersBySpecificNumber(System.Data.DataTable,System.Int32,System.Int32)">
+            <summary>
+            对结果集随机取出指定数量
+            </summary>
+            <param name="dt">数据集</param>
+            <param name="min">最小值</param>
+            <param name="size">返回个数</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetDateTime(System.String)">
+            <summary>
+            返回long型时间格式
+            </summary>
+            <param name="format">yyyyMMddHHmmssfff</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetSubstring(System.String,System.Char,System.Char)">
+            <summary>
+            返回最后匹配的两个符号之间的内容
+            </summary>
+            <param name="s"></param>
+            <param name="indexStrat"></param>
+            <param name="indexEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetSubstring(System.String,System.Char)">
+            <summary>
+            返回从最开始到第一个匹配的符合之间的内容
+            </summary>
+            <param name="s"></param>
+            <param name="indexStart"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetSubstring(System.String,System.Int32)">
+            <summary>
+            返回指定长度内容，并在结尾加"..."
+            </summary>
+            <param name="s"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetSafeString(System.String)">
+            <summary>
+            过滤特殊字符
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetFirstPinYin(System.String)">
+            <summary>获取汉语拼音首字母
+            </summary>
+            <param name="text">汉字</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetChineseSpell(System.String)">
+            <summary>拼音检索   
+            </summary>    
+            <param name="strText"></param>    
+            <returns></returns>        
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.getLetters(System.String)">
+            <summary>得到首字母
+            </summary>
+            <param name="strChar"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.RegularizeScript(System.String)">
+            <summary>
+            获取能够被JS使用的字符串
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.ObfuscateScript(System.IO.Stream)">
+            <summary>
+            混淆JS文件
+            </summary>
+            <param name="scriptStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.ConvertDateTimeToLong(System.Nullable{System.DateTime})">
+            <summary>
+            返回时间戳（毫秒）
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.ConvertDateTimeToLong(System.DateTime)">
+            <summary>
+            根据日期返回时间戳（毫秒）
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.ConvertLongToDateTime(System.Int64)">
+            <summary>
+            根据时间戳返回日期
+            </summary>
+            <param name="milliseconds">时间戳（毫秒数）</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.ConvertStringToArray(System.String)">
+            <summary>
+            将字符串转为数组
+            </summary>
+            <param name="split"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.HtmlToText(System.String)">
+            <summary>
+            HTML转文本
+            </summary>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetClientIp">
+            <summary>
+            获取客户端IP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetAppSettings(System.String)">
+            <summary>
+            获取AppSettings
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetConnectionStrings(System.String)">
+            <summary>
+            获取ConnectionStrings
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.CreateFolder(System.String)">
+            <summary>
+            创建文件路径
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetLocalStream(System.String)">
+            <summary>
+            将一个文件读成字符流
+            </summary>
+            <param name="InFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.ReadFileReturnBytes(System.String)">
+            <summary>
+            将文件内容读取为二进制数据
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.FunctionHelper.GetFileMd5(System.String)">
+            <summary>
+            获取文件的MD5值
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iThinking.Helper.Web.FtpHelper">
+            <summary>FTP帮助类
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.remoteHost">
+            <summary>远程主机
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.remotePort">
+            <summary>远程端口
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.remotePath">
+            <summary>远程文件夹路径
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.remoteUser">
+            <summary>登录用户名
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.remotePassword">
+            <summary>登录密码
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.isConnected">
+            <summary>是否已连接
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.msg">
+            <summary>服务器返回的应答信息(包含应答码)
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.strReply">
+            <summary>服务器返回的应答信息(包含应答码)
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.iReplyCode">
+            <summary>服务器返回的应答码
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.socketControl">
+            <summary>进行控制连接的socket
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.transferType">
+            <summary>传输模式
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.blockSize">
+            <summary>接收和发送数据的缓冲区
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.encoding">
+            <summary>编码方式
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.#ctor">
+            <summary>缺省构造函数
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>构造函数
+            </summary>
+            <param name="host"></param>
+            <param name="path"></param>
+            <param name="user"></param>
+            <param name="password"></param>
+            <param name="port"></param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.Connect">
+            <summary>建立连接 
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.DisConnect">
+            <summary>关闭连接
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.SetTransferType(iThinking.Helper.Web.FtpHelper.TransferType)">
+            <summary>设置传输模式
+            </summary>
+            <param name="ttType">传输模式</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.GetTransferType">
+            <summary>获得传输模式
+            </summary>
+            <returns>传输模式</returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.Dir(System.String)">
+            <summary>获得文件列表
+            </summary>
+            <param name="strMask">文件名的匹配字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.GetFileSize(System.String)">
+            <summary>获取文件大小
+            </summary>
+            <param name="strFileName">文件名</param>
+            <returns>文件大小</returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.Delete(System.String)">
+            <summary>删除文件
+            </summary>
+            <param name="strFileName">待删除文件名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.Rename(System.String,System.String)">
+            <summary>重命名(如果新文件名与已有文件重名,将覆盖已有文件)
+            </summary>
+            <param name="strOldFileName">旧文件名</param>
+            <param name="strNewFileName">新文件名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.DownLoadFile(System.String,System.String)">
+            <summary>下载一批文件
+            </summary>
+            <param name="strFileNameMask">文件名的匹配字符串</param>
+            <param name="strFolder">本地目录(不得以\结束)</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.DownLoadFile(System.String,System.String,System.String)">
+            <summary>下载一个文件
+            </summary>
+            <param name="strRemoteFileName">要下载的文件名</param>
+            <param name="strFolder">本地目录(不得以\结束)</param>
+            <param name="strLocalFileName">保存在本地时的文件名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.DownLoadFile(System.String)">
+            <summary>下载一个文件到内存
+            </summary>
+            <param name="strRemoteFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.UpLoadFiles(System.String,System.String)">
+            <summary>上传一批文件
+            </summary>
+            <param name="strFolder">本地目录(不得以\结束)</param>
+            <param name="strFileNameMask">文件名匹配字符(可以包含*和?)</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.UpLoadFile(System.String,System.IO.Stream)">
+            <summary>上传一个文件
+            </summary>
+            <param name="strFileName">本地文件名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.UpLoadFileForMemoryStream(System.String,System.IO.MemoryStream)">
+            <summary>上传一个文件
+            </summary>
+            <param name="strFileName">本地文件名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.UpLoadFile(System.String)">
+            <summary>上传一个文件
+            </summary>
+            <param name="strFileName">本地文件名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.CreateFolder(System.String)">
+            <summary>
+            创建目录
+            </summary>
+            <param name="strDirName">目录名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.DeleteFolder(System.String)">
+            <summary>
+            删除目录
+            </summary>
+            <param name="strDirName">目录名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.ChangeFolder(System.String)">
+            <summary>
+            改变目录
+            </summary>
+            <param name="strDirName">新的工作目录名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.IntoYearFolder">
+            <summary>
+            改变目录,自动加上年月日的文件夹（/yyyy/mm/dd/）,不存在自动创建
+            </summary>
+            <param name="strDirName">新的工作目录名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.IntoYearFolder(System.String)">
+            <summary>
+            改变目录,自动加上年月日的文件夹（/yyyy/mm/dd/）,不存在自动创建
+            </summary>
+            <param name="strDirName">新的工作目录名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.IntoYearFolder(System.String,System.String,System.String)">
+            <summary>
+            改变目录,自动加上年月日的文件夹（/yyyy/mm/dd/）,不存在自动创建
+            </summary>
+            <param name="strDirName">新的工作目录名</param>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.ReadReply">
+            <summary>将一行应答字符串记录在strReply和strMsg
+            应答码记录在iReplyCode
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.CreateDataSocket">
+            <summary>建立进行数据连接的socket
+            </summary>
+            <returns>数据连接socket</returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.CloseSocketConnect">
+            <summary>关闭socket连接(用于登录以前)
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.ReadLine">
+            <summary>读取Socket返回的所有字符串
+            </summary>
+            <returns>包含应答码的字符串行</returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.FtpHelper.SendCommand(System.String)">
+            <summary>发送命令并获取应答码和最后一行应答字符串
+            </summary>
+            <param name="strCommand">命令</param>
+        </member>
+        <member name="P:iThinking.Helper.Web.FtpHelper.RemoteHost">
+            <summary>FTP服务器IP地址
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Web.FtpHelper.RemotePort">
+            <summary>FTP服务器端口
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Web.FtpHelper.RemotePath">
+            <summary>当前服务器目录
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Web.FtpHelper.RemoteUser">
+            <summary>登录用户账号
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Web.FtpHelper.RemotePassword">
+            <summary>用户登录密码
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Web.FtpHelper.IsConnected">
+            <summary>是否登录
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.Web.FtpHelper.TransferType">
+            <summary>传输模式:二进制类型、ASCII类型
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.TransferType.Binary">
+            <summary>Binary
+            </summary>
+        </member>
+        <member name="F:iThinking.Helper.Web.FtpHelper.TransferType.ASCII">
+            <summary>ASCII
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.Web.HttpHelper">
+            <summary>http帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.HttpHelper.PostResponse(System.String,System.String,System.Text.Encoding,System.String,System.Int32)">
+            <summary>POST方法获取某URL的页面内容
+            </summary>
+            <param name="url">网址</param>
+            <param name="parms">参数</param>
+            <param name="encoding">编码</param>
+            <param name="contentType">ContentType</param>
+            <param name="timeout">超时（默认5秒）</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.HttpHelper.GetResponse(System.String,System.Text.Encoding,System.Int32)">
+            <summary>Get方法获取某URL的页面内容
+            </summary>
+            <param name="url">网址</param>
+            <param name="encoding">编码</param>
+            <param name="timeout">超时（默认5秒）</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.HttpHelper.GetXmlByPost(System.String,System.String,System.Text.Encoding,System.Int32)">
+            <summary>通过POST提交方式获取XML数据（适用于web service）
+            </summary>
+            <param name="requestXml">请求XML内容</param>
+            <param name="url">请求URL</param>
+            <param name="encoding">编码</param>
+            <param name="timeout">超时（默认30秒）</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.HttpHelper.CheckUrlExists(System.String)">
+            <summary>判断URL是否存在
+            </summary>
+            <param name="url">网址</param>
+            <returns></returns>
+        </member>
+        <member name="T:iThinking.Helper.Notice.LogTextHelper">
+            <summary>文本日志帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Notice.LogTextHelper.Write(System.String,System.String,System.String)">
+            <summary>记录文本日志
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+            <param name="flag"></param>
+        </member>
+        <member name="M:iThinking.Helper.Notice.LogTextHelper.Write(System.String,System.String)">
+            <summary>记录文本日志
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="T:iThinking.Helper.Notice.MailHelper">
+            <summary>邮件帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Notice.MailHelper.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>构造函数
+            </summary>
+            <param name="host">主机</param>
+            <param name="userName">用户名</param>
+            <param name="password">密码</param>
+            <param name="from">发件人</param>
+        </member>
+        <member name="M:iThinking.Helper.Notice.MailHelper.Send(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>发送邮件
+            </summary>
+            <param name="to">接收人</param>
+            <param name="cc">抄送人</param>
+            <param name="bcc">暗送人</param>
+            <param name="subject">主题</param>
+            <param name="body">内容</param>
+            <param name="timeout">超时</param>
+        </member>
+        <member name="P:iThinking.Helper.Notice.MailHelper.Host">
+            <summary>主机（IP/域名）
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Notice.MailHelper.UserName">
+            <summary>用户名
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Notice.MailHelper.Password">
+            <summary>密码
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Notice.MailHelper.From">
+            <summary>发件人
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.Notice.MsgHelper">
+            <summary>消息弹出类（已过期）
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.Db.OracleHelper">
+            <summary>Oracle帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.#ctor(System.String)">
+            <summary>构造函数
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.Execute(System.String)">
+            <summary>执行（出错则通过LastError属性返回异常）
+            </summary>
+            <param name="SQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.Reader(System.String)">
+            <summary>快速读取
+            </summary>
+            <param name="SQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.Query(System.String)">
+            <summary>查询
+            </summary>
+            <param name="SQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.Query(System.String,System.Object)">
+            <summary>查询
+            </summary>
+            <param name="SQL"></param>
+            <param name="inputNull"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.GetValue(System.String,System.Int32)">
+            <summary>获取列第一行的值
+            </summary>
+            <param name="SQL"></param>
+            <param name="ColumnIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.GetValue(System.String,System.String)">
+            <summary>获取列第一行的值
+            </summary>
+            <param name="SQL"></param>
+            <param name="ColumnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.Finalize">
+            <summary>析构函数
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Db.OracleHelper.Dispose">
+            <summary>
+            GC
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Db.OracleHelper.LastError">
+            <summary>最后出错信息
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.Img.QRCodeHelper">
+            <summary>二维码帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Img.QRCodeHelper.Create(System.String,ThoughtWorks.QRCode.Codec.QRCodeEncoder.ENCODE_MODE,ThoughtWorks.QRCode.Codec.QRCodeEncoder.ERROR_CORRECTION,System.Int32,System.Int32)">
+            <summary>创建二维码
+            </summary>
+            <param name="content">内容（url等）</param>
+            <param name="encode">编码（ALPHA_NUMERIC、NUMERIC、BYTE）</param>
+            <param name="errorCorrect">误差修正（L、M、Q、H）</param>
+            <param name="size">尺寸（默认4）</param>
+            <param name="version">版本（1~40，默认7）</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Img.QRCodeHelper.Save(System.Drawing.Image)">
+            <summary>保存图片
+            </summary>
+            <param name="img">二维码图片</param>
+        </member>
+        <member name="M:iThinking.Helper.Img.QRCodeHelper.Open">
+            <summary>打开图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Img.QRCodeHelper.Decode(System.Drawing.Image)">
+            <summary>解析二维码
+            </summary>
+            <param name="img">二维码图片</param>
+            <returns></returns>
+        </member>
+        <member name="T:iThinking.Helper.Report.ExcelHelper">
+            <summary>报表帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Report.ExcelHelper.ToExcel(System.Data.DataTable,System.String[],System.String[],System.String,System.String,System.String@,System.String@)">
+            <summary>DataTable To Excel
+            </summary>
+            <param name="dataTable">数据源</param>
+            <param name="arrHeader">形如：string[]{"列名1", "列名2"}</param>
+            <param name="arrColumn">形如：string[]{"@ColumnName1", "ColumnName2"}，以0开头的数据栏位名称前加上@符号可放在0丢失</param>
+            <param name="filePhysicalPath">文件物理路径(形如C:\TEMP\myExcel.xls)</param>
+            <param name="fileName">文件名(形如myExcel.xls)</param>
+            <param name="flag">成功返回SUCCESS，失败返回错误原因</param>
+            <param name="file">返回文件物理路径</param>
+        </member>
+        <member name="T:iThinking.Helper.SecrecyHelper">
+            <summary>加解密类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.HtmlEncode(System.String)">
+            <summary>HTML加密
+            </summary>
+            <param name="s">明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.HtmlDecode(System.String)">
+            <summary>HTML解密
+            </summary>
+            <param name="s">密文</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.UrlEncode(System.String)">
+            <summary>URL加密
+            </summary>
+            <param name="s">明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.UrlDecode(System.String)">
+            <summary>URL解密
+            </summary>
+            <param name="s">密文</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.Base64Encrypt(System.String)">
+            <summary>base64编码
+            </summary>
+            <param name="s">明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.Base64Decrypt(System.String)">
+            <summary>base64解密
+            </summary>
+            <param name="s">密文</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.MD5Encrypt(System.String)">
+            <summary>MD5加密
+            </summary>
+            <param name="s">明文</param>
+            <returns></returns>
+        </member>
+        <member name="F:iThinking.Helper.SecrecyHelper._iv">
+            <summary>DES密钥向量
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.DESEncrypt(System.String,System.String)">
+            <summary>DES加密
+            </summary>
+            <param name="s">明文</param>
+            <param name="key">密钥(8位)</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.DESDecrypt(System.String,System.String)">
+            <summary>DES解密
+            </summary>
+            <param name="s">密文</param>
+            <param name="key">密钥(8位)</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.AESEncrypt(System.String,System.String,System.Int32)">
+            <summary>AES加密(ECB)
+            </summary>
+            <param name="s">明文</param>
+            <param name="key">密钥</param>
+            <param name="length">密钥长度(128:16;192:24;256:32)</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.AESEncrypt(System.String,System.String,System.String,System.Int32)">
+            <summary>AES加密(CBC)
+            </summary>
+            <param name="s">明文</param>
+            <param name="key">密钥</param>
+            <param name="iv">偏移量</param>
+            <param name="length">密钥长度(128:16;192:24;256:32)</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.AESDecrypt(System.String,System.String,System.Int32)">
+            <summary>AES解密(ECB)
+            </summary>
+            <param name="s">密文</param>
+            <param name="key">密钥</param>
+            <param name="length">密钥长度(128:16;192:24;256:32)</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.AESDecrypt(System.String,System.String,System.String,System.Int32)">
+            <summary>AES解密(CBC)
+            </summary>
+            <param name="s">密文</param>
+            <param name="key">密钥</param>
+            <param name="iv">偏移量</param>
+            <param name="length">密钥长度(128:16;192:24;256:32)</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.GetKeyArray(System.String,System.Int32)">
+            <summary>将字符串密钥转化为字符数组
+            </summary>
+            <param name="key">密钥</param>
+            <param name="length">密钥长度（不足右边补T）</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.SecrecyHelper.ObscureKey(System.String)">
+            <summary>混淆key（结果：(7)首字母-尾字母=key）
+            </summary>
+            <param name="key">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="T:iThinking.Helper.Db.SQLHelper">
+            <summary>MS SQL帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.#ctor(System.String)">
+            <summary>构造函数
+            </summary>
+            <param name="connectiongString"></param>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.Execute(System.String)">
+            <summary>执行SQL
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.ExecuteByParm(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>执行SQL（参数化）
+            </summary>
+            <param name="sql"></param>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.ExecuteTran(System.Collections.Generic.List{System.String})">
+            <summary>执行SQL（事务）
+            </summary>
+            <param name="sqlList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.ExecuteTranByParm(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Data.SqlClient.SqlParameter[]})">
+            <summary>执行SQL（事务+参数化）
+            </summary>
+            <param name="sqlList"></param>
+            <param name="parmList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.Query(System.String)">
+            <summary>将SQL执行结果放入DataTabel
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.Query(System.String,System.Object)">
+            <summary>将SQL执行结果放入DataSet
+            </summary>
+            <param name="sql"></param>
+            <param name="inputNull"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.QueryByParm(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>将SQL执行结果放入DataTable（参数化）
+            </summary>
+            <param name="sql"></param>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.QueryByParm(System.String,System.Data.SqlClient.SqlParameter[],System.Object)">
+            <summary>将SQL执行结果放入DataSet（参数化）
+            </summary>
+            <param name="sql"></param>
+            <param name="parms"></param>
+            <param name="inputNull"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.Reader(System.String)">
+            <summary>将SQL执行结果放入DataReader
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.GetValue(System.String,System.Int32)">
+            <summary>根据Column Index得到SQL执行结果
+            </summary>
+            <param name="sql"></param>
+            <param name="columnIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.GetValue(System.String,System.String)">
+            <summary>根据Column Name得到SQL执行结果
+            </summary>
+            <param name="sql"></param>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.Finalize">
+            <summary>析构函数
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Db.SQLHelper.Dispose">
+            <summary>
+            GC
+            </summary>
+        </member>
+        <member name="P:iThinking.Helper.Db.SQLHelper.LastError">
+            <summary>最后出错信息
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.StreamCompressHelper">
+            <summary>Stream压缩帮助类(.net 4.0+以上才可以)
+            </summary>
+        </member>
+        <member name="T:iThinking.Helper.ValidHelper">
+            <summary>验证帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsEmail(System.String)">
+            <summary>判断是否是正确的电子邮件格式</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsIDCard(System.String,System.String@)">
+            <summary>判断是否是正确的18或15位身份证号码</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsIDCard18(System.String,System.String@)">
+            <summary>判断是否是正确的18位身份证号码</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsIDCard15(System.String,System.String@)">
+            <summary>判断是否是正确的15位身份证号码</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsPostcode(System.String)">
+            <summary>判断是否是正确的邮政编码格式</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsMobilePhone(System.String)">
+            <summary>判断是否是正确的手机号码</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsTelephone(System.String)">
+            <summary>判断是否是正确的8位中国固定电话 </summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsHasHtml(System.String)">
+            <summary>包含html</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsMatchRegex(System.String,System.String)">
+            <summary>是否匹配正则表达式</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsIP(System.String)">
+            <summary>判断字符串是否是IP</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsHasChinese(System.String)">
+            <summary>是否包含中文或全角字符 </summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsURLAddress(System.String)">
+            <summary>是否是URL地址</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsAllChinese(System.String)">
+            <summary>是否是中文</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsInt(System.String)">
+            <summary>是否为正整数</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsIntWithZero(System.String)">
+            <summary>是否为正整数</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsNumber(System.String)">
+            <summary>是否为整数</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsDecimal(System.String)">
+            <summary>是否为浮点数</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsDateTime(System.String)">
+            <summary>是否为时间</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsLegalXmlChar(System.Int32)">
+            <summary>判断是否是XML 1.0允许的字符</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsLegalXmlChar(System.String)">
+            <summary>判断是否是合法的 XML 1.0标准允许的字符串 true：标准 false：包含不标准的字符</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.IsNullOrWhiteSpace(System.String)">
+            <summary>是空或者空格吗</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.Contains(System.String,System.String,System.StringComparison)">
+            <summary>是否包含</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.ContainsAll(System.String,System.String[])">
+            <summary>是否包含全部</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.ContainsAll(System.String,System.Char[])">
+            <summary>是否包含全部</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.ContainsAny(System.String,System.String[])">
+            <summary>是否包含任意一个</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.ContainsAny(System.String,System.Char[])">
+            <summary>是否包含任意一个</summary>
+        </member>
+        <member name="M:iThinking.Helper.ValidHelper.ContainsAny(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>是否包含任意一个</summary>
+        </member>
+        <member name="T:iThinking.Helper.Web.XmlHelper">
+            <summary>xml帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.Web.XmlHelper.ConvertXMLToDataSet(System.String)">
+            <summary>xml转化成dataset
+            </summary>
+            <param name="xmlData">xml数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:iThinking.Helper.Web.XmlHelper.ConvertXMLToDatatalbe(System.String)">
+            <summary>xml转化成datatable
+            </summary>
+            <param name="xmlData">xml数据</param>
+            <returns></returns>
+        </member>
+        <member name="T:iThinking.Helper.XssHelper">
+            <summary>XSS帮助类
+            </summary>
+        </member>
+        <member name="M:iThinking.Helper.XssHelper.AntiXssInput(System.String)">
+            <summary>防止XSS输入
+            </summary>
+            <param name="str">需要过滤的纯文本</param>
+            <returns>过滤后的纯文本</returns>
+            <remarks>适用于纯文本的过滤</remarks>
+        </member>
+        <member name="M:iThinking.Helper.XssHelper.AntiXsssOutput(System.String)">
+            <summary>防止XSS输出
+            </summary>
+            <param name="str">需要过滤的纯文本</param>
+            <returns>过滤后的纯文本</returns>
+            <remarks>适用于纯文本的过滤</remarks>
+        </member>
+    </members>
+</doc>

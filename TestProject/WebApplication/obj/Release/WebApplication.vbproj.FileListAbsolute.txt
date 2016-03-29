@@ -1,0 +1,10 @@
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\bin\WebApplication.dll.config
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\bin\WebApplication.dll
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\bin\WebApplication.pdb
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\bin\WebApplication.xml
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\obj\Release\WebApplication.vbprojResolveAssemblyReference.cache
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\obj\Release\WebApplication.Resources.resources
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\obj\Release\WebApplication.vbproj.GenerateResource.Cache
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\obj\Release\WebApplication.dll
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\obj\Release\WebApplication.xml
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\TestProject\WebApplication\obj\Release\WebApplication.pdb

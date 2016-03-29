@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--测试文档-->
+<document>
+	<StudentList>
+		<student>
+			<ID>1</ID>
+			<Name>小明</Name>
+			<Sex>男</Sex>
+		</student>
+		<student>
+			<ID>2</ID>
+			<Name>小红</Name>
+			<Sex>女</Sex>
+		</student>
+	</StudentList>
+</document>

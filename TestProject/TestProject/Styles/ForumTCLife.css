@@ -1,0 +1,154 @@
+﻿.manager_sl {
+    font-size: 16px;
+    font-weight: 590;
+}
+
+.manager_sl a {
+    display: block;
+    float: left;
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.manager_sl .postnew {
+    width: 140px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 10px;
+    display: block;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    background: #8ab923;
+}
+
+.manager_sl .postnew:hover { background: #fc924c; }
+
+.listselect {
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10px;
+    border: 2px solid #8ab923;
+    border-radius: 5px;
+}
+
+.txtborder0 {
+    height: 32px;
+    width: 500px;
+    line-height: 30px;
+    padding: 0px 5px;
+    border: 0px;
+    outline: none;
+}
+
+.btnselect {
+    width: 80px;
+    height: 32px;
+    border: 0px;
+    outline: none;
+    background: #8ab923;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+.btnselect:hover { background-color: #64a10a; }
+
+.manager_main {
+    margin-top: 0px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.manager_main dt {
+    height: 35px;
+    width: 100%;
+    line-height: 35px;
+    background: #f7f7f7;
+}
+
+.manager_main dd {
+    height: 50px;
+    width: 100%;
+    line-height: 70px;
+    border-bottom: 1px dashed #dddddd;
+    color: #999999;
+}
+
+.manager_main dd p {
+    height: 50px;
+    line-height: 50px;
+}
+
+.replaycontent:hover {
+    color: #fc924c;
+    text-decoration: underline;
+}
+
+.stateStyle {
+    padding: 0px 5px;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.stateTop {
+    background: #fe4a4a;
+    border: 1px solid #fe4a4a;
+}
+
+.stateEssence {
+    background: #42b8ff;
+    border: 1px solid #42b8ff;
+}
+
+.newsType {
+    padding: 0px 5px;
+    color: #64a10a;
+    border-radius: 3px;
+    border: 1px solid #64a10a;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.bght {
+    width: 1200px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+    background-image: url('/images/tclifebghd.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bgft {
+    width: 1200px;
+    height: 12px;
+    margin: 0px;
+    padding: 0px;
+    background-image: url('/images/tclifebgft.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.plate {
+    background: #8ab923;
+    color: #fff;
+    padding: 0px 20px;
+}
+
+.plateTypedefault { background-color: #eaf9c9; }
+
+.plateType:hover {
+    background-color: #f0f0f0; /*color:#fff;*/
+}
+
+.odd { background-color: #fff; }
+
+.even { background-color: #E5F2F8; }
+
+.selected { background-color: #FFF3A1; }

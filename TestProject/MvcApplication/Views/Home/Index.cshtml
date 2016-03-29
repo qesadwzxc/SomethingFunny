@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script type="text/javascript" src="~/Scripts/jquery.js"></script>
+<script type="text/javascript" src="~/Scripts/laydate/laydate.js"></script>
+<script type="text/javascript" src="~/Scripts/laypage/laypage.js"></script>
+
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    html {
+        background-color: #E3E3E3;
+        font-size: 14px;
+        color: #000;
+        font-family: '微软雅黑';
+    }
+
+    h2 {
+        line-height: 30px;
+        font-size: 20px;
+    }
+
+    a, a:hover {
+        text-decoration: none;
+    }
+
+    pre {
+        font-family: '微软雅黑';
+    }
+
+    .box {
+        width: 970px;
+        padding: 10px 20px;
+        background-color: #fff;
+        margin: 10px auto;
+    }
+
+        .box a {
+            padding-right: 20px;
+        }
+
+    .demo1, .demo2, .demo3, .demo4, .demo5, .demo6 {
+        margin: 25px 0;
+    }
+
+    h3 {
+        margin: 10px 0;
+    }
+
+    .layinput {
+        height: 22px;
+        line-height: 22px;
+        width: 150px;
+        margin: 0;
+    }
+</style>
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                To learn more about ASP.NET MVC visit
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
+                If you have any questions about ASP.NET MVC visit
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+            </p>
+        </div>
+    </section>
+}
+<h3>We suggest the following:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Getting Started</h5>
+        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+        enables a clean separation of concerns and that gives you full control over markup
+        for enjoyable, agile development. ASP.NET MVC includes many features that enable
+        fast, TDD-friendly development for creating sophisticated applications that use
+        the latest web standards.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
+    </li>
+
+    <li class="two">
+        <h5>Add NuGet packages and jump-start your coding</h5>
+        NuGet makes it easy to install and update free libraries and tools.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
+    </li>
+
+    <li class="three">
+        <h5>Find Web Hosting</h5>
+        You can easily find a web hosting company that offers the right mix of features
+        and price for your applications.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+    </li>
+</ol>
+
+<div>
+    <input class="laydate-icon" id="demo" value="2014-6-25更新" readonly>
+</div>
+
+<div>
+    <label id="lblOutput"></label>@ViewBag.Date
+    <div id="divPage"></div>
+</div>
+<script type="text/javascript">
+    var list = $(".laydate-icon");
+    for (var i = 0; i < list.eq.length; i++) {
+        laydate({
+            elem: '#' + list.eq(i).attr("id"), //需显示日期的元素选择器
+            event: 'click', //触发事件
+            istime: false, //是否开启时间选择
+            isclear: false, //是否显示清空
+            istoday: false, //是否显示今天
+            issure: false, //是否显示确认
+        });
+    }
+
+    function demo(curr) {
+        $.getJSON('Home/Index', {
+            pageIndex: curr || 1 //向服务端传的参数，此处只是演示
+        },
+
+        function (res) {
+            //显示分页
+            laypage({
+                cont: 'divPage', //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+                pages: 3, //通过后台拿到的总页数
+                curr: function(){ //通过url获取当前页，也可以同上（pages）方式获取
+                    var page = location.search.match(/pageIndex=(\d+)/);
+                    return page ? page[1] : 1;
+                }(), //当前页
+                jump: function (obj, first) { //触发分页后的回调
+                    $("#lblOutput").text(res.name);
+                    if (!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
+                        location.href = '?page=' + obj.curr;
+                        demo(obj.curr);
+                    }
+                },
+                first: false,
+                last: false
+            });
+        });
+    };
+
+    laypage({
+        cont: 'divPage',
+        pages: 3, //可以叫服务端把总页数放在某一个隐藏域，再获取。假设我们获取到的是18
+        curr: function () { //通过url获取当前页，也可以同上（pages）方式获取
+            var page = location.search.match(/pageIndex=(\d+)/);
+            return page ? page[1] : 1;
+        }(),
+        jump: function (e, first) { //触发分页后的回调
+            if (!first) { //一定要加此判断，否则初始时会无限刷新
+                location.href = '?pageIndex=' + e.curr;
+            }
+        }
+    });
+
+    var json = { time: new Date().getTime() };
+    window.history.pushState(json, "", $.mobile.path.documentBase.hrefNoHash);
+
+    //运行
+    //demo();
+</script>
+

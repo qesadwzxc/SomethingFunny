@@ -1,0 +1,36 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WebApplication1
+</name>
+</assembly>
+<members>
+<member name="P:WebApplication1.My.MyWebExtension.Computer">
+	<summary>
+ 返回有关主计算机的信息。
+ </summary>
+</member><member name="P:WebApplication1.My.MyWebExtension.User">
+	<summary>
+ 返回当前 Web 用户的信息。
+ </summary>
+</member><member name="P:WebApplication1.My.MyWebExtension.Request">
+	<summary>
+ 返回 Request 对象。
+ </summary>
+</member><member name="P:WebApplication1.My.MyWebExtension.Response">
+	<summary>
+ 返回 Response 对象。
+ </summary>
+</member><member name="P:WebApplication1.My.MyWebExtension.Log">
+	<summary>
+ 返回 Asp 日志对象。
+ </summary>
+</member><member name="T:WebApplication1.My.MyWebExtension">
+	<summary>
+ 用于定义 Web 项目的“My 命名空间”中可用属性的模块。
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

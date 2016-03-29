@@ -1,0 +1,9 @@
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\bin\WebApplication1.dll.config
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\bin\WebApplication1.dll
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\bin\WebApplication1.pdb
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\bin\WebApplication1.xml
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.resources
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\obj\Debug\WebApplication1.vbproj.GenerateResource.Cache
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\obj\Debug\WebApplication1.xml
+C:\Users\lmw12960\Documents\Visual Studio 2013\Projects\MvcApplication1\WebApplication1\obj\Debug\WebApplication1.pdb

@@ -1,0 +1,277 @@
+using System;
+using System.Collections;
+using System.Collections.Specialized;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Security;
+using System.Security.Permissions;
+using System.Web;
+using System.Web.Util;
+namespace Microsoft.Web.Infrastructure.DynamicValidationHelper
+{
+	[SecurityCritical]
+	internal sealed class GranularValidationReflectionUtil
+	{
+		private Func<NameObjectCollectionBase, ArrayList> _del_get_NameObjectCollectionBase_entriesArray;
+		private Action<NameObjectCollectionBase, ArrayList> _del_set_NameObjectCollectionBase_entriesArray;
+		private Func<NameObjectCollectionBase, Hashtable> _del_get_NameObjectCollectionBase_entriesTable;
+		private Action<NameObjectCollectionBase, Hashtable> _del_set_NameObjectCollectionBase_entriesTable;
+		private Func<object, string> _del_get_NameObjectEntry_Key;
+		private Func<object, object> _del_get_NameObjectEntry_Value;
+		private Action<object, object> _del_set_NameObjectEntry_Value;
+		private Func<HttpRequest, ValidateStringCallback> _del_validateStringCallback;
+		private Func<HttpRequest, int, bool> _del_BitVector32_get_Item;
+		private Action<HttpRequest, int, bool> _del_BitVector32_set_Item;
+		private Func<HttpRequest, NameValueCollection> _del_get_HttpRequest_form;
+		private Action<object, object> _del_set_HttpRequest_form;
+		private Func<HttpRequest, NameValueCollection> _del_get_HttpRequest_queryString;
+		private Action<object, object> _del_set_HttpRequest_queryString;
+		private Func<NameValueCollection> _del_HttpValueCollection_ctor;
+		public static readonly GranularValidationReflectionUtil Instance = GranularValidationReflectionUtil.GetInstance();
+		public ArrayList GetNameObjectCollectionEntriesArray(NameObjectCollectionBase target)
+		{
+			return this._del_get_NameObjectCollectionBase_entriesArray(target);
+		}
+		public void SetNameObjectCollectionEntriesArray(NameObjectCollectionBase target, ArrayList array)
+		{
+			this._del_set_NameObjectCollectionBase_entriesArray(target, array);
+		}
+		public Hashtable GetNameObjectCollectionEntriesTable(NameObjectCollectionBase target)
+		{
+			return this._del_get_NameObjectCollectionBase_entriesTable(target);
+		}
+		public void SetNameObjectCollectionEntriesTable(NameObjectCollectionBase target, Hashtable table)
+		{
+			this._del_set_NameObjectCollectionBase_entriesTable(target, table);
+		}
+		public string GetNameObjectEntryKey(object target)
+		{
+			return this._del_get_NameObjectEntry_Key(target);
+		}
+		public object GetNameObjectEntryValue(object target)
+		{
+			return this._del_get_NameObjectEntry_Value(target);
+		}
+		public void SetNameObjectEntryValue(object target, object newValue)
+		{
+			this._del_set_NameObjectEntry_Value(target, newValue);
+		}
+		public ValidateStringCallback MakeValidateStringCallback(HttpRequest request)
+		{
+			return this._del_validateStringCallback(request);
+		}
+		public bool GetRequestValidationFlag(HttpRequest target, ValidationSourceFlag flag)
+		{
+			return this._del_BitVector32_get_Item(target, (int)flag);
+		}
+		public void SetRequestValidationFlag(HttpRequest target, ValidationSourceFlag flag, bool value)
+		{
+			this._del_BitVector32_set_Item(target, (int)flag, value);
+		}
+		public NameValueCollection GetHttpRequestFormField(HttpRequest target)
+		{
+			return this._del_get_HttpRequest_form(target);
+		}
+		public void SetHttpRequestFormField(HttpRequest target, NameValueCollection value)
+		{
+			this._del_set_HttpRequest_form(target, value);
+		}
+		public NameValueCollection GetHttpRequestQueryStringField(HttpRequest target)
+		{
+			return this._del_get_HttpRequest_queryString(target);
+		}
+		public void SetHttpRequestQueryStringField(HttpRequest target, NameValueCollection value)
+		{
+			this._del_set_HttpRequest_queryString(target, value);
+		}
+		public NameValueCollection NewHttpValueCollection()
+		{
+			return this._del_HttpValueCollection_ctor();
+		}
+		private GranularValidationReflectionUtil()
+		{
+		}
+		private static GranularValidationReflectionUtil GetInstance()
+		{
+			GranularValidationReflectionUtil result;
+			try
+			{
+				if (DynamicValidationShimReflectionUtil.Instance != null)
+				{
+					result = null;
+				}
+				else
+				{
+					GranularValidationReflectionUtil granularValidationReflectionUtil = new GranularValidationReflectionUtil();
+					Type typeFromHandle = typeof(NameObjectCollectionBase);
+					string fieldName = "_entriesArray";
+					bool isStatic = false;
+					Type typeFromHandle2 = typeof(ArrayList);
+					FieldInfo fieldInfo = CommonReflectionUtil.FindField(typeFromHandle, fieldName, isStatic, typeFromHandle2);
+					granularValidationReflectionUtil._del_get_NameObjectCollectionBase_entriesArray = GranularValidationReflectionUtil.MakeFieldGetterFunc<NameObjectCollectionBase, ArrayList>(fieldInfo);
+					granularValidationReflectionUtil._del_set_NameObjectCollectionBase_entriesArray = GranularValidationReflectionUtil.MakeFieldSetterFunc<NameObjectCollectionBase, ArrayList>(fieldInfo);
+					Type typeFromHandle3 = typeof(NameObjectCollectionBase);
+					string fieldName2 = "_entriesTable";
+					bool isStatic2 = false;
+					Type typeFromHandle4 = typeof(Hashtable);
+					FieldInfo fieldInfo2 = CommonReflectionUtil.FindField(typeFromHandle3, fieldName2, isStatic2, typeFromHandle4);
+					granularValidationReflectionUtil._del_get_NameObjectCollectionBase_entriesTable = GranularValidationReflectionUtil.MakeFieldGetterFunc<NameObjectCollectionBase, Hashtable>(fieldInfo2);
+					granularValidationReflectionUtil._del_set_NameObjectCollectionBase_entriesTable = GranularValidationReflectionUtil.MakeFieldSetterFunc<NameObjectCollectionBase, Hashtable>(fieldInfo2);
+					Type type = CommonAssemblies.System.GetType("System.Collections.Specialized.NameObjectCollectionBase+NameObjectEntry");
+					Type containingType = type;
+					string fieldName3 = "Key";
+					bool isStatic3 = false;
+					Type typeFromHandle5 = typeof(string);
+					FieldInfo fieldInfo3 = CommonReflectionUtil.FindField(containingType, fieldName3, isStatic3, typeFromHandle5);
+					granularValidationReflectionUtil._del_get_NameObjectEntry_Key = GranularValidationReflectionUtil.MakeFieldGetterFunc<string>(type, fieldInfo3);
+					Type containingType2 = type;
+					string fieldName4 = "Value";
+					bool isStatic4 = false;
+					Type typeFromHandle6 = typeof(object);
+					FieldInfo fieldInfo4 = CommonReflectionUtil.FindField(containingType2, fieldName4, isStatic4, typeFromHandle6);
+					granularValidationReflectionUtil._del_get_NameObjectEntry_Value = GranularValidationReflectionUtil.MakeFieldGetterFunc<object>(type, fieldInfo4);
+					granularValidationReflectionUtil._del_set_NameObjectEntry_Value = GranularValidationReflectionUtil.MakeFieldSetterFunc(type, fieldInfo4);
+					Type typeFromHandle7 = typeof(HttpRequest);
+					string methodName = "ValidateString";
+					bool isStatic5 = false;
+					Type[] argumentTypes = new Type[]
+					{
+						typeof(string),
+						typeof(string),
+						typeof(RequestValidationSource)
+					};
+					Type typeFromHandle8 = typeof(void);
+					MethodInfo methodInfo = CommonReflectionUtil.FindMethod(typeFromHandle7, methodName, isStatic5, argumentTypes, typeFromHandle8);
+					granularValidationReflectionUtil._del_validateStringCallback = CommonReflectionUtil.MakeFastCreateDelegate<HttpRequest, ValidateStringCallback>(methodInfo);
+					Type type2 = CommonAssemblies.SystemWeb.GetType("System.Web.HttpValueCollection");
+					granularValidationReflectionUtil._del_HttpValueCollection_ctor = CommonReflectionUtil.MakeFastNewObject<Func<NameValueCollection>>(type2);
+					Type typeFromHandle9 = typeof(HttpRequest);
+					string fieldName5 = "_form";
+					bool isStatic6 = false;
+					Type fieldType = type2;
+					FieldInfo fieldInfo5 = CommonReflectionUtil.FindField(typeFromHandle9, fieldName5, isStatic6, fieldType);
+					granularValidationReflectionUtil._del_get_HttpRequest_form = GranularValidationReflectionUtil.MakeFieldGetterFunc<HttpRequest, NameValueCollection>(fieldInfo5);
+					granularValidationReflectionUtil._del_set_HttpRequest_form = GranularValidationReflectionUtil.MakeFieldSetterFunc(typeof(HttpRequest), fieldInfo5);
+					Type typeFromHandle10 = typeof(HttpRequest);
+					string fieldName6 = "_queryString";
+					bool isStatic7 = false;
+					Type fieldType2 = type2;
+					FieldInfo fieldInfo6 = CommonReflectionUtil.FindField(typeFromHandle10, fieldName6, isStatic7, fieldType2);
+					granularValidationReflectionUtil._del_get_HttpRequest_queryString = GranularValidationReflectionUtil.MakeFieldGetterFunc<HttpRequest, NameValueCollection>(fieldInfo6);
+					granularValidationReflectionUtil._del_set_HttpRequest_queryString = GranularValidationReflectionUtil.MakeFieldSetterFunc(typeof(HttpRequest), fieldInfo6);
+					Type type3 = CommonAssemblies.SystemWeb.GetType("System.Web.Util.SimpleBitVector32");
+					Type typeFromHandle11 = typeof(HttpRequest);
+					string fieldName7 = "_flags";
+					bool isStatic8 = false;
+					Type fieldType3 = type3;
+					FieldInfo flagsFieldInfo = CommonReflectionUtil.FindField(typeFromHandle11, fieldName7, isStatic8, fieldType3);
+					Type containingType3 = type3;
+					string methodName2 = "get_Item";
+					bool isStatic9 = false;
+					Type[] argumentTypes2 = new Type[]
+					{
+						typeof(int)
+					};
+					Type typeFromHandle12 = typeof(bool);
+					MethodInfo itemGetter = CommonReflectionUtil.FindMethod(containingType3, methodName2, isStatic9, argumentTypes2, typeFromHandle12);
+					Type containingType4 = type3;
+					string methodName3 = "set_Item";
+					bool isStatic10 = false;
+					Type[] argumentTypes3 = new Type[]
+					{
+						typeof(int),
+						typeof(bool)
+					};
+					Type typeFromHandle13 = typeof(void);
+					MethodInfo itemSetter = CommonReflectionUtil.FindMethod(containingType4, methodName3, isStatic10, argumentTypes3, typeFromHandle13);
+					GranularValidationReflectionUtil.MakeRequestValidationFlagsAccessors(flagsFieldInfo, itemGetter, itemSetter, out granularValidationReflectionUtil._del_BitVector32_get_Item, out granularValidationReflectionUtil._del_BitVector32_set_Item);
+					result = granularValidationReflectionUtil;
+				}
+			}
+			catch
+			{
+				result = null;
+			}
+			return result;
+		}
+		[ReflectionPermission(SecurityAction.Assert, MemberAccess = true)]
+		private static Func<TTarget, TFieldType> MakeFieldGetterFunc<TTarget, TFieldType>(FieldInfo fieldInfo)
+		{
+			ParameterExpression parameterExpression = Expression.Parameter(typeof(TTarget));
+			MemberExpression body = Expression.Field(parameterExpression, fieldInfo);
+			Expression<Func<TTarget, TFieldType>> expression = Expression.Lambda<Func<TTarget, TFieldType>>(body, new ParameterExpression[]
+			{
+				parameterExpression
+			});
+			return expression.Compile();
+		}
+		[ReflectionPermission(SecurityAction.Assert, MemberAccess = true)]
+		private static Func<object, TFieldType> MakeFieldGetterFunc<TFieldType>(Type targetType, FieldInfo fieldInfo)
+		{
+			ParameterExpression parameterExpression = Expression.Parameter(typeof(object));
+			UnaryExpression expression = Expression.Convert(parameterExpression, targetType);
+			MemberExpression body = Expression.Field(expression, fieldInfo);
+			Expression<Func<object, TFieldType>> expression2 = Expression.Lambda<Func<object, TFieldType>>(body, new ParameterExpression[]
+			{
+				parameterExpression
+			});
+			return expression2.Compile();
+		}
+		[ReflectionPermission(SecurityAction.Assert, MemberAccess = true)]
+		private static Action<TTarget, TFieldType> MakeFieldSetterFunc<TTarget, TFieldType>(FieldInfo fieldInfo)
+		{
+			ParameterExpression parameterExpression = Expression.Parameter(typeof(TTarget));
+			ParameterExpression parameterExpression2 = Expression.Parameter(typeof(TFieldType));
+			MemberExpression left = Expression.Field(parameterExpression, fieldInfo);
+			BinaryExpression body = Expression.Assign(left, parameterExpression2);
+			Expression<Action<TTarget, TFieldType>> expression = Expression.Lambda<Action<TTarget, TFieldType>>(body, new ParameterExpression[]
+			{
+				parameterExpression,
+				parameterExpression2
+			});
+			return expression.Compile();
+		}
+		[ReflectionPermission(SecurityAction.Assert, MemberAccess = true)]
+		private static Action<object, object> MakeFieldSetterFunc(Type targetType, FieldInfo fieldInfo)
+		{
+			ParameterExpression parameterExpression = Expression.Parameter(typeof(object));
+			UnaryExpression expression = Expression.Convert(parameterExpression, targetType);
+			ParameterExpression parameterExpression2 = Expression.Parameter(typeof(object));
+			UnaryExpression right = Expression.Convert(parameterExpression2, fieldInfo.FieldType);
+			MemberExpression left = Expression.Field(expression, fieldInfo);
+			BinaryExpression body = Expression.Assign(left, right);
+			Expression<Action<object, object>> expression2 = Expression.Lambda<Action<object, object>>(body, new ParameterExpression[]
+			{
+				parameterExpression,
+				parameterExpression2
+			});
+			return expression2.Compile();
+		}
+		[ReflectionPermission(SecurityAction.Assert, MemberAccess = true)]
+		private static void MakeRequestValidationFlagsAccessors(FieldInfo flagsFieldInfo, MethodInfo itemGetter, MethodInfo itemSetter, out Func<HttpRequest, int, bool> delGetter, out Action<HttpRequest, int, bool> delSetter)
+		{
+			ParameterExpression parameterExpression = Expression.Parameter(typeof(HttpRequest));
+			ParameterExpression parameterExpression2 = Expression.Parameter(typeof(int));
+			ParameterExpression parameterExpression3 = Expression.Parameter(typeof(bool));
+			MemberExpression instance = Expression.Field(parameterExpression, flagsFieldInfo);
+			MethodCallExpression body = Expression.Call(instance, itemGetter, new Expression[]
+			{
+				parameterExpression2
+			});
+			Expression<Func<HttpRequest, int, bool>> expression = Expression.Lambda<Func<HttpRequest, int, bool>>(body, new ParameterExpression[]
+			{
+				parameterExpression,
+				parameterExpression2
+			});
+			delGetter = expression.Compile();
+			MethodCallExpression body2 = Expression.Call(instance, itemSetter, parameterExpression2, parameterExpression3);
+			Expression<Action<HttpRequest, int, bool>> expression2 = Expression.Lambda<Action<HttpRequest, int, bool>>(body2, new ParameterExpression[]
+			{
+				parameterExpression,
+				parameterExpression2,
+				parameterExpression3
+			});
+			delSetter = expression2.Compile();
+		}
+	}
+}

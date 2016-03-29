@@ -1,0 +1,56 @@
+﻿.postInfo { font-size: 14px; }
+
+.postCon { padding: 20px; }
+
+.postCon div {
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.readcount {
+    padding-left: 20px;
+    background: url('/images/ioc1.png') no-repeat left;
+}
+
+.replycount {
+    margin-left: 15px;
+    padding-left: 15px;
+    background: url('/images/ioc2.png') no-repeat left;
+}
+
+.editInfo {
+    margin-left: 15px;
+    padding-left: 15px;
+    background: url('/images/ioc4.png') no-repeat left;
+}
+
+/*.tbContentid{text-overflow:ellipsis;}
+    .tbContentid table{ width:100%; border:1px solid #ccc;border-collapse: collapse;table-layout: fixed;WORD-BREAK: break-all;WORD-WRAP: break-word;} 
+    .tbContentid table td{ width:auto;border: 1px solid #ccc;}*/
+
+.sendInfo { margin: 0px 20px; }
+
+.ulinfo {
+    /*font-size:12px; */
+    color: #6F6F6F;
+    margin-bottom: 40px;
+}
+
+.ulinfo li {
+    border-bottom: 1px dashed #CCCCCC;
+    padding: 20px 0px;
+}
+
+.replytitle {
+    border: 1px solid #fff;
+    background-color: #f7f7f7;
+    margin-bottom: 10px;
+    padding: 0px 10px;
+}
+
+.del {
+    padding: 0px 29px;
+    text-align: right;
+    color: Red
+}

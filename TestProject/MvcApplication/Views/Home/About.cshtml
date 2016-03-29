@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "FTP相关模拟";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        Use this area to provide additional information.
+    </p>
+
+    <p>
+        Use this area to provide additional information.
+    </p>
+
+    <p>
+        Use this area to provide additional information.
+    </p>
+</article>
+
+<aside>
+    <h3>Aside Title</h3>
+    <p>
+        Use this area to provide additional information.
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>
+
+<form action="No" method="post" enctype="multipart/form-data">
+    <input type="file" name="FileUpload1" /><br />
+    <input type="submit" name="Submit" id="Submit" value="Upload"  />
+</form> 
+
+<form action="Yes" method="post">
+    <input type="submit" value="Yes">
+</form>
+<form action="No" method="post">
+    <input type="submit" value="No">
+</form>
+
+<input id=" filename" type="text" />
+<input type="button" onclick="del()" value="删 除"/>
+
+<script type="text/javascript">
+    function del()
+    {
+        debugger;
+        var name = $("#filename").val(),
+            url = "/Home/Delete";
+        $.ajax({
+            url:url,
+            type: "post",
+            data: {name : name},
+            
+            success:function(msg){
+                alert(msg);
+            },
+        });
+    }
+</script> 
