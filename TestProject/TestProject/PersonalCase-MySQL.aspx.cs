@@ -31,7 +31,7 @@ namespace TestProject
             {
                 lblResult.Text = helper.Execute(command).ToString();
             }
-            catch (Exception ex)
+            catch
             {
                 lblResult.Text = helper.Errorlog;
             }
@@ -48,7 +48,7 @@ namespace TestProject
             {
                 lblResult.Text = helper.ExecuteNonQuery(command, collect).ToString();
             }
-            catch (Exception ex)
+            catch
             {
                 lblResult.Text = helper.Errorlog;
             }
@@ -64,7 +64,7 @@ namespace TestProject
                 lblResult.Text = helper.ExecuteReader(command).ToString();
                 DataTable dt = helper.ExecuteReader(command);
             }
-            catch (Exception ex)
+            catch
             {
                 lblResult.Text = helper.Errorlog;
             }

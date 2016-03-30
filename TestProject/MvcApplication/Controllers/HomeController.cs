@@ -13,7 +13,6 @@ namespace MvcApplication.Controllers
     public class HomeController : Controller
     {
         string ftpPath;
-        readonly int pageSize = 5;
         public ActionResult Index(string pageIndex)
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";

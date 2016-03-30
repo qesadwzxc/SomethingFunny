@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace TestConsoleApplication
@@ -63,7 +60,6 @@ namespace TestConsoleApplication
         /// <param name="field">数据</param>
         internal static void testTicketCount(RedisHelper rediscli, string field)
         {
-            int k = 0;
             for (int i = 0; i <= 99; i++)
             {
                 //这样子虽然可以实现功能，但是简单测试便知，因为并发，数据修改是有问题的
