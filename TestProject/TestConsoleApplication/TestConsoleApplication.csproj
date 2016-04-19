@@ -39,6 +39,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -62,6 +66,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -81,6 +86,7 @@
     <Compile Include="FunctionAddOn.cs" />
     <Compile Include="HashSetCompare.cs" />
     <Compile Include="ListORDictionary.cs" />
+    <Compile Include="NewSpider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedisMutiThread.cs" />
@@ -91,6 +97,13 @@
     <Compile Include="SendMail.Designer.cs">
       <DependentUpon>SendMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spider\ActionScheduler.cs" />
+    <Compile Include="Spider\FormatHtml.cs" />
+    <Compile Include="Spider\HttpHelper.cs" />
+    <Compile Include="Spider\IScheduler.cs" />
+    <Compile Include="Spider\Model\Record.cs" />
+    <Compile Include="Spider\ProxyPool.cs" />
+    <Compile Include="Spider\Model\Topic.cs" />
     <Compile Include="TextEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +119,9 @@
     <EmbeddedResource Include="TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Temp\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
