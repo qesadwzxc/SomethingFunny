@@ -43,10 +43,10 @@ namespace TestConsoleApplication.Spider
                 }
                 catch (Exception ex)
                 {
-                    //Console.Write($"Url:{url}\t");
+                    Console.Write($"Url:{url}\t");
                     //if (proxy != null)
                     //    Console.Write($"Porxy:{proxy.Address}\t");
-                    //Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
             }
             return string.Empty;

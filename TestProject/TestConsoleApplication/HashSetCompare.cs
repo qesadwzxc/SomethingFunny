@@ -7,6 +7,9 @@ namespace TestConsoleApplication
 {
     public class HashSetCompare
     {
+        /// <summary>
+        /// Hash比较
+        /// </summary>
         public void Compare()
         {
             List<string> strs = CreateStrings();
@@ -31,6 +34,10 @@ namespace TestConsoleApplication
             return set.Contains;
         }
 
+        /// <summary>
+        /// 生成测试用
+        /// </summary>
+        /// <returns></returns>
         private static List<string> CreateStrings()
         {
             List<string> strs = new List<string>(10000);

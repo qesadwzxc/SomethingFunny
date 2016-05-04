@@ -16,6 +16,7 @@ using System.Collections;
 using System.Threading;
 using VinCode.Web;
 using System.Windows.Forms;
+using TestConsoleApplication.Spider;
 
 namespace TestConsoleApplication
 {
@@ -462,27 +463,24 @@ namespace TestConsoleApplication
 
     class Program
     {
-        //static void Main(string[] args)
-        //{
-        //    //new RedisMutiThread().Run();
-
-        //    //ListORDictionary.Run();
-        //    //Console.ReadLine();
-        //    var list = ArrayList.Synchronized(new ArrayList());
-        //    HashSetCompare com = new HashSetCompare();
-        //    com.Compare();
-        //}
+        static void Main(string[] args)
+        {
+            Stopwatch sw = new Stopwatch();
+            NewSpider.Test();
+            Console.WriteLine(sw.ElapsedMilliseconds + "ms");
+            Console.Read();
+        }
 
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
-        [STAThread]
-        static void Main(string[] args)
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TextEditor());
-        }
+        //[STAThread]
+        //static void Main(string[] args)
+        //{
+        //    Application.EnableVisualStyles();
+        //    Application.SetCompatibleTextRenderingDefault(false);
+        //    Application.Run(new TextEditor());
+        //}
     }
 }
 
