@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Runtime.Serialization.Json;
 using System.Text;
-using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace VinCode.Web
 {
@@ -14,7 +13,7 @@ namespace VinCode.Web
         /// <param name="url">请求地址及参数</param>
         /// <param name="timeout">超时时间(单位：毫秒，默认10秒)</param>
         /// <returns></returns>
-        public static string Get<T>(string url, int timeout = 10000)
+        public static T Get<T>(string url, int timeout = 10000)
         {
             return Submit<T>(url, null, "GET", timeout);
         }
@@ -25,7 +24,7 @@ namespace VinCode.Web
         /// <param name="requestParameter">请求参数</param>
         /// <param name="timeout">超时时间(单位：毫秒，默认10秒)</param>
         /// <returns></returns>
-        public static string Post<T>(string url, object requestParameter, int timeout = 10000)
+        public static T Post<T>(string url, object requestParameter, int timeout = 10000)
         {
             return Submit<T>(url, requestParameter, "POST", timeout);
         }
@@ -38,7 +37,7 @@ namespace VinCode.Web
         /// <param name="method">GET/POST</param>
         /// <param name="timeout">超时时间(单位：毫秒，默认10秒)</param>
         /// <returns></returns>
-        private static string Submit<T>(string url, object requestParameter, string method, int timeout = 10000)
+        private static T Submit<T>(string url, object requestParameter, string method, int timeout = 10000)
         {
             string result = "";
 
@@ -55,8 +54,7 @@ namespace VinCode.Web
                         break;
                     case "POST":
                         {
-                            JavaScriptSerializer serializer = new JavaScriptSerializer();
-                            byte[] data = Encoding.UTF8.GetBytes(serializer.Serialize(requestParameter));
+                            byte[] data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(requestParameter));
                             request.ContentType = "application/json;charset=utf-8";
                             request.ContentLength = data.Length;
 
@@ -81,9 +79,13 @@ namespace VinCode.Web
             }
 
             if (result.Length > 0)
-            { return result; }
+            {
+                return JsonConvert.DeserializeObject<T>(result);
+            }
             else
-            { return null; }
+            {
+                return default(T);
+            }
         }
     }
 }

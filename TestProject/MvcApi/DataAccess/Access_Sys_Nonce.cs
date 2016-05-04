@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Text;
-using iThinking.Helper.Db;
+﻿using System.Text;
 using MvcApi.Models;
 using System.Data;
+using VinCode.DateBase;
 
 namespace MvcApi.DataAccess
 {
     public class Access_Sys_Nonce
     {
-        private const string connectString = "Data Source=10.14.41.207;Persist Security Info=True;User ID=sa;Password=NewP@ssW0rd;Initial Catalog=testdb;";
-        SQLHelper sql = new SQLHelper(connectString);
+        SqlHelper sql = new SqlHelper();
 
         /// <summary>
         /// 获取全部种子
@@ -25,7 +20,7 @@ namespace MvcApi.DataAccess
                                           ,[Nonce]
                                           ,[CreateTime]
                                       FROM [testdb].[dbo].[Sys_Nonce]");
-            return sql.Query(sqlCommand.ToString());
+            return sql.ExecuteReader(sqlCommand.ToString());
         }
 
         /// <summary>
@@ -41,7 +36,7 @@ namespace MvcApi.DataAccess
                                           ,[CreateTime]
                                       FROM [testdb].[dbo].[Sys_Nonce]
                                       WHERE ID={0}",num);
-            return sql.GetValue(sqlCommand.ToString(), "Nonce");
+            return "";//sql.GetValue(sqlCommand.ToString(), "Nonce");
         }
 
         /// <summary>
