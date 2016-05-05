@@ -208,6 +208,7 @@
     <Compile Include="BLL\RedisTest.cs" />
     <Compile Include="BLL\UpLoad.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AjaxPollingController.cs" />
     <Compile Include="Controllers\AtController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MutiButtonController.cs" />
@@ -336,6 +337,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\At\Index.cshtml" />
     <Content Include="Views\MutiButton\List.cshtml" />
+    <Content Include="Views\AjaxPolling\Polling.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

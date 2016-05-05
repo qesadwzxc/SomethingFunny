@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Polling";
+}
+
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+</head>
+<body>
+    <label id="lblShow">暂无数据</label>
+    <label id="lblShowLong">暂无数据</label>
+</body>
+</html>
+
+<script type="text/javascript">
+    var getting = {
+        url: 'GetPolling',
+        type: 'get',
+        dataType: 'json',
+        success: function (res) {
+            $("#lblShow").text(res);
+        }
+    };
+
+    var gettingLong = {
+        url: 'GetLongPolling',
+        type: 'get',
+        dataType: 'json',
+        success: function (res) {
+            $("#lblShowLong").text(res);
+            $.ajax(gettingLong);
+        }
+    };
+    //轮询的关键在这里，Ajax定时访问服务端，不断获取数据 ，这里是1秒请求一次。
+    window.setInterval(function () { $.ajax(getting) }, 1000);
+    //长连接则是在方法中调用本身
+    $.ajax(gettingLong);
+</script>
