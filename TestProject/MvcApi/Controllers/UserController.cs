@@ -10,6 +10,7 @@ using System.Reflection;
 using MvcApi.IBusiness;
 using MvcApi.DataAccess;
 using System.Configuration;
+using Newtonsoft.Json;
 
 namespace MvcApi.Controllers
 {
@@ -59,14 +60,44 @@ namespace MvcApi.Controllers
 
         public string GetChatWithRobot(string info)
         {
-            var response = provider.ChatWithRobot(new RobotRequest { key = ConfigurationManager.AppSettings["AppKey_Robot"], info = info });
+            if (info.Length >= 30)
+            {
+                return "请输入少于30长度的内容。";
+            }
+            var response = provider.ChatWithRobot(info);
             if (response != null)
             {
-                return $"{response.error_code}+{response.reason}+{response.result.text}";
+                return $"{response.error_code}+{response.reason}+{JsonConvert.SerializeObject(response.result)}";
             }
             else
             {
                 return "机器人已死...";
+            }
+        }
+
+        public string GetTrainTime(string trainId)
+        {
+            var response = provider.TrainTimes(trainId);
+            if (response != null)
+            {
+                return $"{response.error_code}+{response.reason}+{JsonConvert.SerializeObject(response.result)}";
+            }
+            else
+            {
+                return "大概要开到3000年了...";
+            }
+        }
+
+        public string GetCityWeather(string cityName)
+        {
+            var response = provider.CityWeather(cityName);
+            if (response != null)
+            {
+                return $"{response.error_code}+{response.reason}+{JsonConvert.SerializeObject(response.result)}";
+            }
+            else
+            {
+                return "可能下流星雨...";
             }
         }
     }

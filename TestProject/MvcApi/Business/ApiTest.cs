@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
+using static System.Web.HttpUtility;
 using System.Web.Http;
 using System.Data;
 using VinCode.Web;
+using System.Configuration;
 
 namespace MvcApi.Business
 {
@@ -75,10 +76,24 @@ namespace MvcApi.Business
         //    listModel.Add(model);
         //}
 
-        public RobotResponse ChatWithRobot(RobotRequest request)
+        public CommonResponse<RobotRes> ChatWithRobot(string info)
         {
-            string url = $"http://op.juhe.cn/robot/index?info={request.info}&dtype={request.dtype}&key={request.key}";
-            RobotResponse response = WebRequestHelper.Get<RobotResponse>(url);
+            string url = $"http://op.juhe.cn/robot/index?info={info}&key={ConfigurationManager.AppSettings["AppKey_Robot"]}";
+            CommonResponse<RobotRes> response = WebRequestHelper.Get<CommonResponse<RobotRes>>(url);
+            return response;
+        }
+
+        public CommonResponse<TrainRes> TrainTimes(string trainId)
+        {
+            string url = $"http://op.juhe.cn/onebox/train/query?key={ConfigurationManager.AppSettings["AppKey_Train"]}&train={trainId}";
+            CommonResponse<TrainRes> response = WebRequestHelper.Get<CommonResponse<TrainRes>>(url);
+            return response;
+        }
+
+        public CommonResponse<WeatherRes> CityWeather(string cityname)
+        {
+            string url = $"http://op.juhe.cn/onebox/weather/query?cityname={UrlEncode(cityname)}&key={ConfigurationManager.AppSettings["AppKey_Weather"]}";
+            CommonResponse<WeatherRes> response = WebRequestHelper.Get<CommonResponse<WeatherRes>>(url);
             return response;
         }
     }

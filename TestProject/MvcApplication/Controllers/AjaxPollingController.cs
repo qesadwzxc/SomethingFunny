@@ -39,30 +39,4 @@ namespace MvcApplication.Controllers
             }
         }
     }
-
-    //TODO:WebSocket
-    public static class SessionManager
-    {
-        static Dictionary<Guid, string> sessionList = new Dictionary<Guid, string>();
-
-        public static Guid AddSession(string userName)
-        {
-            Guid userID = Guid.NewGuid();
-            sessionList.Add(userID, userName);
-            return userID;
-        }
-
-        public static void RemoveSession(string sessionName)
-        {
-            try
-            {
-                var user = sessionList.First(m => m.Value == sessionName);
-                sessionList.Remove(user.Key);
-            }
-            catch (Exception ex) when (ex.GetType() != typeof(ArgumentException))
-            {
-                throw ex;
-            }
-        }
-    }
 }

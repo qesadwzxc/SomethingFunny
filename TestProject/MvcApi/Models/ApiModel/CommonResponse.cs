@@ -5,16 +5,12 @@ using System.Web;
 
 namespace MvcApi.Models
 {
-    public class RobotResponse
+    public class CommonResponse<T> where T : class, new()
     {
         public string reason { get; set; }
 
-        public Result result { get; set; }
-        public class Result
-        {
-            public int code { get; set; }
-            public string text { get; set; }
-        }
+        public T result { get; set; }
+
         public int error_code { get; set; }
     }
 }

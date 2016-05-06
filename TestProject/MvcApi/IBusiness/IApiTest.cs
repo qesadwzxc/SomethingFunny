@@ -45,6 +45,18 @@ namespace MvcApi.IBusiness
         /// 聊天机器人
         /// </summary>
         /// <param name="model"></param>
-        RobotResponse ChatWithRobot(RobotRequest request);
+        CommonResponse<RobotRes> ChatWithRobot(string info);
+        /// <summary>
+        /// 列车时刻查询
+        /// </summary>
+        /// <param name="trainId"></param>
+        /// <returns></returns>
+        CommonResponse<TrainRes> TrainTimes(string trainId);
+        /// <summary>
+        /// 城市天气查询
+        /// </summary>
+        /// <param name="cityname"></param>
+        /// <returns></returns>
+        CommonResponse<WeatherRes> CityWeather(string cityname);
     }
 }

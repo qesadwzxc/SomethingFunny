@@ -172,6 +172,7 @@
     <Compile Include="Business\ApiTest.cs" />
     <Compile Include="Business\JsonHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ScoketServerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\Access_Sys_Nonce.cs" />
@@ -180,10 +181,12 @@
     </Compile>
     <Compile Include="IBusiness\IApiTest.cs" />
     <Compile Include="Models\ApiModel.cs" />
+    <Compile Include="Models\ApiModel\CommonResponse.cs" />
+    <Compile Include="Models\ApiModel\TrainRes.cs" />
+    <Compile Include="Models\ApiModel\WeatherRes.cs" />
     <Compile Include="Models\Enum\ErrorCodeEnum.cs" />
     <Compile Include="Models\NonceModel.cs" />
-    <Compile Include="Models\RobotRequest.cs" />
-    <Compile Include="Models\RobotResponse.cs" />
+    <Compile Include="Models\ApiModel\RobotRes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,9 +302,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\SocketServer\Main.cshtml" />
+    <Content Include="Views\SocketServer\Client.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
