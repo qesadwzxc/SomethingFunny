@@ -7,6 +7,8 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 namespace MvcApi.Controllers
 {
@@ -67,7 +69,7 @@ namespace MvcApi.Controllers
                 Response.Write(ex.Message);
                 socket.Close();
             }
-
+            //ConcurrentBag<int> bag = new ConcurrentBag<int>();
             Response.Write("Server is Ready!");
             return View();
         }

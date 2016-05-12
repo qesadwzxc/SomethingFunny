@@ -442,7 +442,10 @@ namespace TestConsoleApplication
     }
     #endregion
 
-    #region 创建单例
+    #region 数据结构
+    /// <summary>
+    /// 创建单例
+    /// </summary>
     public class Singleton
     {
         private static Singleton instance;
@@ -459,17 +462,145 @@ namespace TestConsoleApplication
             }
         }
     }
+
+    /// <summary>
+    /// 单链表
+    /// </summary>
+    public class LinkList
+    {
+        public class LinkNode
+        {
+            public object data;
+            public LinkNode next;
+        }
+
+        private LinkNode head;
+
+        public void Add(object data)
+        {
+            if (head == null)
+            {
+                head = new LinkNode() { data = data };
+            }
+            else
+            {
+                Add(head, data);
+            }
+        }
+
+        public void Add(LinkNode node, object data)
+        {
+            if (node.next == null)
+            {
+                node.next = new LinkNode() { data = data };
+                return;
+            }
+
+            Add(node.next, data);
+        }
+
+        int CountBinary(long num)
+        {
+            var count = 0;
+            while (num > 0)
+            {
+                num &= num - 1;
+                count++;
+            }
+
+            return count;
+        }
+    }
+
+    /// <summary>
+    /// 自定义运算符和转换
+    /// </summary>
+    public struct Complex
+    {
+        public Complex(int num) { }
+
+        /// <summary>
+        /// 隐式转换调用的方法
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static implicit operator Complex(int value)
+        {
+            return new Complex(value);
+        }
+
+        /// <summary>
+        /// 强制转换调用的方法
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static explicit operator int(Complex value)
+        {
+            return Convert.ToInt32(value);
+        }
+
+        public static int operator +(Complex num1)
+        {
+            return 0;
+        }
+
+        public static int operator +(Complex num1, Complex num2)
+        {
+            return 1;
+        }
+    }
     #endregion
 
     class Program
     {
         static void Main(string[] args)
         {
-            Stopwatch sw = new Stopwatch();
-            NewSpider.Test();
-            Console.WriteLine(sw.ElapsedMilliseconds + "ms");
-            Console.Read();
+            //Queue<int> q = new Queue<int>();
+            //List<int> l = new List<int>();
+            //System.Timers.Timer t = new System.Timers.Timer();
+            //System.Threading.Timer tt = new System.Threading.Timer(null);
+            //System.Windows.Forms.Timer ttt = new System.Windows.Forms.Timer();
+            
+            //5次比较
+            for (int i = 1; i <= 5; i++)
+            {
+                List<int> list = new List<int>();
+
+                //插入200个随机数到数组中
+                for (int j = 0; j < 200; j++)
+                {
+                    Thread.Sleep(1);
+                    list.Add(new Random((int)DateTime.Now.Ticks).Next(0, 10000));
+                }
+
+                Console.WriteLine("\n第" + i + "次比较：");
+
+                Stopwatch watch = new Stopwatch();
+
+                watch.Start();
+                var result = list.OrderBy(single => single).ToList();
+                watch.Stop();
+
+                Console.WriteLine("\n系统定义的快速排序耗费时间：" + watch.ElapsedMilliseconds);
+                Console.WriteLine("输出前是十个数:" + string.Join(",", result.Take(10).ToList()));
+
+                watch.Start();
+                SortTest.QuickSort(list, 0, list.Count - 1);
+                watch.Stop();
+
+                Console.WriteLine("\n俺自己写的快速排序耗费时间：" + watch.ElapsedMilliseconds);
+                Console.WriteLine("输出前是十个数:" + string.Join(",", list.Take(10).ToList()));
+            }
+            Console.ReadLine();
         }
+
+        //static void Main(string[] args)
+        //{
+        //    Stopwatch sw = new Stopwatch();
+        //    NewSpider.Test();
+        //    Console.WriteLine(sw.ElapsedMilliseconds + "ms");
+        //    Console.Read();
+        //}
 
         /// <summary>
         /// 应用程序的主入口点。

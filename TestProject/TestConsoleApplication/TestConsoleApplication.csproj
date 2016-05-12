@@ -98,6 +98,7 @@
     <Compile Include="SendMail.Designer.cs">
       <DependentUpon>SendMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="SortTest.cs" />
     <Compile Include="Spider\ActionScheduler.cs" />
     <Compile Include="Spider\FormatHtml.cs" />
     <Compile Include="Spider\HttpHelper.cs" />
