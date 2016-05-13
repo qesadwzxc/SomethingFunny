@@ -52,8 +52,13 @@ namespace TestConsoleApplication.Spider
         /// <param name="picUrlList"></param>
         public static void DownloadPic(string topic,List<string> picUrlList)
         {
+            char[] NOTLIMITONDOCUMENTNAME = new char[] { '\\', '.', '/', ':', '*', '?', '"', '|', '<', '>' };
             Task.Run(() => 
             {
+                foreach (char ITEM in NOTLIMITONDOCUMENTNAME)
+                {
+                    topic.Replace(ITEM, ' ');
+                }
                 string todayPath = LogHelper.CreateFolder(path + DateTime.Now.ToString("yyyyMMddHHmmss") + topic);
                 foreach (string picUrl in picUrlList)
                 {

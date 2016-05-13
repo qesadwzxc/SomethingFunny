@@ -569,47 +569,47 @@ namespace TestConsoleApplication
 
     class Program
     {
-        static void Main(string[] args)
-        {
+        //static void Main(string[] args)
+        //{
 
-            //Queue<int> q = new Queue<int>();
-            //List<int> l = new List<int>();
-            //System.Timers.Timer t = new System.Timers.Timer();
-            //System.Threading.Timer tt = new System.Threading.Timer(null);
-            //System.Windows.Forms.Timer ttt = new System.Windows.Forms.Timer();
+        //    //Queue<int> q = new Queue<int>();
+        //    //List<int> l = new List<int>();
+        //    //System.Timers.Timer t = new System.Timers.Timer();
+        //    //System.Threading.Timer tt = new System.Threading.Timer(null);
+        //    //System.Windows.Forms.Timer ttt = new System.Windows.Forms.Timer();
 
-            //5次比较
-            for (int i = 1; i <= 5; i++)
-            {
-                List<int> list = new List<int>();
+        //    //5次比较
+        //    for (int i = 1; i <= 5; i++)
+        //    {
+        //        List<int> list = new List<int>();
 
-                //插入200个随机数到数组中
-                for (int j = 0; j < 200; j++)
-                {
-                    Thread.Sleep(1);
-                    list.Add(new Random((int)DateTime.Now.Ticks).Next(0, 10000));
-                }
+        //        //插入200个随机数到数组中
+        //        for (int j = 0; j < 200; j++)
+        //        {
+        //            Thread.Sleep(1);
+        //            list.Add(new Random((int)DateTime.Now.Ticks).Next(0, 10000));
+        //        }
 
-                Console.WriteLine("\n第" + i + "次比较：");
+        //        Console.WriteLine("\n第" + i + "次比较：");
 
-                Stopwatch watch = new Stopwatch();
+        //        Stopwatch watch = new Stopwatch();
 
-                watch.Start();
-                var result = list.OrderBy(single => single).ToList();
-                watch.Stop();
+        //        watch.Start();
+        //        var result = list.OrderBy(single => single).ToList();
+        //        watch.Stop();
 
-                Console.WriteLine("\n系统定义的快速排序耗费时间：" + watch.ElapsedMilliseconds);
-                Console.WriteLine("输出前是十个数:" + string.Join(",", result.Take(10).ToList()));
+        //        Console.WriteLine("\n系统定义的快速排序耗费时间：" + watch.ElapsedMilliseconds);
+        //        Console.WriteLine("输出前是十个数:" + string.Join(",", result.Take(10).ToList()));
 
-                watch.Start();
-                SortTest.QuickSort(list, 0, list.Count - 1);
-                watch.Stop();
+        //        watch.Start();
+        //        SortTest.QuickSort(list, 0, list.Count - 1);
+        //        watch.Stop();
 
-                Console.WriteLine("\n俺自己写的快速排序耗费时间：" + watch.ElapsedMilliseconds);
-                Console.WriteLine("输出前是十个数:" + string.Join(",", list.Take(10).ToList()));
-            }
-            Console.ReadLine();
-        }
+        //        Console.WriteLine("\n俺自己写的快速排序耗费时间：" + watch.ElapsedMilliseconds);
+        //        Console.WriteLine("输出前是十个数:" + string.Join(",", list.Take(10).ToList()));
+        //    }
+        //    Console.ReadLine();
+        //}
 
         int CountBinary(long num)
         {
@@ -623,13 +623,15 @@ namespace TestConsoleApplication
             return count;
         }
 
-        //static void Main(string[] args)
-        //{
-        //    Stopwatch sw = new Stopwatch();
-        //    NewSpider.Test();
-        //    Console.WriteLine(sw.ElapsedMilliseconds + "ms");
-        //    Console.Read();
-        //}
+        static void Main(string[] args)
+        {
+            Console.WriteLine("输入起始数和圈数");
+            int start = Convert.ToInt32(Console.ReadLine());
+            int round = Convert.ToInt32(Console.ReadLine());
+            NewSpider.Test(start, round);
+            
+            Console.Read();
+        }
 
         /// <summary>
         /// 应用程序的主入口点。
