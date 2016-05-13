@@ -468,14 +468,24 @@ namespace TestConsoleApplication
     /// </summary>
     public class LinkList
     {
+        /// <summary>
+        /// 实体
+        /// </summary>
         public class LinkNode
         {
             public object data;
             public LinkNode next;
         }
 
+        /// <summary>
+        /// 头结点
+        /// </summary>
         private LinkNode head;
 
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="data"></param>
         public void Add(object data)
         {
             if (head == null)
@@ -488,7 +498,7 @@ namespace TestConsoleApplication
             }
         }
 
-        public void Add(LinkNode node, object data)
+        private void Add(LinkNode node, object data)
         {
             if (node.next == null)
             {
@@ -499,16 +509,22 @@ namespace TestConsoleApplication
             Add(node.next, data);
         }
 
-        int CountBinary(long num)
+        /// <summary>
+        /// 倒置
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public LinkNode Reverse(LinkNode node)
         {
-            var count = 0;
-            while (num > 0)
+            if (node.next == null)
             {
-                num &= num - 1;
-                count++;
+                return node;
             }
-
-            return count;
+            var prevNode = Reverse(node.next);
+            var temp = node.next;
+            temp.next = node;
+            node.next = null;
+            return prevNode;
         }
     }
 
@@ -555,12 +571,13 @@ namespace TestConsoleApplication
     {
         static void Main(string[] args)
         {
+
             //Queue<int> q = new Queue<int>();
             //List<int> l = new List<int>();
             //System.Timers.Timer t = new System.Timers.Timer();
             //System.Threading.Timer tt = new System.Threading.Timer(null);
             //System.Windows.Forms.Timer ttt = new System.Windows.Forms.Timer();
-            
+
             //5次比较
             for (int i = 1; i <= 5; i++)
             {
@@ -592,6 +609,18 @@ namespace TestConsoleApplication
                 Console.WriteLine("输出前是十个数:" + string.Join(",", list.Take(10).ToList()));
             }
             Console.ReadLine();
+        }
+
+        int CountBinary(long num)
+        {
+            var count = 0;
+            while (num > 0)
+            {
+                num &= num - 1;
+                count++;
+            }
+
+            return count;
         }
 
         //static void Main(string[] args)
