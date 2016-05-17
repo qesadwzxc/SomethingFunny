@@ -85,8 +85,10 @@
     <Compile Include="CSharp6Test.cs" />
     <Compile Include="CustomDictionary.cs" />
     <Compile Include="FunctionAddOn.cs" />
+    <Compile Include="GreedyAlgorithmTest.cs" />
     <Compile Include="HashSetCompare.cs" />
     <Compile Include="ListORDictionary.cs" />
+    <Compile Include="LockTest.cs" />
     <Compile Include="NewSpider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

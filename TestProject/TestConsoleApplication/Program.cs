@@ -17,6 +17,7 @@ using System.Threading;
 using VinCode.Web;
 using System.Windows.Forms;
 using TestConsoleApplication.Spider;
+using System.Text.RegularExpressions;
 
 namespace TestConsoleApplication
 {
@@ -260,6 +261,7 @@ namespace TestConsoleApplication
             Console.WriteLine("Please input the text you want to change.");
             string inputText = Console.ReadLine();
             string[] outputList = inputText.Split(' ');
+            //string reverse = outputList.Aggregate((a, n) => n.Reverse() + " " + a);
             for (int i = outputList.Length - 1; i >= 0; i--)
             {
                 Console.Write(outputList[i] + " ");
@@ -389,6 +391,10 @@ namespace TestConsoleApplication
             Console.Write(strOutput.ToString());
         }
 
+        /// <summary>
+        /// 判断是否回文
+        /// </summary>
+        /// <param name="word"></param>
         public static void IsPalindroms(string word)
         {
             bool isPalindroms = false;
@@ -420,12 +426,10 @@ namespace TestConsoleApplication
             {
                 isPalindroms = true;
             }
-            w1.Stop();
             Console.WriteLine(isPalindroms.ToString() + ",Time:" + w1.Elapsed.ToString());
-            w1.Reset();
+            w1.Restart();
 
             //2
-            w1.Start();
             lastHalfChar = lastHalf.ToCharArray();
             char[] firstHalfChar = firstHalf.ToCharArray();
             isPalindroms = true;
@@ -434,10 +438,64 @@ namespace TestConsoleApplication
                 if (!firstHalfChar[i].Equals(lastHalfChar[lastHalfChar.Length - 1 - i]))
                 {
                     isPalindroms = false;
+                    break;
                 }
             }
             w1.Stop();
             Console.WriteLine(isPalindroms.ToString() + ",Time:" + w1.Elapsed.ToString());
+        }
+
+        /// <summary>          
+        /// 金额阿拉伯数字转换为大写(前面自己写的后面百度的)
+        /// </summary>         
+        /// <param name="value"></param>         
+        /// <returns></returns>          
+        public static string GetDaXieMoney(double money)
+        {
+            //string[] moneyUnit = { "分", "角", "圆", "拾", "佰", "仟", "萬", "拾", "佰", "仟", "亿", "拾", "佰", "仟", "萬" };
+            //string result = "";         //←定义结果             
+            //int unitPointer = 0;        //←定义单位位置             
+            ////↓格式化金额字符串              
+            //string valueStr = value.ToString("#0.00");
+            ////↓判断是否超出万亿的限制             
+            //if (valueStr.Length > 16)
+            //{
+            //    throw new Exception("不支持超过万亿级别的数字！");
+            //}
+            ////↓遍历字符串，获取金额大写              
+            //for (int i = valueStr.Length - 1; i >= 0; i--)
+            //{
+            //    //↓判断是否小数点                  
+            //    if (valueStr[i] != '.')
+            //    {
+            //        //↓获取中文大写字符
+            //        string chineseNum = string.Empty;
+            //        switch (valueStr[i])
+            //        {
+            //            case '0': chineseNum = "零"; break;
+            //            case '1': chineseNum = "壹"; break;
+            //            case '2': chineseNum = "贰"; break;
+            //            case '3': chineseNum = "叁"; break;
+            //            case '4': chineseNum = "肆"; break;
+            //            case '5': chineseNum = "伍"; break;
+            //            case '6': chineseNum = "陆"; break;
+            //            case '7': chineseNum = "柒"; break;
+            //            case '8': chineseNum = "捌"; break;
+            //            case '9': chineseNum = "玖"; break;
+            //        }
+            //        //↓后推方式增加内容                      
+            //        result = chineseNum + moneyUnit[unitPointer] + result;
+            //        //↓设置单位位置                    
+            //        unitPointer++;
+            //    }
+            //}
+            //result = result.Replace("零分", "").Replace("零角", "").Replace("零仟", "零").Replace("零佰", "零").Replace("零拾", "零").Replace("零圆", "").Replace("零零零", "零").Replace("零零", "零").Replace("零萬", "萬").Replace("零亿", "亿").Replace("亿萬", "萬").TrimEnd('零');
+            //return result;
+            if (money < 0)
+                throw new ArgumentOutOfRangeException("参数money不能为负值！");
+            string s = money.ToString("#L#E#D#C#K#E#D#C#J#E#D#C#I#E#D#C#H#E#D#C#G#E#D#C#F#E#D#C#.0B0A");
+            s = Regex.Replace(s, @"((?<=-|^)[^1-9]*)|((?'z'0)[0A-E]*((?=[1-9])|(?'-z'(?=[F-L\.]|$))))|((?'b'[F-L])(?'z'0)[0A-L]*((?=[1-9])|(?'-z'(?=[\.]|$))))", "${b}${z}");
+            return Regex.Replace(s, ".", m => { return "负元空零壹贰叁肆伍陆柒捌玖空空空空空空空分角拾佰仟萬億兆京垓秭穰"[m.Value[0] - '-'].ToString(); });
         }
     }
     #endregion
@@ -629,8 +687,26 @@ namespace TestConsoleApplication
             int start = Convert.ToInt32(Console.ReadLine());
             int round = Convert.ToInt32(Console.ReadLine());
             NewSpider.Test(start, round);
-            
+
             Console.Read();
+        }
+
+        public static int Puzzle(string s)
+        {
+            StringBuilder sb = new StringBuilder();
+            string[] strarray = { "" };
+            strarray.Aggregate<string, StringBuilder>(sb, (sbobj, str) => sbobj.Append(str).Append(","));
+            int u = 10, l = 15;
+            int i = Enumerable.Range(l, u - l + 1).Aggregate(1, (y, x) => y * x);
+            //if (!string.IsNullOrEmpty(s))
+            //{
+            //    i += s.First() == 'a' ? 1 : 0;
+            //    i += Puzzle(s.Substring(1));
+            //}
+            //return i;
+            string p = "dsadsadsadsad";
+            var sr = p.Select(x => "_ ").ToString().TrimEnd(' ');
+            return string.IsNullOrEmpty(s) ? 0 : (s.First() == 'a' ? 1 : 0) + Puzzle(s.Substring(1));
         }
 
         /// <summary>
