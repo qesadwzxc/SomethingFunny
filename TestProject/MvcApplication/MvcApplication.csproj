@@ -212,6 +212,7 @@
     <Compile Include="Controllers\AtController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MutiButtonController.cs" />
+    <Compile Include="Controllers\ScoketServerController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -338,6 +339,8 @@
     <Content Include="Views\At\Index.cshtml" />
     <Content Include="Views\MutiButton\List.cshtml" />
     <Content Include="Views\AjaxPolling\Polling.cshtml" />
+    <Content Include="Views\SocketServer\Client.cshtml" />
+    <Content Include="Views\SocketServer\Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

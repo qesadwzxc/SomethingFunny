@@ -172,7 +172,6 @@
     <Compile Include="Business\ApiTest.cs" />
     <Compile Include="Business\JsonHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ScoketServerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\Access_Sys_Nonce.cs" />
@@ -302,8 +301,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\SocketServer\Main.cshtml" />
-    <Content Include="Views\SocketServer\Client.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
