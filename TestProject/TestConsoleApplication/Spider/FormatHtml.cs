@@ -13,7 +13,8 @@ namespace TestConsoleApplication.Spider
     public static class FormatHtml
     {
         //static IConfiguration config = Configuration.Default.WithDefaultLoader();
-        static readonly string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"/Temp/";
+        static readonly string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Temp\";
+        private static object objLock = "";
         public static async Task<Topic> TopicFormat(string htmlText)
         {
             CQ dom = await GetHtmlContent(htmlText);
@@ -51,7 +52,7 @@ namespace TestConsoleApplication.Spider
         /// </summary>
         /// <param name="picUrlList"></param>
         public static void DownloadPic(string topic,List<string> picUrlList)
-        {
+        {         
             char[] NOTLIMITONDOCUMENTNAME = new char[] { '\\', '.', '/', ':', '*', '?', '"', '|', '<', '>' };
             Task.Run(() => 
             {
@@ -59,17 +60,20 @@ namespace TestConsoleApplication.Spider
                 {
                     topic.Replace(ITEM, ' ');
                 }
-                string todayPath = LogHelper.CreateFolder(path + DateTime.Now.ToString("yyyyMMddHHmmss") + topic);
+                string todayPath = LogHelper.CreateFolder(path + topic);
                 foreach (string picUrl in picUrlList)
                 {
                     try
                     {
-                        WebClient client = new WebClient();
-                        client.DownloadFile(picUrl, $"{todayPath}\\{Guid.NewGuid()}{picUrl.Substring(picUrl.Length - 4)}");
+                        WebClient client = new WebClient();                     
+                        client.DownloadFile(picUrl, $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}");
                     }
                     catch (Exception ex)
                     {
-                        LogHelper.Write("DownloadError", ex.Message, "AutoImageSpider");
+                        lock(objLock)
+                        {
+                            LogHelper.Write($"DownloadError:{picUrl}", ex.Message, "AutoImageSpider");
+                        }
                         continue;
                     }
                 }

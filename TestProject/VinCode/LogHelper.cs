@@ -7,8 +7,8 @@ namespace VinCode
 {
     public static class LogHelper
     {
-        private static readonly string _path = CreateFolder(HttpRuntime.AppDomainAppPath + "Log\\" + DateTime.Today.ToString("yyyyMM") + "\\");
-        private static readonly string _file = LogHelper._path + DateTime.Today.ToString("yyyyMMdd") + ".txt";
+        private static readonly string _path = CreateFolder(AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Log\\" + DateTime.Today.ToString("yyyyMM") + "\\");
+        private static readonly string _file = _path + DateTime.Today.ToString("yyyyMMdd") + ".txt";
 
         public static string CreateFolder(string path)
         {
@@ -28,7 +28,7 @@ namespace VinCode
         {
             try
             {
-                using (StreamWriter streamWriter = new StreamWriter(LogHelper._file, true, Encoding.UTF8))
+                using (StreamWriter streamWriter = new StreamWriter(_file, true, Encoding.UTF8))
                 {
                     streamWriter.WriteLine("------------------begin------------------");
                     streamWriter.WriteLine("Time: " + DateTime.Now.ToString());
@@ -51,7 +51,7 @@ namespace VinCode
         {
             try
             {
-                using (StreamWriter streamWriter = new StreamWriter(LogHelper._file, true, Encoding.UTF8))
+                using (StreamWriter streamWriter = new StreamWriter(_file, true, Encoding.UTF8))
                 {
                     streamWriter.WriteLine("------------------begin------------------");
                     streamWriter.WriteLine("Time: " + DateTime.Now.ToString());

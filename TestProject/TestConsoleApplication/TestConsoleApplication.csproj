@@ -74,9 +74,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VinCode">
-      <HintPath>..\dll\VinCode.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttributeTest.cs" />
@@ -126,6 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VinCode\VinCode.csproj">
+      <Project>{fd509227-6fce-4acb-a4ec-8c2ff5942da0}</Project>
+      <Name>VinCode</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

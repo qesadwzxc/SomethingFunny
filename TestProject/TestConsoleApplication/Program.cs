@@ -3,20 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
-using Microsoft.Win32;
-using Microsoft.Win32.SafeHandles;
-using System.Web;
-using System.Net;
-using System.Net.Sockets;
 using System.IO;
-using System.Security;
 using System.Data;
 using System.Security.Cryptography;
-using System.Collections;
-using System.Threading;
-using VinCode.Web;
-using System.Windows.Forms;
-using TestConsoleApplication.Spider;
 using System.Text.RegularExpressions;
 
 namespace TestConsoleApplication
