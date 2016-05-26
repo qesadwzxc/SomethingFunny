@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using TestConsoleApplication.Spider;
 
 namespace TestConsoleApplication
@@ -11,7 +12,7 @@ namespace TestConsoleApplication
     public class NewSpider
     {
         static Random rand = new Random();
-        public static async void Test(int start,int round)
+        public static async void Test(int start, int round)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
@@ -38,19 +39,21 @@ namespace TestConsoleApplication
             {
                 var rootUrl = $"http://tu.duowan.com/scroll/{j}.html";
                 var rootHtml = HttpHelper.Get(rootUrl);//HttpHelper.Get(rootUrl, proxy: ProxyPool.GetProxy());
-                var refererUrl = rootUrl;
-                var topic = await FormatHtml.TopicFormat(rootHtml);
-                try
-                {
-                    Console.WriteLine($"{j}\t{topic.Title}");
-                }
-                catch (Exception ex)
-                {
-                    Console.Write("error\r\n" + ex);
-                }
-                Thread.Sleep(rand.Next(100, 400));
+
+                Task.Run(() => FormatHtml.TopicFormat(rootHtml));
+                //var topic = await FormatHtml.TopicFormat(rootHtml);
+                //暂时去掉这边的文字输出，太乱了
+                //try
+                //{
+                //    Console.WriteLine($"{j}\t{topic.Title}");
+                //}
+                //catch (Exception ex)
+                //{
+                //    Console.Write("error\r\n" + ex);
+                //}
+                Thread.Sleep(rand.Next(100, 200));
             }
-            Console.WriteLine("下载完毕，历时：" + sw.ElapsedMilliseconds / 1000 + "s");
+            Console.WriteLine($"分析完毕,共{list.Count}个链接，历时：{sw.ElapsedMilliseconds / 1000}s");
         }
 
         /// <summary>
@@ -59,7 +62,7 @@ namespace TestConsoleApplication
         /// <param name="start">起始数字</param>
         /// <param name="round">循环次数</param>
         /// <returns></returns>
-        public static List<int> GetIndex(int start,int round)
+        public static List<int> GetIndex(int start, int round)
         {
             List<int> result = new List<int>();
             for (int i = round; i > 0; i--)
@@ -69,9 +72,9 @@ namespace TestConsoleApplication
                 var urlList = content.Split(new string[] { "gallery" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var item in urlList)
                 {
-                    string strIndex = item.Substring(2,6);
-                    int index=0;
-                    if (int.TryParse(strIndex, out index)&&!result.Contains(index))
+                    string strIndex = item.Substring(2, 6);
+                    int index = 0;
+                    if (int.TryParse(strIndex, out index) && !result.Contains(index))
                     {
                         result.Add(index);
                     }

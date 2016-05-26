@@ -7,6 +7,7 @@ using CsQuery;
 using System.Net;
 using System.IO;
 using VinCode;
+using System.Diagnostics;
 
 namespace TestConsoleApplication.Spider
 {
@@ -15,6 +16,7 @@ namespace TestConsoleApplication.Spider
         //static IConfiguration config = Configuration.Default.WithDefaultLoader();
         static readonly string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Temp\";
         private static object objLock = "";
+        static int countNum = 0;
         public static async Task<Topic> TopicFormat(string htmlText)
         {
             CQ dom = await GetHtmlContent(htmlText);
@@ -51,33 +53,59 @@ namespace TestConsoleApplication.Spider
         /// 下载图片
         /// </summary>
         /// <param name="picUrlList"></param>
-        public static void DownloadPic(string topic,List<string> picUrlList)
-        {         
+        public static void DownloadPic(string topic, List<string> picUrlList)
+        {
+            Stopwatch sw = new Stopwatch();
             char[] NOTLIMITONDOCUMENTNAME = new char[] { '\\', '.', '/', ':', '*', '?', '"', '|', '<', '>' };
-            Task.Run(() => 
+            var task = Task.WhenAll(Task.Run(() =>
             {
+                sw.Start();
                 foreach (char ITEM in NOTLIMITONDOCUMENTNAME)
                 {
                     topic.Replace(ITEM, ' ');
                 }
                 string todayPath = LogHelper.CreateFolder(path + topic);
-                foreach (string picUrl in picUrlList)
+                Parallel.ForEach(picUrlList, (picUrl) =>
                 {
                     try
                     {
-                        WebClient client = new WebClient();                     
-                        client.DownloadFile(picUrl, $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}");
+                        string filePath = $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}";
+                        FileInfo info = new FileInfo(filePath);
+                        if (!File.Exists(filePath) || info.Length < 1024)
+                        {
+                            WebClient client = new WebClient();
+                            client.DownloadFile(picUrl, filePath);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        lock(objLock)
+                        lock (objLock)
                         {
                             LogHelper.Write($"DownloadError:{picUrl}", ex.Message, "AutoImageSpider");
                         }
-                        continue;
                     }
-                }
-            });
+                });
+                sw.Stop();
+                countNum += 1;
+
+                //foreach (string picUrl in picUrlList)
+                //{
+                //    try
+                //    {
+                //        WebClient client = new WebClient();                     
+                //        client.DownloadFile(picUrl, $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}");
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        lock(objLock)
+                //        {
+                //            LogHelper.Write($"DownloadError:{picUrl}", ex.Message, "AutoImageSpider");
+                //        }
+                //        continue;
+                //    }
+                //}
+            }));
+            task.ContinueWith((m) => { Console.WriteLine($"{countNum}:《{topic}》下载完毕，历时{sw.ElapsedMilliseconds / 1000}s"); });
         }
 
         public static string CommentFormat(this Topic topic, string htmlText)

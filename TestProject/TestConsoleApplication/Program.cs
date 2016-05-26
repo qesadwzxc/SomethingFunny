@@ -7,6 +7,8 @@ using System.IO;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace TestConsoleApplication
 {
@@ -670,6 +672,7 @@ namespace TestConsoleApplication
             return count;
         }
 
+        [STAThread]
         static void Main(string[] args)
         {
             Console.WriteLine("输入起始数和圈数");

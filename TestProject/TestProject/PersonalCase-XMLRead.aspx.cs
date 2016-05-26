@@ -50,7 +50,6 @@ namespace TestProject
             {
                 xmlReader.Close();
                 reader.Close();
-                sm.Close();
             }
 
             Response.Write(sb.ToString());

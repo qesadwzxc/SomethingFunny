@@ -72,12 +72,11 @@ namespace MvcApi.Business
                 StreamReader reader = new StreamReader(streamIn);
                 result = reader.ReadToEnd();
                 reader.Close();
-                streamIn.Close();
                 response.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             if (result.Length > 0)

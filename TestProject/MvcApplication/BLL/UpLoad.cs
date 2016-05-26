@@ -66,7 +66,6 @@ namespace MvcApplication.BLL
             }
             catch (Exception ex)
             {
-                //TODO：Lee-记录连接异常
                 return ex.Message;
             }
             finally
@@ -91,9 +90,9 @@ namespace MvcApplication.BLL
                 ftpHelp.DownLoadFile(strRemoteFileName, strFolder, strLocalFileName);
                 returnMessage = "下载成功";
             }
-            catch(Exception ex) 
+            catch
             {
-                throw ex;
+                throw;
                 //returnMessage = "下载失败"; 
             }
             finally { ftpHelp.DisConnect(); }

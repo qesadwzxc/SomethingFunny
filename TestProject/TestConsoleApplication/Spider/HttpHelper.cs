@@ -61,30 +61,24 @@ namespace TestConsoleApplication.Spider
             {
                 using (GZipStream stream = new GZipStream(response.GetResponseStream(), CompressionMode.Decompress))
                 {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        responseBody = reader.ReadToEnd();
-                    }
+                    StreamReader reader = new StreamReader(stream);
+                    responseBody = reader.ReadToEnd();
                 }
             }
             else if (response.ContentEncoding.ToLower().Contains("deflate"))
             {
                 using (DeflateStream stream = new DeflateStream(response.GetResponseStream(), CompressionMode.Decompress))
                 {
-                    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                    {
-                        responseBody = reader.ReadToEnd();
-                    }
+                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                    responseBody = reader.ReadToEnd();
                 }
             }
             else
             {
                 using (Stream stream = response.GetResponseStream())
                 {
-                    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                    {
-                        responseBody = reader.ReadToEnd();
-                    }
+                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                    responseBody = reader.ReadToEnd();
                 }
             }
             return responseBody;

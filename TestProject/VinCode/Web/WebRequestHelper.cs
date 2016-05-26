@@ -73,9 +73,9 @@ namespace VinCode.Web
                 streamIn.Close();
                 response.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             if (result.Length > 0)

@@ -105,7 +105,7 @@ namespace MvcApplication.Controllers
                 string localPath = AppDomain.CurrentDomain.BaseDirectory + "uploads/";//应用服务器上传路径
                 string fileName = Path.GetFileName(Request.Files[upload].FileName);//文件名
                 Request.Files[upload].SaveAs(Path.Combine(localPath, fileName));
-                //TODO：Lee-指定应用服务器上传到FTP服务器时文件的存储路径,类似于“/uploads/{Datetime.Now}”的形式
+                //指定应用服务器上传到FTP服务器时文件的存储路径,类似于“/uploads/{Datetime.Now}”的形式
                 string remotePath = "/TCOATask/";
                 //上传文件到FTP服务器,返回结果信息
                 //FTPUpLoad(Path.Combine(localPath, fileName));

@@ -62,10 +62,9 @@ namespace TestConsoleApplication.Spider
                         {
                             await action(token.Token).ConfigureAwait(false);
                         }
-                        catch (Exception x)
+                        catch
                         {
                             token.Cancel();
-
                             //TODO 异常处理
                         }
                     }

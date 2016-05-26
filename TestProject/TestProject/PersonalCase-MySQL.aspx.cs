@@ -138,7 +138,7 @@ namespace TestProject
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return isSuccess;
         }
@@ -161,7 +161,7 @@ namespace TestProject
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return isSuccess;
         }
@@ -180,7 +180,7 @@ namespace TestProject
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return query;
         }
@@ -202,7 +202,7 @@ namespace TestProject
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return query;
         }
@@ -224,7 +224,7 @@ namespace TestProject
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return dt;
         }
@@ -251,7 +251,7 @@ namespace TestProject
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return dt;
         }

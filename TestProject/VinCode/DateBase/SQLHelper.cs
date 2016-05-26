@@ -74,7 +74,7 @@ namespace VinCode.DateBase
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return isSuccess;
         }
@@ -97,7 +97,7 @@ namespace VinCode.DateBase
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return isSuccess;
         }
@@ -116,7 +116,7 @@ namespace VinCode.DateBase
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return query;
         }
@@ -138,7 +138,7 @@ namespace VinCode.DateBase
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return query;
         }
@@ -160,7 +160,7 @@ namespace VinCode.DateBase
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return dt;
         }
@@ -187,7 +187,7 @@ namespace VinCode.DateBase
             catch (Exception ex)
             {
                 this.Errorlog = ex.Message;
-                throw ex;
+                throw;
             }
             return dt;
         }

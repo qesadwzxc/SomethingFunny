@@ -8,8 +8,10 @@ using System.Threading;
 
 namespace TestConsoleApplication
 {
-    public static class CodeTimer
+    internal class CodeTimer
     {
+        private CodeTimer() { }
+
         public static void Initialize()
         {
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
@@ -94,15 +96,8 @@ namespace TestConsoleApplication
         private static ulong GetCycleCount()
         {
             ulong cycleCount = 0;
-            QueryThreadCycleTime(GetCurrentThread(), ref cycleCount);
+            NativeMethods.QueryThreadCycleTime(NativeMethods.GetCurrentThread(), ref cycleCount);
             return cycleCount;
         }
-
-        [DllImport("kernel32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool QueryThreadCycleTime(IntPtr threadHandle, ref ulong cycleTime);
-
-        [DllImport("kernel32.dll")]
-        static extern IntPtr GetCurrentThread();
     }
 }

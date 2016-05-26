@@ -6,32 +6,22 @@ using System.Text;
 
 namespace TestConsoleApplication
 {
-    public class BeepFunc
+    internal class BeepFunc
     {
         public void BeepFunction()
         {
             foreach (var item in Enum.GetValues(typeof(SoundByte)))
             {
-                Beep(Convert.ToInt32(item), 500);
+                NativeMethods.Beep(Convert.ToInt32(item), 500);
                 //Console.ReadLine();
                 //Console.Read();
                 //MessageBeep(0x00000010);
 
             }
-            PlaySound(@"e:/Music/login.wav", 0, 1);
+            NativeMethods.PlaySound(@"e:/Music/login.wav", 0, 1);
 
             Console.Read();
         }
-
-        [DllImport("Kernel32.dll")]
-        public static extern bool Beep(int frequency, int duration);
-
-        [DllImport("winmm.dll")]
-        public static extern bool PlaySound(String Filename, int Mod, int Flags);
-
-        [DllImport("user32.dll")]
-        public static extern int MessageBeep(uint uType);
-
     }
     #region 音符
     /// <summary>
