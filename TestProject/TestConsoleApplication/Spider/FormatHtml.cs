@@ -1,13 +1,12 @@
-﻿using System;
+﻿using CsQuery;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CsQuery;
-using System.Net;
-using System.IO;
-using VinCode;
 using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using VinCode;
 
 namespace TestConsoleApplication.Spider
 {
@@ -55,15 +54,12 @@ namespace TestConsoleApplication.Spider
         /// <param name="picUrlList"></param>
         public static void DownloadPic(string topic, List<string> picUrlList)
         {
+            ServicePointManager.DefaultConnectionLimit = 512;
             Stopwatch sw = new Stopwatch();
-            char[] NOTLIMITONDOCUMENTNAME = new char[] { '\\', '.', '/', ':', '*', '?', '"', '|', '<', '>' };
             var task = Task.WhenAll(Task.Run(() =>
             {
                 sw.Start();
-                foreach (char ITEM in NOTLIMITONDOCUMENTNAME)
-                {
-                    topic.Replace(ITEM, ' ');
-                }
+                topic = Regex.Replace(topic, "[\\./:*?\"|<>]", " ", RegexOptions.Compiled);
                 string todayPath = LogHelper.CreateFolder(path + topic);
                 Parallel.ForEach(picUrlList, (picUrl) =>
                 {
@@ -71,7 +67,7 @@ namespace TestConsoleApplication.Spider
                     {
                         string filePath = $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}";
                         FileInfo info = new FileInfo(filePath);
-                        if (!File.Exists(filePath) || info.Length < 1024)
+                        if (!File.Exists(filePath) || info.Length < 10240)
                         {
                             WebClient client = new WebClient();
                             client.DownloadFile(picUrl, filePath);
