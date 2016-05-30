@@ -702,7 +702,7 @@ namespace TestConsoleApplication
         }
 
         /// <summary>
-        /// 应用程序的主入口点。
+        /// 运行窗口程序
         /// </summary>
         //[STAThread]
         //static void Main(string[] args)
