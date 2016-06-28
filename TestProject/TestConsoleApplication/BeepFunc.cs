@@ -89,28 +89,22 @@ namespace TestConsoleApplication
 　　      中M	659	64777		    #LA	   1865	0268
 　　      中FA	698	64820		    高SI   1976	0253*/
 
-    /*曲调值	延时(ms)	曲调值	延时(ms)
-      调4/4	      125	    调4/4	62
-      调3/4	      187	    调3/4	94
-      调2/4	      250	    调2/4	125*/
+    /*曲调值	    延时(ms)	    曲调值	  延时(ms)
+      调4/4	      125	    调4/4	    62
+      调3/4	      187	    调3/4	    94
+      调2/4	      250	    调2/4	    125*/
     #endregion
 
     #region 标准提示音
+    [Flags]
     public enum StandardSound
     {
         //发出不同类型的声音的参数如下：  
-        //Ok = 0x00000000,  
-        //Error = 0x00000010,  
-        //Question = 0x00000020,  
-        //Warning = 0x00000030,  
-        //Information = 0x00000040 
-
-        Ok = 0x00000000,
-        Error = 0x00000010,
-        Question = 0x00000020,
-        Warning = 0x00000030,
-        Information = 0x00000040
+        Ok = 0x0,
+        Error = 0x10,
+        Question = 0x20,
+        Warning = 0x30,
+        Information = 0x40
     }
-
     #endregion
 }

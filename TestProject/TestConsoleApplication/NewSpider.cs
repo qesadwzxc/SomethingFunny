@@ -12,6 +12,11 @@ namespace TestConsoleApplication
     public class NewSpider
     {
         static Random rand = new Random();
+        /// <summary>
+        /// 多玩图库
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="round"></param>
         public static async void Test(int start, int round)
         {
             Stopwatch sw = new Stopwatch();
@@ -54,6 +59,26 @@ namespace TestConsoleApplication
                 Thread.Sleep(rand.Next(100, 200));
             }
             Console.WriteLine($"分析完毕,共{list.Count}个链接，历时：{sw.ElapsedMilliseconds / 1000}s");
+        }
+
+        /// <summary>
+        /// pantyhosepink
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="round"></param>
+        public static async void Test2(int start, int round)
+        {
+            List<string> firstListUrl = new List<string>();
+            int i = 0;
+            firstListUrl = FormatHtml.GetRootDom();
+            foreach (var url in firstListUrl)
+            {
+                i++;
+                if (i < start) continue;
+                if (i > round) break;
+                await Task.Run(() => FormatHtml.TopicFormat2(url));
+            }
+            Thread.Sleep(rand.Next(100, 200));
         }
 
         /// <summary>

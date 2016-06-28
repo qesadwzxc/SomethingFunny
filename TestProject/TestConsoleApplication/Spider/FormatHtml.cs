@@ -39,6 +39,77 @@ namespace TestConsoleApplication.Spider
             return topic;
         }
 
+        public static void TopicFormat2(string url)
+        {
+            List<string> listImgUrl = new List<string>();
+            Topic topic = new Topic();
+            CQ eachDom = HttpHelper.Get(url, 10000);
+            var link = eachDom["a"];
+            foreach (var i in link)
+            {
+                if (i.Attributes["href"] != null && i.Attributes["href"].StartsWith("./"))
+                {
+                    listImgUrl.Add($"{url.Substring(0, url.LastIndexOf("/"))}{i.Attributes["href"].Substring(1)}");
+                }
+            }
+
+            if (listImgUrl.Count>0 && listImgUrl[0].EndsWith(".html"))
+            {
+                CQ d = HttpHelper.Get(listImgUrl[0], 3000);
+                var t = d["img"].Eq(1);
+                string realUrl = t.Attr("src");
+                for (int i = 0; i < listImgUrl.Count; i++)
+                {
+                    if (realUrl != null && !realUrl.Contains("/"))
+                    {
+                        listImgUrl[i] = $"{listImgUrl[i].Substring(0, listImgUrl[i].LastIndexOf("/"))}/{realUrl.Replace("1", (i + 1).ToString())}";
+                    }
+                    else
+                    {
+                        listImgUrl[i] = realUrl;
+                    }
+                }
+            }
+
+            //for (int i=0;i<listImgUrl.Count;i++)
+            //{
+            //    if (listImgUrl[i].EndsWith(".html"))
+            //    {
+            //        CQ d = HttpHelper.Get(listImgUrl[i]);
+            //        var t = d["img"].Eq(1);
+            //        string realUrl = t.Attr("src");
+            //        if (realUrl!=null && !realUrl.Contains("/"))
+            //        {
+            //            listImgUrl[i] = $"{listImgUrl[i].Substring(0, listImgUrl[i].LastIndexOf("/"))}/{realUrl}";
+            //        }
+            //        else
+            //        {
+            //            listImgUrl[i] = realUrl;
+            //        }
+            //    }
+            //}
+            if (listImgUrl.Count > 0)
+            {
+                DownloadPic(url.Substring(url.LastIndexOf("/") + 1), listImgUrl);
+            }
+        }
+
+        public static List<string> GetRootDom()
+        {
+            List<string> firstListUrl = new List<string>();
+            var rootUrl = $"http://www.pantyhosepink.com";
+            CQ dom = HttpHelper.Get(rootUrl);
+            var top = dom["a"];
+            foreach (var item in top)
+            {
+                if (item.Attributes["href"].Contains("pantyhoseminx"))
+                {
+                    firstListUrl.Add(item.Attributes["href"]);
+                }
+            }
+            return firstListUrl;
+        }
+
         public static async Task<CQ> GetHtmlContent(string htmlText)
         {
             return await Task.Run(() =>
@@ -63,21 +134,24 @@ namespace TestConsoleApplication.Spider
                 string todayPath = LogHelper.CreateFolder(path + topic);
                 Parallel.ForEach(picUrlList, (picUrl) =>
                 {
-                    try
+                    if (!string.IsNullOrWhiteSpace(picUrl))
                     {
-                        string filePath = $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}";
-                        FileInfo info = new FileInfo(filePath);
-                        if (!File.Exists(filePath) || info.Length < 10240)
+                        try
                         {
-                            WebClient client = new WebClient();
-                            client.DownloadFile(picUrl, filePath);
+                            string filePath = $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}";
+                            FileInfo info = new FileInfo(filePath);
+                            if (!File.Exists(filePath) || info.Length < 10240)
+                            {
+                                WebClient client = new WebClient();
+                                client.DownloadFile(picUrl, filePath);
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        lock (objLock)
+                        catch (Exception ex)
                         {
-                            LogHelper.Write($"DownloadError:{picUrl}", ex.Message, "AutoImageSpider");
+                            lock (objLock)
+                            {
+                                LogHelper.Write($"DownloadError:{picUrl}", ex.Message, "AutoImageSpider");
+                            }
                         }
                     }
                 });
@@ -102,11 +176,6 @@ namespace TestConsoleApplication.Spider
                 //}
             }));
             task.ContinueWith((m) => { Console.WriteLine($"{countNum}:《{topic}》下载完毕，历时{sw.ElapsedMilliseconds / 1000}s"); });
-        }
-
-        public static string CommentFormat(this Topic topic, string htmlText)
-        {
-            return null;
         }
     }
 }

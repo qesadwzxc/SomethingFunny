@@ -12,6 +12,10 @@ namespace VinCode
 
         public static string CreateFolder(string path)
         {
+            if (path?.Length > 247)
+            {
+                path = path.Substring(0, 247);
+            }
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);

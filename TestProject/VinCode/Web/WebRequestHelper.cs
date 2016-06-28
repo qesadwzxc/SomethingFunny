@@ -55,9 +55,9 @@ namespace VinCode.Web
                     case "POST":
                         {
                             byte[] data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(requestParameter));
-                            request.ContentType = "application/json;charset=utf-8";
+                            request.ContentType = " application/x-www-form-urlencoded; charset=UTF-8";
                             request.ContentLength = data.Length;
-
+                            request.Host = "zzyeb.ly.com";
                             Stream streamOut = request.GetRequestStream();
                             streamOut.Write(data, 0, data.Length);
                             streamOut.Close();
@@ -77,14 +77,20 @@ namespace VinCode.Web
             {
                 throw;
             }
-
-            if (result.Length > 0)
+            try
             {
-                return JsonConvert.DeserializeObject<T>(result);
+                if (result.Length > 0)
+                {
+                    return JsonConvert.DeserializeObject<T>(result);
+                }
+                else
+                {
+                    return default(T);
+                }
             }
-            else
+            catch
             {
-                return default(T);
+                throw new Exception(result);
             }
         }
     }

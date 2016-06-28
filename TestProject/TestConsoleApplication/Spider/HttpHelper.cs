@@ -11,7 +11,7 @@ namespace TestConsoleApplication.Spider
     {
         static Random _rand = new Random();
 
-        public static string Get(string url, int retry = 3, string referer = null, WebProxy proxy = null)
+        public static string Get(string url, int timeout = 1000, int retry = 3, string referer = null, WebProxy proxy = null)
         {
             while (retry-- > 0)
             {
@@ -24,7 +24,7 @@ namespace TestConsoleApplication.Spider
                 {
                     request.Proxy = proxy;
                 }
-                request.Timeout = 1000;//Config.TimeLimit
+                request.Timeout = timeout;//Config.TimeLimit
                 request.Headers.Add("Accept-Language", "zh-CN");
                 request.Headers.Add("DNT", "1");
                 request.Headers.Add("Accept-Encoding", "gzip,deflate");
