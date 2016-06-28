@@ -82,6 +82,16 @@ namespace TestConsoleApplication
         }
 
         /// <summary>
+        /// win4000
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="round"></param>
+        public static async void Test3(int start, int round)
+        {
+            //http://www.win4000.com/meinvtag35.html
+        }
+
+        /// <summary>
         /// 获取待下载链接
         /// </summary>
         /// <param name="start">起始数字</param>

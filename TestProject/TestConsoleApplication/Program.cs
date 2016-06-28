@@ -678,7 +678,7 @@ namespace TestConsoleApplication
             Console.WriteLine("输入起始数和圈数");
             int start = Convert.ToInt32(Console.ReadLine());
             int round = Convert.ToInt32(Console.ReadLine());
-            NewSpider.Test2(start, round);
+            NewSpider.Test(start, round);
             Console.Read();
         }
 
