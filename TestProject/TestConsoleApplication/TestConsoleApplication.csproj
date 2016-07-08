@@ -122,9 +122,7 @@
       <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Temp\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\VinCode\VinCode.csproj">
       <Project>{fd509227-6fce-4acb-a4ec-8c2ff5942da0}</Project>

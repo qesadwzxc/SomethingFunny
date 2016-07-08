@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace TestConsoleApplication
 {
@@ -50,6 +51,25 @@ namespace TestConsoleApplication
                     Console.WriteLine(m.Name + "--" + m.DeclaringType + "--" + m.MemberType);
                 }
             }         
+        }
+
+        public string GetFuncAndClass()
+        {
+            StackTrace trace = new StackTrace();
+            StackFrame[] frames = trace.GetFrames();
+            MethodBase method;
+            string functionName = string.Empty, className = string.Empty;
+            for (int i = 0; i < frames.Length - 1; i++)
+            {
+                method = frames[i].GetMethod();
+                if ((method.Name == "lambda_method" || method.Name.StartsWith("<")) && i > 0)
+                {
+                    method = frames[i - 1].GetMethod();
+                    functionName = method.Name;
+                    className = method.ReflectedType.Name;
+                }
+            }
+            return functionName + className;
         }
     }
 }

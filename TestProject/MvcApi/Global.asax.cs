@@ -11,7 +11,6 @@ namespace MvcApi
 {
     // 注意: 有关启用 IIS6 或 IIS7 经典模式的说明，
     // 请访问 http://go.microsoft.com/?LinkId=9394801
-
     public class WebApiApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -25,6 +24,18 @@ namespace MvcApi
 
             //让API默认返回JSON格式
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+        }
+
+        protected void Session_Start()
+        {
+        }
+
+        protected void Session_End()
+        {
+        }
+
+        protected void Application_End()
+        {
         }
     }
 }

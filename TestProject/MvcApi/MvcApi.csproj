@@ -170,7 +170,6 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Business\ApiHelper.cs" />
     <Compile Include="Business\ApiTest.cs" />
-    <Compile Include="Business\JsonHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
