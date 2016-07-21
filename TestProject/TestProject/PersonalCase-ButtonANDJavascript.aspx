@@ -21,7 +21,7 @@
                 }
                 return false;
             }
-</script>
+        </script>
     </div>
     </form>
 </body>

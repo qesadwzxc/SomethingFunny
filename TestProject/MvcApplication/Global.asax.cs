@@ -25,14 +25,14 @@ namespace MvcApplication
             AuthConfig.RegisterAuth();
         }
 
-        protected void Application_Error(object sender, EventArgs e)
-        {
-            Exception ex = Server.GetLastError();
-            if (ex is HttpException && ((HttpException)ex).GetHttpCode() == 404)
-            {
-                HttpException hEx = ex as HttpException;
-                Response.Redirect("http://www.baidu.com");
-            }
-        }
+        //protected void Application_Error(object sender, EventArgs e)
+        //{
+        //    Exception ex = Server.GetLastError();
+        //    if (ex is HttpException && ((HttpException)ex).GetHttpCode() == 404)
+        //    {
+        //        HttpException hEx = ex as HttpException;
+        //        Response.Redirect("http://www.baidu.com");
+        //    }
+        //}
     }
 }

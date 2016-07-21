@@ -8,7 +8,7 @@ using System.Net.Sockets;
 
 namespace MvcApplication.Controllers
 {
-    public class AjaxPollingController : Controller
+    public class AjaxPollingController : BaseController
     {
         //
         // GET: /AjaxPolling/
@@ -16,6 +16,11 @@ namespace MvcApplication.Controllers
         public ActionResult Polling()
         {
             return View();
+        }
+
+        public ActionResult PP()
+        {
+            return Content("Hello");
         }
 
         public JsonResult GetPolling()

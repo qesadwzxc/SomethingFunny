@@ -79,6 +79,7 @@
     <Compile Include="AttributeTest.cs" />
     <Compile Include="BeepFunc.cs" />
     <Compile Include="CodeTimer.cs" />
+    <Compile Include="ConstructorOrderTest.cs" />
     <Compile Include="CSharp6Test.cs" />
     <Compile Include="CustomDictionary.cs" />
     <Compile Include="FunctionAddOn.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="TextEditor.Designer.cs">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThisTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
