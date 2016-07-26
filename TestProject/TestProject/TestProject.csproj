@@ -91,7 +91,6 @@
     <Content Include="TestHtmlPage.html" />
     <Content Include="PersonalCase-XMLRead.aspx" />
     <Content Include="TestWebForm.aspx" />
-    <Content Include="TestWebForm2.aspx" />
     <Content Include="ueditor\net\config.json" />
     <Content Include="ueditor\net\controller.ashx" />
     <Content Include="ueditor\net\README.md" />
@@ -732,7 +731,6 @@
     <Content Include="ueditor\ueditor.parse.js" />
     <Content Include="ueditor\ueditor.parse.min.js" />
     <Content Include="PersonalCase-UEditor.aspx" />
-    <None Include="CodeBackUp-ForumsPost.aspx" />
     <Content Include="Styles\default.css" />
     <Content Include="Styles\ForumPosts.css" />
     <Content Include="Styles\ForumTCLife.css" />
@@ -787,13 +785,6 @@
     <Compile Include="TestWebForm.aspx.designer.cs">
       <DependentUpon>TestWebForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TestWebForm2.aspx.cs">
-      <DependentUpon>TestWebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestWebForm2.aspx.designer.cs">
-      <DependentUpon>TestWebForm2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ueditor\net\App_Code\Config.cs" />
     <Compile Include="ueditor\net\App_Code\ConfigHandler.cs" />
     <Compile Include="ueditor\net\App_Code\CrawlerHandler.cs" />
@@ -823,12 +814,6 @@
     <Compile Include="PersonalCase-WebFormAjax.aspx.designer.cs">
       <DependentUpon>PersonalCase-WebFormAjax.aspx</DependentUpon>
     </Compile>
-    <None Include="CodeBackUp-ForumsPost.aspx.cs">
-      <DependentUpon>CodeBackUp-ForumsPost.aspx</DependentUpon>
-    </None>
-    <None Include="CodeBackUp-ForumsPost.aspx.designer.cs">
-      <DependentUpon>CodeBackUp-ForumsPost.aspx</DependentUpon>
-    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PersonalCase-Repeater.aspx.cs">
       <DependentUpon>PersonalCase-Repeater.aspx</DependentUpon>
