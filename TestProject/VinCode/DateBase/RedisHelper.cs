@@ -6,7 +6,7 @@ namespace VinCode.DateBase
 { 
     public class RedisHelper
     {
-        static readonly string host = "10.1.25.57";
+        static readonly string host = "10.01.28.90";
         static readonly int port = 6379;
         static readonly string password = "";
 

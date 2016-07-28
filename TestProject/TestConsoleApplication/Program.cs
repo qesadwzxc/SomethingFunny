@@ -675,10 +675,12 @@ namespace TestConsoleApplication
         [STAThread]
         static void Main(string[] args)
         {
-            Console.WriteLine("输入起始数和圈数");
-            int start = Convert.ToInt32(Console.ReadLine());
-            int round = Convert.ToInt32(Console.ReadLine());
-            NewSpider.Test(start, round);
+            //Console.WriteLine("输入起始数和圈数");
+            //int start = Convert.ToInt32(Console.ReadLine());
+            //int round = Convert.ToInt32(Console.ReadLine());
+            //NewSpider.Test(start, round);
+            CustomIterator c = new CustomIterator();
+            c.Run();
             Console.Read();
         }
 

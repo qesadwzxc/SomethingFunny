@@ -1,14 +1,13 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////////
+///集合类效率测试
+////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace TestConsoleApplication
 {
-    /// <summary>
-    /// 集合类效率测试
-    /// </summary>
-    public class ListORDictionary
+    public class TestListAndDictionary
     {
         static List<TestModel> todayList = InitTodayData();
         static List<TestModel> historyList = InitHisoryData();

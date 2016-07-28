@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿////////////////////////////////////////////////////////////////////////////////
+///锁练习
+////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace TestConsoleApplication
 {
-    class LockTest
+    class PracticeLock
     {
         const string firstOrderId = "001";
         const string secondOrderId = "002";

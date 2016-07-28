@@ -1,11 +1,13 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////////
+///C#6.0测试
+////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace TestConsoleApplication
 {
-    public class CSharp6Test
+    public class TestCSharp6
     {
         public List<string> list = new List<string>(2) { [0] = "A", [1] = "B" };//value for index
 

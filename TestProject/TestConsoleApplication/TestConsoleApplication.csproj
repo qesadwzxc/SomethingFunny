@@ -76,23 +76,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttributeTest.cs" />
-    <Compile Include="BeepFunc.cs" />
+    <Compile Include="TestBeepFunc.cs" />
     <Compile Include="CodeTimer.cs" />
-    <Compile Include="ConstructorOrderTest.cs" />
-    <Compile Include="CSharp6Test.cs" />
+    <Compile Include="TestConstructorOrder.cs" />
+    <Compile Include="TestCSharp6.cs" />
     <Compile Include="CustomDictionary.cs" />
-    <Compile Include="FunctionAddOn.cs" />
-    <Compile Include="GreedyAlgorithmTest.cs" />
-    <Compile Include="HashSetCompare.cs" />
-    <Compile Include="ListORDictionary.cs" />
-    <Compile Include="LockTest.cs" />
+    <Compile Include="CustomIterator.cs" />
+    <Compile Include="PracticeFunctionAddOn.cs" />
+    <Compile Include="TestGreedyAlgorithm.cs" />
+    <Compile Include="TestHashSetCompare.cs" />
+    <Compile Include="TestListAndDictionary.cs" />
+    <Compile Include="PracticeLock.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="NewSpider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedisMutiThread.cs" />
-    <Compile Include="ReflectPrictice.cs" />
+    <Compile Include="PracticeReflect.cs" />
     <Compile Include="SendMail.cs">
       <SubType>Form</SubType>
     </Compile>

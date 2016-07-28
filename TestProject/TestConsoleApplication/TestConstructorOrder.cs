@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿////////////////////////////////////////////////////////////////////////////////
+///构造函数调用顺序测试
+////////////////////////////////////////////////////////////////////////////////
+using System;
 namespace TestConsoleApplication
 {
     class Foo
@@ -31,10 +29,10 @@ namespace TestConsoleApplication
         }
     }
 
-    class ConstructorOrderTest : BassConstructor
+    class TestConstructorOrder : BassConstructor
     {
         readonly Foo derivedFoo = new Foo("Derived initializer.");
-        public ConstructorOrderTest()
+        public TestConstructorOrder()
         {
             Console.WriteLine("Derived constructor");
         }

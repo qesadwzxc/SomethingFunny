@@ -1,15 +1,13 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////////
+///Hash比较测试
+////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace TestConsoleApplication
 {
-    public class HashSetCompare
+    public class TestHashSetCompare
     {
-        /// <summary>
-        /// Hash比较
-        /// </summary>
         public void Compare()
         {
             List<string> strs = CreateStrings();

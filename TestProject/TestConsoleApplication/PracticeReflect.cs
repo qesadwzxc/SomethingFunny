@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿////////////////////////////////////////////////////////////////////////////////
+///反射练习
+////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Reflection;
 using System.Diagnostics;
 
 namespace TestConsoleApplication
 {
+    //TODO:多点反射？？
+    //object obj = Activator.CreateInstance(typeof(int));
     class Country
     {
         public string name;
@@ -25,7 +27,7 @@ namespace TestConsoleApplication
             name = "美国";
         }
     }
-    public class ReflectPrictice
+    public class PracticeReflect
     {
         public void Assem()
         {

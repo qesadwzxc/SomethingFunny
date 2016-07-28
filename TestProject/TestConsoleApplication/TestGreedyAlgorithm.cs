@@ -1,4 +1,7 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////////
+///贪婪算法测试
+////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TestConsoleApplication
 {
-    public class GreedyAlgorithmTest
+    public class TestGreedyAlgorithm
     {
         class Unit
         {
@@ -15,7 +18,7 @@ namespace TestConsoleApplication
         }
 
         private List<Unit> itemDic = new List<Unit>();
-        public GreedyAlgorithmTest()
+        public TestGreedyAlgorithm()
         {
             itemDic.Add(new Unit() { Key = 100, Value = 0 });
             itemDic.Add(new Unit() { Key = 50, Value = 0 });

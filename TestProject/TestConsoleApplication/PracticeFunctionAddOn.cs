@@ -16,13 +16,10 @@
 ///<6>第一个参数不能是指针类型
 /////////////////////////////////////////////////////////////////////////////////////////////
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace TestConsoleApplication
 {
-    public static class FunctionAddOn
+    public static class PracticeFunctionAddOn
     {
         public static void PrintString(this String str)
         {
