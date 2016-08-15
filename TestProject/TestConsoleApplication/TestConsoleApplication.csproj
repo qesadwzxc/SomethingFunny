@@ -38,13 +38,29 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Common, Version=4.0.52.0, Culture=neutral, processorArchitecture=MSIL">
@@ -76,13 +92,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PracticeTaskBarIcon.cs" />
     <Compile Include="TestBeepFunc.cs" />
     <Compile Include="CodeTimer.cs" />
+    <Compile Include="TestConsoleProgress.cs" />
     <Compile Include="TestConstructorOrder.cs" />
     <Compile Include="TestCSharp6.cs" />
     <Compile Include="CustomDictionary.cs" />
     <Compile Include="CustomIterator.cs" />
     <Compile Include="PracticeFunctionAddOn.cs" />
+    <Compile Include="TestFlashWindow.cs" />
     <Compile Include="TestGreedyAlgorithm.cs" />
     <Compile Include="TestHashSetCompare.cs" />
     <Compile Include="TestListAndDictionary.cs" />
@@ -99,7 +118,7 @@
     <Compile Include="SendMail.Designer.cs">
       <DependentUpon>SendMail.cs</DependentUpon>
     </Compile>
-    <Compile Include="SortTest.cs" />
+    <Compile Include="TestSort.cs" />
     <Compile Include="Spider\ActionScheduler.cs" />
     <Compile Include="Spider\FormatHtml.cs" />
     <Compile Include="Spider\HttpHelper.cs" />
@@ -113,7 +132,7 @@
     <Compile Include="TextEditor.Designer.cs">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThisTest.cs" />
+    <Compile Include="TestThis.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -124,7 +143,6 @@
       <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\VinCode\VinCode.csproj">
       <Project>{fd509227-6fce-4acb-a4ec-8c2ff5942da0}</Project>

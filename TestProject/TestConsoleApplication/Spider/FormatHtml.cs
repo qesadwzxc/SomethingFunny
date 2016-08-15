@@ -1,9 +1,11 @@
 ﻿using CsQuery;
+using Microsoft.WindowsAPICodePack.Taskbar;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using VinCode;
@@ -12,10 +14,15 @@ namespace TestConsoleApplication.Spider
 {
     public static class FormatHtml
     {
+        public const int OF_READWRITE = 2;
+        public const int OF_SHARE_DENY_NONE = 0x40;
+        public static readonly IntPtr HFILE_ERROR = new IntPtr(-1);
+
         //static IConfiguration config = Configuration.Default.WithDefaultLoader();
         static readonly string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Temp\";
         private static object objLock = "";
         static int countNum = 0;
+        static int progress = 0;
         public static async Task<Topic> TopicFormat(string htmlText)
         {
             CQ dom = await GetHtmlContent(htmlText);
@@ -132,22 +139,37 @@ namespace TestConsoleApplication.Spider
                 sw.Start();
                 topic = Regex.Replace(topic, "[\\./:*?\"|<>]", " ", RegexOptions.Compiled);
                 string todayPath = LogHelper.CreateFolder(path + topic);
-                Parallel.ForEach(picUrlList, (picUrl) =>
+                Parallel.ForEach(picUrlList, new ParallelOptions() { MaxDegreeOfParallelism = 10 }, (picUrl) =>
                 {
+                    string filePath = string.Empty;
                     if (!string.IsNullOrWhiteSpace(picUrl))
                     {
                         try
                         {
-                            string filePath = $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}";
+                            filePath = $"{todayPath}\\{picUrl.Substring(picUrl.LastIndexOf('/'))}";
                             FileInfo info = new FileInfo(filePath);
                             if (!File.Exists(filePath) || info.Length < 10240)
                             {
                                 WebClient client = new WebClient();
                                 client.DownloadFile(picUrl, filePath);
                             }
+                            //标题栏百分比显示（按文件数）
+                            progress += 1;
+                            Console.Title = string.Format(@"下载中... {0}% ", progress * 100 / picUrlList.Count);
+                            //任务栏进度条
+                            TaskbarManager.Instance.SetProgressValue(progress, picUrlList.Count);
                         }
                         catch (Exception ex)
                         {
+                            if (File.Exists(filePath) && !IsInUsed(filePath))
+                            {
+                                File.Delete(filePath);
+                            }
+                            //标题栏百分比显示（按文件数）
+                            progress += 1;
+                            Console.Title = string.Format(@"下载中... {0}% ", progress * 100 / picUrlList.Count);
+                            //任务栏进度条
+                            TaskbarManager.Instance.SetProgressValue(progress, picUrlList.Count);
                             lock (objLock)
                             {
                                 LogHelper.Write($"DownloadError:{picUrl}", ex.Message, "AutoImageSpider");
@@ -176,6 +198,29 @@ namespace TestConsoleApplication.Spider
                 //}
             }));
             task.ContinueWith((m) => { Console.WriteLine($"{countNum}:《{topic}》下载完毕，历时{sw.ElapsedMilliseconds / 1000}s"); });
+        }
+
+        /// <summary>
+        /// 判断文件是否被占用
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        private static bool IsInUsed(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                IntPtr vHandle = NativeMethods._lopen(filePath, OF_READWRITE | OF_SHARE_DENY_NONE);
+                //获取指针
+                //string txt = "test";
+                //IntPtr p = Marshal.StringToCoTaskMemAuto(txt);
+
+                if (vHandle == HFILE_ERROR)
+                {
+                    return true;
+                }
+                NativeMethods.CloseHandle(vHandle);
+            }           
+            return false;
         }
     }
 }

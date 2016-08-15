@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestConsoleApplication
 {
-    public class SortTest
+    public class TestSort
     {
         #region 冒泡排序
         public static List<int> BubbleSort(List<int> list)

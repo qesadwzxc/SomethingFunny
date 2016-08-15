@@ -65,13 +65,12 @@ namespace MvcApi.Controllers
                     client.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), client);
                 }), null);
             }
-            catch (SocketException ex)
-            {
-                socket.Close();
-            }
             catch (Exception ex) when (ex.GetType() != typeof(SocketException))
             {
-                Response.Write(ex.Message);
+                if (ex.GetType() != typeof(SocketException))
+                {
+                    Response.Write(ex.Message);
+                }          
                 socket.Close();
             }
 

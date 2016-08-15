@@ -206,9 +206,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attribute\MutiButtonAttibute.cs" />
-    <Compile Include="BLL\HasFile.cs" />
-    <Compile Include="BLL\RedisTest.cs" />
-    <Compile Include="BLL\UpLoad.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AjaxPollingController.cs" />
     <Compile Include="Controllers\AtController.cs" />
@@ -360,6 +357,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="BLL\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

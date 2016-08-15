@@ -7,8 +7,6 @@ using System.Diagnostics;
 
 namespace TestConsoleApplication
 {
-    //TODO:多点反射？？
-    //object obj = Activator.CreateInstance(typeof(int));
     class Country
     {
         public string name;

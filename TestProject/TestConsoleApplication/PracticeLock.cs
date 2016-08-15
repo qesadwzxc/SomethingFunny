@@ -14,10 +14,10 @@ namespace TestConsoleApplication
 
         public static void Run()
         {
-            test(LockType.LockThis);
+            //test(LockType.LockThis);
             //test(LockType.LockString);
             //test(LockType.LockObject);
-            //test(LockType.LockStaticObject);
+            test(LockType.LockStaticObject);
 
             Console.ReadLine();
         }

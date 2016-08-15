@@ -30,15 +30,15 @@ namespace WeeklyReportService
 
         protected override void OnStart(string[] args)
         {
-#if DEBUG
-            Report(null, null);
-#else
+//#if DEBUG
+            //Report(null, null);
+//#else
             System.Timers.Timer t = new System.Timers.Timer();
             t.Interval = 60 * 60 * 1000;
             t.Elapsed += new System.Timers.ElapsedEventHandler(Report);
             t.AutoReset = true;
             t.Enabled = true;
-#endif
+//#endif
         }
 
         protected override void OnStop()

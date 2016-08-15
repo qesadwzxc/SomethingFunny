@@ -13,16 +13,16 @@ namespace WeeklyReportService
         /// </summary>
         static void Main()
         {
-#if DEBUG
-            new WeeklyReport().DebugOnStart();
-#else
+//#if DEBUG
+            //new WeeklyReport().DebugOnStart();
+//#else
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
                 new WeeklyReport()
             };
             ServiceBase.Run(ServicesToRun);
-#endif
+//#endif
         }
     }
 }

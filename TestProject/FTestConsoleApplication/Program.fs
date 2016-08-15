@@ -22,4 +22,4 @@ printfn "Concat:%s %d" s c
 printfn "results = %A" f
 
 open System
-Console.ReadKey(true)
+ignore(Console.ReadKey(true))

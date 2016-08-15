@@ -171,7 +171,7 @@ namespace VinCode
                             table.Rows.Add(dataRow);
                         }
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         //该行转换失败，需要标记，考虑收集失败行，重新导出Excel
                         //throw;

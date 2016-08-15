@@ -7,8 +7,10 @@ using System.IO;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace TestConsoleApplication
 {
@@ -207,12 +209,24 @@ namespace TestConsoleApplication
 
         public static void PrintXandY()
         {
-            //What`s result?
+            //What's result?
             Console.WriteLine(LittleFun.x);
             Console.WriteLine(LittleFun.y);
 
             LittleFun.x = 99;
             Console.WriteLine(LittleFun.x);
+        }
+
+        public static int CountBinary(long num)
+        {
+            var count = 0;
+            while (num > 0)
+            {
+                num &= num - 1;
+                count++;
+            }
+
+            return count;
         }
 
         #region String和StringBuilder拼接性能对比
@@ -618,60 +632,6 @@ namespace TestConsoleApplication
 
     class Program
     {
-        //static void Main(string[] args)
-        //{
-
-        //    //Queue<int> q = new Queue<int>();
-        //    //List<int> l = new List<int>();
-        //    //System.Timers.Timer t = new System.Timers.Timer();
-        //    //System.Threading.Timer tt = new System.Threading.Timer(null);
-        //    //System.Windows.Forms.Timer ttt = new System.Windows.Forms.Timer();
-
-        //    //5次比较
-        //    for (int i = 1; i <= 5; i++)
-        //    {
-        //        List<int> list = new List<int>();
-
-        //        //插入200个随机数到数组中
-        //        for (int j = 0; j < 200; j++)
-        //        {
-        //            Thread.Sleep(1);
-        //            list.Add(new Random((int)DateTime.Now.Ticks).Next(0, 10000));
-        //        }
-
-        //        Console.WriteLine("\n第" + i + "次比较：");
-
-        //        Stopwatch watch = new Stopwatch();
-
-        //        watch.Start();
-        //        var result = list.OrderBy(single => single).ToList();
-        //        watch.Stop();
-
-        //        Console.WriteLine("\n系统定义的快速排序耗费时间：" + watch.ElapsedMilliseconds);
-        //        Console.WriteLine("输出前是十个数:" + string.Join(",", result.Take(10).ToList()));
-
-        //        watch.Start();
-        //        SortTest.QuickSort(list, 0, list.Count - 1);
-        //        watch.Stop();
-
-        //        Console.WriteLine("\n俺自己写的快速排序耗费时间：" + watch.ElapsedMilliseconds);
-        //        Console.WriteLine("输出前是十个数:" + string.Join(",", list.Take(10).ToList()));
-        //    }
-        //    Console.ReadLine();
-        //}
-
-        int CountBinary(long num)
-        {
-            var count = 0;
-            while (num > 0)
-            {
-                num &= num - 1;
-                count++;
-            }
-
-            return count;
-        }
-
         [STAThread]
         static void Main(string[] args)
         {
@@ -679,9 +639,13 @@ namespace TestConsoleApplication
             //int start = Convert.ToInt32(Console.ReadLine());
             //int round = Convert.ToInt32(Console.ReadLine());
             //NewSpider.Test(start, round);
-            CustomIterator c = new CustomIterator();
-            c.Run();
-            Console.Read();
+            //CustomIterator c = new CustomIterator();
+            //c.Run();
+            //Console.Read();
+
+            List<string> s = new List<string>() { };
+            Spider.FormatHtml.DownloadPic("sbt1024", s);
+            Console.ReadLine();
         }
 
         public static int Puzzle(string s)

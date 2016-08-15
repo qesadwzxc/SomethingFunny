@@ -7,7 +7,7 @@ namespace TestConsoleApplication
     /// <summary> 
     ///Person 的摘要说明 
     /// </summary> 
-    public class ThisTest
+    public class TestThis
     {
         /// <summary> 
         /// 姓名 
@@ -24,7 +24,7 @@ namespace TestConsoleApplication
         /// </summary> 
         public NameValueCollection Attr = new NameValueCollection();
 
-        public ThisTest()
+        public TestThis()
         {
         }
 
@@ -34,7 +34,7 @@ namespace TestConsoleApplication
         /// /******************************************/ 
         /// </summary> 
         /// <param name="Name"></param> 
-        public ThisTest(string Name, string Sex)
+        public TestThis(string Name, string Sex)
         {
             this.Name = Name;
             this.Sex = Sex;
@@ -82,7 +82,7 @@ namespace TestConsoleApplication
         /// </summary> 
         /// <param name="item"></param> 
         /// <returns></returns> 
-        public static string GetSex(this ThisTest item)
+        public static string GetSex(this TestThis item)
         {
             return item.Sex;
         }
@@ -91,7 +91,7 @@ namespace TestConsoleApplication
         /// 打印人名 
         /// </summary> 
         /// <param name="person"></param> 
-        public static void PrintName(ThisTest person)
+        public static void PrintName(TestThis person)
         {
             Console.WriteLine("姓名：" + person.Name);
         }
