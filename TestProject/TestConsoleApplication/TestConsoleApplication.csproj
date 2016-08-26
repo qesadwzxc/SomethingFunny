@@ -92,6 +92,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesignPettern\AbstractFactory.cs" />
+    <Compile Include="DesignPettern\Factory.cs" />
+    <Compile Include="DesignPettern\SimpleFactory.cs" />
+    <Compile Include="DesignPettern\Singleton.cs" />
     <Compile Include="PracticeTaskBarIcon.cs" />
     <Compile Include="TestBeepFunc.cs" />
     <Compile Include="CodeTimer.cs" />
@@ -148,6 +152,9 @@
       <Project>{fd509227-6fce-4acb-a4ec-8c2ff5942da0}</Project>
       <Name>VinCode</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DesignPettern\CreationalPatterns\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

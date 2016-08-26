@@ -507,26 +507,6 @@ namespace TestConsoleApplication
 
     #region 数据结构
     /// <summary>
-    /// 创建单例
-    /// </summary>
-    public class Singleton
-    {
-        private static Singleton instance;
-        private Singleton() { }
-        public static Singleton Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new Singleton();
-                }
-                return instance;
-            }
-        }
-    }
-
-    /// <summary>
     /// 单链表
     /// </summary>
     public class LinkList
@@ -644,7 +624,7 @@ namespace TestConsoleApplication
             //Console.Read();
 
             List<string> s = new List<string>() { };
-            Spider.FormatHtml.DownloadPic("sbt1024", s);
+            Spider.FormatHtml.DownloadPic("lmlmwj", s);
             Console.ReadLine();
         }
 

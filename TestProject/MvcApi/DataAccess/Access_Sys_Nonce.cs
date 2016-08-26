@@ -52,7 +52,7 @@ namespace MvcApi.DataAccess
                                            ,[CreateTime])
                                       VALUES
                                            ('{0}','{1}')",nonce.Nonce,nonce.CreateTime);
-            return sql.Execute(sqlCommand.ToString());
+            return sql.ExecuteNonQuery(sqlCommand.ToString()) > 0;
         }
     }
 }

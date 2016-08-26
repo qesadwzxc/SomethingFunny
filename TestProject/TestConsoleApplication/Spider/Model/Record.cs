@@ -36,7 +36,7 @@ namespace TestConsoleApplication.Spider
                 paramsList.Add(new SqlParameter("@TopicUrl", recond.TopicUrl));
                 paramsList.Add(new SqlParameter("@PictureUrl", recond.PictureUrl));
                 paramsList.Add(new SqlParameter("@DownloadTime", recond.DownloadTime));
-                helper.Execute(sql, paramsList);
+                helper.ExecuteNonQuery(sql, paramsList);
             }
             catch
             { }
