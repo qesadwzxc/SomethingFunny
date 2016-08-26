@@ -209,7 +209,6 @@
     <Compile Include="Models\Base\CommonAttribute.cs" />
     <Compile Include="Models\Base\CreateAndModifyModel.cs" />
     <Compile Include="Models\Base\CompositeKey.cs" />
-    <Compile Include="Models\Base\SqlParameterWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

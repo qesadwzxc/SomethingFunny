@@ -1,15 +1,12 @@
-﻿//using iThinking.Helper;
-using VinCode.DateBase;
+﻿using VinCode.DateBase;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using MvcApplication.Common;
 using MvcApplication.Models;
-using MvcApplication.Models.Base;
 using System.ComponentModel;
 using System.Data.SqlClient;
 
