@@ -82,7 +82,7 @@ namespace TestConsoleApplication
         }
 
         /// <summary>
-        /// win4000
+        /// 美桌
         /// </summary>
         /// <param name="start"></param>
         /// <param name="round"></param>

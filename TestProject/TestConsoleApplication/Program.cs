@@ -7,10 +7,6 @@ using System.IO;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Drawing;
 
 namespace TestConsoleApplication
 {
