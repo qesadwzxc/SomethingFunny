@@ -43,6 +43,29 @@ namespace MvcApplication.Common
             }
         }
 
+        //private IReadOnlyCollection<Type> GetControllerOrFilterTypes(string endsWith, Type baseType) =>
+        //    AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly => 
+        //    {
+        //        return assembly.GetExportedTypes().Where(t=> 
+        //        {
+        //            bool result = false;
+        //            if (t.Name.EndsWith(endsWith) && t.IsAbstract && t.IsClass)
+        //            {
+        //                var point = t.BaseType;
+        //                while (point != null)
+        //                {
+        //                    if (point == baseType)
+        //                    {
+        //                        result = true;
+        //                        break;
+        //                    }
+        //                    point = point.BaseType;
+        //                }
+        //            }
+        //            return result;
+        //        });
+        //    }).ToList();
+
         public bool Equals(T x, T y)
         {
             object xValue;
