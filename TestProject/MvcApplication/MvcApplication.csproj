@@ -223,14 +223,8 @@
     <Content Include="Scripts\alertMessage.js" />
     <Content Include="Scripts\AtFunc.js" />
     <Content Include="Scripts\html5Test.js" />
-    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.0.js" />
-    <Content Include="Scripts\jquery-3.1.0.min.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <Content Include="Scripts\jquery.event.frame.js" />
     <Content Include="Scripts\jquery.jparallax.min.js" />
-    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\laydate\laydate.js" />
     <Content Include="Scripts\laydate\need\icon.png" />
     <Content Include="Scripts\laydate\need\laydate.css" />
@@ -290,12 +284,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\jquery-3.1.0.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

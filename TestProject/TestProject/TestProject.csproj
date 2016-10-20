@@ -82,9 +82,6 @@
     <Content Include="Scripts\AjaxFunc.js" />
     <Content Include="Scripts\AtFunc.js" />
     <Content Include="Scripts\Hack-Type.js" />
-    <Content Include="Scripts\iThinking.global.js" />
-    <Content Include="Scripts\iThinking.shared.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Src\kernel.txt" />
     <Content Include="Styles\Hack-Type.css" />
     <Content Include="Styles\NewStyle.css" />

@@ -48,6 +48,6 @@
 </body>
 </html>
 
-<script src="Scripts/jquery-1.9.1.js"></script>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script src="Scripts/AjaxFunc.js"></script>
 
