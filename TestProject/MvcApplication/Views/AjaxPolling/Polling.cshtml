@@ -33,6 +33,6 @@
     };
     //轮询的关键在这里，Ajax定时访问服务端，不断获取数据 ，这里是1秒请求一次。
     window.setInterval(function () { $.ajax(getting) }, 1000);
-    //长连接则是在方法中调用本身
+    //长连接则是在方法中调用本身//
     $.ajax(gettingLong);
 </script>
