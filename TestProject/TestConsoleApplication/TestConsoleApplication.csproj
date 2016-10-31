@@ -95,10 +95,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesignPettern\AbstractFactory.cs" />
-    <Compile Include="DesignPettern\Factory.cs" />
-    <Compile Include="DesignPettern\SimpleFactory.cs" />
-    <Compile Include="DesignPettern\Singleton.cs" />
+    <Compile Include="DesignPettern\CreationalPatterns\AbstractFactoryPattern.cs" />
+    <Compile Include="DesignPettern\CreationalPatterns\BuilderPattern.cs" />
+    <Compile Include="DesignPettern\CreationalPatterns\FactoryPattern.cs" />
+    <Compile Include="DesignPettern\CreationalPatterns\PrototypePattern.cs" />
+    <Compile Include="DesignPettern\CreationalPatterns\SimpleFactoryPattern.cs" />
+    <Compile Include="DesignPettern\CreationalPatterns\SingletonPattern.cs" />
     <Compile Include="PracticeTaskBarIcon.cs" />
     <Compile Include="TestBeepFunc.cs" />
     <Compile Include="CodeTimer.cs" />
@@ -158,7 +160,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DesignPettern\CreationalPatterns\" />
+    <Folder Include="DesignPettern\StructuralPattern\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

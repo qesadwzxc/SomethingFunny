@@ -7,6 +7,7 @@ using System.IO;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using TestConsoleApplication.DesignPettern;
 
 namespace TestConsoleApplication
 {
@@ -608,6 +609,18 @@ namespace TestConsoleApplication
 
     class Program
     {
+        /// <summary>
+        /// 运行窗口程序
+        /// </summary>
+        //[STAThread]
+        //static void Main(string[] args)
+        //{
+        //    Application.EnableVisualStyles();
+        //    Application.SetCompatibleTextRenderingDefault(false);
+        //    Application.Run(new TextEditor());
+        //}
+
+
         [STAThread]
         static void Main(string[] args)
         {
@@ -641,18 +654,6 @@ namespace TestConsoleApplication
             var sr = p.Select(x => "_ ").ToString().TrimEnd(' ');
             return string.IsNullOrEmpty(s) ? 0 : (s.First() == 'a' ? 1 : 0) + Puzzle(s.Substring(1));
         }
-
-        /// <summary>
-        /// 运行窗口程序
-        /// </summary>
-        //[STAThread]
-        //static void Main(string[] args)
-        //{
-        //    Application.EnableVisualStyles();
-        //    Application.SetCompatibleTextRenderingDefault(false);
-        //    Application.Run(new TextEditor());
-        //}
-
     }
 }
 
