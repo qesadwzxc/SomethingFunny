@@ -1,0 +1,78 @@
+﻿body {
+    background-image: url('../Images/bkg-001.jpg');
+    background-position:top left;
+    background-repeat:repeat;
+    background-attachment:scroll;
+    font-size:14px;
+    color:#777;
+    font-family:"Courier New","Courier","monospace";
+    
+}
+.canvas{
+    width:auto;max-width:940px;
+    margin:0 auto;
+    padding:20px;
+    position:relative;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    background-color:#fff;
+}
+
+.logoWrapper,
+.tagline,
+.topNav
+{
+    width:100%;
+    text-align:center;
+}
+
+.logoWrapper,
+.topNav{
+    float:left;
+}
+
+.tagline {
+    display: none;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.logo > a > img {
+    width:100%;   
+}
+
+.topNav nav{
+    display:inline-block;
+    float:none;
+}
+
+nav ul, nav ol {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, dl {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 14px;
+    font-family: "Courier New","Courier","monospace";
+    font-size: 13px;
+    line-height: 1.6em;
+    text-transform: none;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    margin: 1em 0;
+}
+
+.topNav .siteNav li.toggle {
+    display: none;
+}
+
+.topNav nav li, .bottomNav nav li {
+    float: left;
+    position: relative;
+    text-align: left;
+    width: auto;
+}
