@@ -24,15 +24,30 @@ namespace TestConsoleApplication.DesignPettern.CreationalPatterns
             /* 双重锁定:如果没有这个if条件，则对于每个线程都会对线程辅助对象locker加锁之后再判断实例是否存在
              * 对于这个操作完全没有必要的，因为当第一个线程创建了该类的实例之后，后面的线程此时只需要直接判断（uniqueInstance==null）为假即可
              * 此时完全没必要对线程辅助对象加锁之后再去判断，其实现方式增加了额外的开销，损失了性能*/
-            if (uniqueInstance != null)
+            if (uniqueInstance == null)
             {
                 //如果没有这个锁，多个线程同时判断uniqueInstance==null的话，还是会得到多个实例
                 lock (locker)
                 {
-                    uniqueInstance = new SingletonPattern();
+                    if (uniqueInstance == null)
+                    {
+                        uniqueInstance = new SingletonPattern();
+                    }
                 }
             }
             return uniqueInstance;
+        }
+
+        //私有的静态内部类
+        //无判断、无锁，最好的实现方式。
+        private static class Inner   
+        {
+            public static SingletonPattern singletonPattern = new SingletonPattern();
+        }
+
+        public static SingletonPattern GetInstance2()
+        {
+            return Inner.singletonPattern;
         }
     }
 }
