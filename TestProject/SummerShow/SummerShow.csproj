@@ -121,9 +121,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\FormSyle.css" />
+    <Content Include="Content\layout.css" />
+     <Content Include="Content\FormSyle.css" />
+
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bkg-001.jpg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\title.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -142,12 +147,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout_page.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
