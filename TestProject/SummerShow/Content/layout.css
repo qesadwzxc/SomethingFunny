@@ -5,7 +5,7 @@
     background-attachment:scroll;
     font-size:14px;
     color:#777;
-    font-family:"Courier New","Courier","monospace";
+    font-family:"Microsoft YaHei";
     
 }
 .canvas{
@@ -16,6 +16,7 @@
     -moz-box-sizing:border-box;
     box-sizing:border-box;
     background-color:#fff;
+    overflow:hidden;
 }
 
 .logoWrapper,
@@ -41,38 +42,105 @@
     width:100%;   
 }
 
-.topNav nav{
-    display:inline-block;
-    float:none;
+/*头部导航栏*/
+ul {
+    list-style-type: none;  
+    margin:15px 0;  
 }
 
-nav ul, nav ol {
-    list-style: none;
-    list-style-image: none;
-    margin: 0;
-    padding: 0;
+.topNav .topNav-ul {
+    display:inline-block;   
+    
 }
-
-ul, ol, dl {
-    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
-    font-size: 14px;
-    font-family: "Courier New","Courier","monospace";
-    font-size: 13px;
-    line-height: 1.6em;
-    text-transform: none;
-    text-decoration: none;
-    font-weight: normal;
-    font-style: normal;
-    margin: 1em 0;
-}
-
-.topNav .siteNav li.toggle {
-    display: none;
-}
-
-.topNav nav li, .bottomNav nav li {
-    float: left;
-    position: relative;
+.topNav .topNav-ul > li{
+    width:auto;
+    float:left;
     text-align: left;
-    width: auto;
+    position:relative;
+    padding:0 25px;
+    margin:0 10px;
+    cursor:pointer;
+    -webkit-transition: all 0.2s ease-in;/*转换动画效果*/
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
 }
+
+.topNav .topNav-ul .actived {
+    background-color: #9cc8e2;
+    color:#fff;
+    border-radius: 5px 5px;
+}
+
+.topNav .topNav-ul > li:hover{
+    background-color: #9cc8e2;
+    color:#fff;
+    border-radius: 5px 5px;
+}
+
+/*上下三角转换*/
+.topNav .eat-more:after{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #139ae8 transparent;
+}
+.topNav .showdown:after {
+    border-width: 0 6px 6px 6px;
+    border-color: #fff transparent;
+}
+
+/*下拉框*/
+.eat-more .dropdown {
+    margin:0;
+    position: absolute;
+    top: 100%;
+    left: 1px;
+    right: 1px;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: none;
+    border-bottom: none;
+    list-style: none;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    max-height: 0px;
+    overflow: hidden;
+    padding-left:20px;
+    z-index:9;
+}
+.topNav .topNav-ul .showdown .dropdown {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    max-height: 400px;
+}
+.topNav .topNav-ul .dropdown i{
+    margin-right:5px;
+}
+
+
+/*用渐变效果产生切角*/
+/*.actived {
+    background: #f00;
+    background: linear-gradient(135deg, transparent 5px, #f00 0) top left,
+                linear-gradient(225deg, transparent 5px, #f00 0) top right;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+}*/
+
+
+
+
+
+
+

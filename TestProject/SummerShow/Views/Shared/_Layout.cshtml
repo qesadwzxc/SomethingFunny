@@ -6,8 +6,9 @@
     <title>M&M</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/layout.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="canvasWrapper">
@@ -20,76 +21,46 @@
                         </a>
                         <div class="tagline">欢迎来到summer的世界</div>
                     </div>
-                    <div class="topNav" data-content-field="navigation">
-                        <nav class="main-Nav dropdown-hover">
-                            <ul id="siteNav">
-                                <li class="toggle" id="yui_3_17_2_1_1477377689484_566">
-                                    <a href="#mobileNav" id="mobile-show-nav" class="icon-list"></a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/contact/">联系我</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/about/">了解我</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/endorsements/">我的代言</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/topics/">主题</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/schedule/">我的时间轴</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/presskit/">我的新闻</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/media/">M&M</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/blog/">博客</a>
-                                </li>
-                            </ul>
-                            <ul id="mobileNav">
-                                <li class="toggle" id="yui_3_17_2_1_1477377689484_577">
-                                    <a href="#canvas" id="mobile-close-nav" class="icon-close"></a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/contact/">联系我</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/about/">了解我</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/endorsements/">我的代言</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/topics/">主题</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/schedule/">我的时间轴</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/presskit/">我的新闻</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/media/">M&M</a>
-                                </li>
-                                <li class="page-collection">
-                                    <a href="/blog/">博客</a>
-                                </li>
-                            </ul>
-                        </nav>
+                    <div class="topNav" >
+                        <ul class="topNav-ul">
+                            <li class="topNav-li actived">就是我</li>
+                            <li class="topNav-li eat-more">
+                                吃吃吃吃
+                                <ul class="dropdown">
+                                    <li><a href="#"><i class="ion-social-snapchat-outline"></i>魔芋</a></li>
+                                    <li><a href="#"><i class="ion-social-reddit-outline"></i>小怪兽</a></li>
+                                    <li><a href="#"><i class="ion-social-freebsd-devil"></i>biubiu糖</a></li>
+                                </ul>
+                            </li>
+                            <li class="topNav-li">电影</li>
+                            <li class="topNav-li">逛街</li>
+                            <li class="topNav-li">前端</li>
+                            <li class="topNav-li">家庭</li>
+                            <li class="topNav-li">联系我</li>
+                        </ul>
+                        
                     </div>
                 </div>
             </header>
             @RenderBody()
         </div>
     </div>
-
-    <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script>
+    $(function () {
+        $('.topNav-ul').on('click', '.topNav-li', function () {
+            $(this).addClass("actived").siblings('li').removeClass('actived');
+            if (!$(this).hasClass('eat-more')) {
+                $('.topNav-ul .eat-more').removeClass("showdown");
+            }
+        });
+        $('.topNav-ul').on('click', '.eat-more', function (event) {
+            $(this).toggleClass("showdown");
+        });
+    });
+</script>
