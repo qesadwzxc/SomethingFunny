@@ -51,7 +51,7 @@ namespace TestConsoleApplication
             {
                 testTicketCount(redisCli[7], "D");
             });
-            Console.Read();
+            Console.ReadLine();
         }
 
         /// <summary>
@@ -59,16 +59,20 @@ namespace TestConsoleApplication
         /// </summary>
         /// <param name="rediscli">客户端</param>
         /// <param name="field">数据</param>
-        internal static void testTicketCount(RedisHelper rediscli, string field)
+        internal static void testTicketCount(RedisHelper redisCli, string field)
         {
+            if (!redisCli.Exists(field))
+            {
+                redisCli.Set(field, 0);
+            }
             for (int i = 0; i <= 99; i++)
             {
                 //这样子虽然可以实现功能，但是简单测试便知，因为并发，数据修改是有问题的
-                //k = int.Parse(rediscli.GetValueFromHash("TicketCount", field)) + 1;
-                //rediscli.SetEntryInHash("TicketCount", field, k.ToString());
+                //k = int.Parse(redisCli.GetValueFromHash("TicketCount", field)) + 1;
+                //redisCli.SetEntryInHash("TicketCount", field, k.ToString());
 
                 //下面这种方式为reids对原子性的实现
-                rediscli.IncrementValueInHash("TicketCount", field, 1);
+                redisCli.IncrementValueInHash("TicketCount", field, 1);
             }
         }
     }

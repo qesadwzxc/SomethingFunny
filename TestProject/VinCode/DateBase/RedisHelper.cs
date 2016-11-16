@@ -6,21 +6,17 @@ namespace VinCode.DateBase
 { 
     public class RedisHelper
     {
-        static readonly string host = "10.01.28.90";
+        static readonly object locker;
+        static readonly string host = "10.101.16.116";
         static readonly int port = 6379;
         static readonly string password = "";
 
-        private static RedisClient instance;
-        public static RedisClient Client
+        private RedisClient instance;
+
+        private static RedisHelper uniqueInstance;
+        public RedisHelper()
         {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new RedisClient(host, port, password);
-                }
-                return instance;
-            }
+            instance = new RedisClient(host, port, password);
         }
 
         ~RedisHelper()
@@ -70,6 +66,11 @@ namespace VinCode.DateBase
         public void FlushAll()
         {
             instance.FlushAll();
+        }
+
+        public void Incr(string key)
+        {
+            instance.IncrBy(key, 1);
         }
 
         public string GetValueFromHash(string hashID, string key)
