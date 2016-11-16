@@ -139,6 +139,7 @@
         border-bottom: 1px solid #f2f2f2;
     }
 
+    /*隔行换色*/
     .zebra .alternate,
     .zebra tbody tr:nth-child(even) {
         background: #f5f5f5;
@@ -191,6 +192,33 @@
         -webkit-border-radius: 0 0 6px 0;
         border-radius: 0 0 6px 0;
     }
+
+    /*checkbox使用*/
+    .content_right table input{
+        display:none;
+    }
+    .content_right table i {
+        color: #ccc;
+        font-size:18px;
+    }
+    .ion-android-checkbox-outline {
+        color: #139ae8 !important;
+    }
+
+    /*折叠展示效果*/
+    .hide-line {
+        background-color: #CCCCCC;
+    }
+    .hide-line:hover {
+        background: #FFCCCC;
+    }
+    .hide-line span {
+        color: #ccc;
+        font-size: 18px;        
+    }
+    .show-line {
+        background-color: #FFCCCC;
+    }
 </style>
 
 <div style="width:100%;clear:both;">
@@ -211,8 +239,9 @@
             @*class="zebra"*@
             <thead>
                 <tr>
-                    <th>
-                        checkbox
+                    <th class="checkAll">
+                        <i class="ion-android-checkbox-outline-blank"></i>
+                        <input type="checkbox"/>
                     </th>
                     <th>列1</th>
                     <th>列2</th>
@@ -223,7 +252,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>checkbox</td>
+                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -231,7 +260,7 @@
                     <td>5</td>
                 </tr>
                 <tr>
-                    <td>checkbox</td>
+                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -239,7 +268,28 @@
                     <td>5</td>
                 </tr>
                 <tr>
-                    <td>checkbox</td>
+                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                @*此处可以折叠*@
+                <tr class="hide-line show-line" id="row_01">
+                    <td class="checkChild"><span class="ion-android-remove"></span><input type="checkbox" /></td>
+                    <td colspan="5">点我呀，点我就隐藏</td>
+                </tr>
+                <tr class="child-line_row_01">
+                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr class="child-line_row_01">
+                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -247,7 +297,7 @@
                     <td>5</td>
                 </tr>
                 <tr>
-                    <td>checkbox</td>
+                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -256,14 +306,12 @@
                 </tr>
             </tbody>
         </table>
-
-        <div class="picture_rotation">
-
-        </div>
+        
     </div>
-    <div>
-        aaaa
+    <div class="picture_rotation">
+
     </div>
+  
 </div>
 
 <script src="~/Scripts/jquery.min.js"></script>
@@ -283,6 +331,59 @@
             alert("i");
             e.stopPropagation();
         })
+
+        //绑定checkbox事件        
+        CheckInit();
+
+        //折叠事件
+        $(".hide-line").on("click", function (event) {
+            $(this).toggleClass("show-line").siblings(".child-line_" + this.id).toggle();
+            $(this).children().find("span").toggleClass("ion-android-remove");
+            $(this).children().find("span").toggleClass("ion-android-add");
+            event.stopPropagation;
+        })
     });
+
+
+    var CheckInit = function () {
+        var $checkAll = $('.checkAll').find("i"),
+            $checkAllInput = $('.checkAll').find("input"),
+            $checkChild = $('.checkChild').find("i"),
+            $checkChildInput = $('.checkChild').find("input");
+
+        $("table i").on("click", function (event) {
+            $(this).toggleClass("ion-android-checkbox-outline-blank");
+            $(this).toggleClass("ion-android-checkbox-outline");
+            if ($(this).hasClass("ion-android-checkbox-outline")) {
+                $($(this).next()).prop('checked', true);
+            }
+            else {
+                $($(this).next()).prop('checked', false);
+            }
+            event.stopPropagation;
+        });
+        $checkAll.on('click', function () {
+            if ($(this).hasClass("ion-android-checkbox-outline")) {
+                $checkAllInput.checked = true;
+                $checkChildInput.prop('checked', true);
+                $checkChild.removeClass("ion-android-checkbox-outline-blank").addClass("ion-android-checkbox-outline");
+            } else {
+                $checkAllInput.checked = false;
+                $checkChildInput.prop('checked', false);
+                $checkChild.removeClass("ion-android-checkbox-outline").addClass("ion-android-checkbox-outline-blank");
+            }
+        });
+        $checkChild.on('click', function (event) {
+            $checkAllInput.prop('checked', $checkChildInput.length == $checkChildInput.filter(":checked").length);  
+            if ($checkAllInput[0].checked) {
+                $checkAll.removeClass("ion-android-checkbox-outline-blank").addClass("ion-android-checkbox-outline");
+            } else {
+                $checkAll.removeClass("ion-android-checkbox-outline").addClass("ion-android-checkbox-outline-blank");
+            }
+            event.stopPropagation;
+        })
+    };
+
+
 
 </script>
