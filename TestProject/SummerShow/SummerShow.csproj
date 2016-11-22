@@ -122,7 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\ionicons.min.css" />
+    <Content Include="Content\fileupload\jquery.fileupload-ui.css" />
+    <Content Include="Content\fileupload\jquery.fileupload.css" />
     <Content Include="Content\layout.css" />
     <Content Include="Content\FormSyle.css" />
     <Content Include="favicon.ico" />
@@ -131,7 +134,11 @@
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\title.jpg" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.iframe-transport.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\PrototypeAndClosures.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

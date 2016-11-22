@@ -1,231 +1,12 @@
-﻿<style type="text/css">
-    .content_left {
-        border: 1px solid #92c5e2;
-        width: 200px;
-        background-color: #9cc8e2;
-        float: left;
-        position: relative;
-        margin-right: 20px;
-        /*border-radius:5px;*/
-    }
+﻿<link href="~/Content/index.css" rel="stylesheet" />
+<link href="~/Content/fileupload/jquery.fileupload.css" rel="stylesheet" />
+<link href="~/Content/fileupload/jquery.fileupload-ui.css" rel="stylesheet" />
 
-    .content_right {
-        /*border: 1px solid #92c5e2;*/
-        /*overflow: auto; /*使div包裹在里面*/
-        max-width: 680px;
-        float: left;
-    }
-
-    .nav-left > li > i {
-        font-size: 22px;
-        color: #fff;
-        margin-right: 15px;
-        display: inline-block;
-        width: 30px;
-        -webkit-transition: all 0.2s ease-in;
-        -moz-transition: all 0.2s ease-in;
-        -ms-transition: all 0.2s ease-in;
-        -o-transition: all 0.2s ease-in;
-        transition: all 0.2s ease-in;
-    }
-
-    .nav-left > li :hover {
-        cursor: pointer;
-    }
-
-        .nav-left > li:hover span,
-        .nav-left > li:hover i {
-            color: #139ae8;
-        }
-
-    .nav-left .actived > span,
-    .nav-left .actived > i {
-        color: #139ae8;
-    }
-
-    .nav-left > li > span {
-        color: #fff;
-    }
-
-    /*表格样式*/
-    .content_right table {
-        width: 680px;
-        height: 100%;
-    }
-
-    .bordered {
-        border-collapse: initial;
-        border: solid #ccc 1px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        -webkit-box-shadow: 0 1px 1px #ccc;
-        -moz-box-shadow: 0 1px 1px #ccc;
-        box-shadow: 0 1px 1px #ccc;
-    }
-
-        .bordered tr {
-            -o-transition: all 0.1s ease-in-out;
-            -webkit-transition: all 0.1s ease-in-out;
-            -moz-transition: all 0.1s ease-in-out;
-            -ms-transition: all 0.1s ease-in-out;
-            transition: all 0.1s ease-in-out;
-        }
-
-            .bordered .highlight,
-            .bordered tr:hover {
-                background: #fbf8e9;
-            }
-
-        .bordered td,
-        .bordered th {
-            border-left: 1px solid #ccc;
-            border-top: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .bordered th {
-            background-color: #dce9f9;
-            /*线性渐变*/
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
-            background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image: -moz-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image: -ms-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image: -o-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image: linear-gradient(top, #ebf3fc, #dce9f9);
-            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ebf3fc, endColorstr=#dce9f9);
-            -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#ebf3fc, endColorstr=#dce9f9)";
-            -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-            -moz-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-            box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-            border-top: none;
-            text-shadow: 0 1px 0 rgba(255,255,255,.5);
-        }
-
-            .bordered td:first-child,
-            .bordered th:first-child {
-                border-left: none;
-            }
-
-            .bordered th:first-child {
-                -moz-border-radius: 6px 0 0 0;
-                -webkit-border-radius: 6px 0 0 0;
-                border-radius: 6px 0 0 0;
-            }
-
-            .bordered th:last-child {
-                -moz-border-radius: 0 6px 0 0;
-                -webkit-border-radius: 0 6px 0 0;
-                border-radius: 0 6px 0 0;
-            }
-
-        .bordered tr:last-child td:first-child {
-            -moz-border-radius: 0 0 0 6px;
-            -webkit-border-radius: 0 0 0 6px;
-            border-radius: 0 0 0 6px;
-        }
-
-        .bordered tr:last-child td:last-child {
-            -moz-border-radius: 0 0 6px 0;
-            -webkit-border-radius: 0 0 6px 0;
-            border-radius: 0 0 6px 0;
-        }
-
-    /*斑马表格*/
-    .zebra td,
-    .zebra th {
-        padding: 10px;
-        border-bottom: 1px solid #f2f2f2;
-    }
-
-    /*隔行换色*/
-    .zebra .alternate,
-    .zebra tbody tr:nth-child(even) {
-        background: #f5f5f5;
-        -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-        -moz-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-        box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-    }
-
-    .zebra th {
-        text-align: left;
-        text-shadow: 0 1px 0 rgba(255,255,255,.5);
-        border-bottom: 1px solid #ccc;
-        background-color: #eee;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
-        background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
-        background-image: -moz-linear-gradient(top, #f5f5f5, #eee);
-        background-image: -ms-linear-gradient(top, #f5f5f5, #eee);
-        background-image: -o-linear-gradient(top, #f5f5f5, #eee);
-        background-image: linear-gradient(top, #f5f5f5, #eee);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#f5f5f5, endColorstr=#eeeeee);
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#f5f5f5, endColorstr=#eeeeee)";
-    }
-
-    .zebra th:first-child {
-        -moz-border-radius: 6px 0 0 0;
-        -webkit-border-radius: 6px 0 0 0;
-        border-radius: 6px 0 0 0;
-    }
-
-    .zebra th:last-child {
-        -moz-border-radius: 0 6px 0 0;
-        -webkit-border-radius: 0 6px 0 0;
-        border-radius: 0 6px 0 0;
-    }
-
-    .zebra tfoot td {
-        border-bottom: 0;
-        border-top: 1px solid #fff;
-        background-color: #f1f1f1;
-    }
-
-    .zebra tfoot td:first-child {
-        -moz-border-radius: 0 0 0 6px;
-        -webkit-border-radius: 0 0 0 6px;
-        border-radius: 0 0 0 6px;
-    }
-
-    .zebra tfoot td:last-child {
-        -moz-border-radius: 0 0 6px 0;
-        -webkit-border-radius: 0 0 6px 0;
-        border-radius: 0 0 6px 0;
-    }
-
-    /*checkbox使用*/
-    .content_right table input{
-        display:none;
-    }
-    .content_right table i {
-        color: #ccc;
-        font-size:18px;
-    }
-    .ion-android-checkbox-outline {
-        color: #139ae8 !important;
-    }
-
-    /*折叠展示效果*/
-    .hide-line {
-        background-color: #CCCCCC;
-    }
-    .hide-line:hover {
-        background: #FFCCCC;
-    }
-    .hide-line span {
-        color: #ccc;
-        font-size: 18px;        
-    }
-    .show-line {
-        background-color: #FFCCCC;
-    }
-</style>
-
-<div style="width:100%;clear:both;">
+<div class="content">
     <div class="content_left">
         <ul class="nav-left">
-            <li class="actived"><i class="ion-android-happy"></i><span>就是我</span></li>
-            <li><i class="ion-android-restaurant"></i><span>吃吃吃吃</span></li>
+            <li class="actived"><i class="ion-android-happy"></i><span>表格展示</span></li>
+            <li><i class="ion-android-restaurant"></i><span>多图片上传</span></li>
             <li><i class="ion-android-film"></i><span>电影</span></li>
             <li><i class="ion-android-cart"></i><span>逛街</span></li>
             <li><i class="ion-ios-monitor"></i><span>工作</span></li>
@@ -241,7 +22,7 @@
                 <tr>
                     <th class="checkAll">
                         <i class="ion-android-checkbox-outline-blank"></i>
-                        <input type="checkbox"/>
+                        <input type="checkbox" />
                     </th>
                     <th>列1</th>
                     <th>列2</th>
@@ -267,28 +48,17 @@
                     <td>4</td>
                     <td>5</td>
                 </tr>
-                <tr>
-                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                </tr>
+
                 @*此处可以折叠*@
                 <tr class="hide-line show-line" id="row_01">
                     <td class="checkChild"><span class="ion-android-remove"></span><input type="checkbox" /></td>
                     <td colspan="5">点我呀，点我就隐藏</td>
                 </tr>
                 <tr class="child-line_row_01">
-                    <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
+                    @*<td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>*@
+                    <td colspan="6">哎呀~我不想被你看见</td>
                 </tr>
-                <tr class="child-line_row_01">
+                <tr>
                     <td class="checkChild"><i class="ion-android-checkbox-outline-blank"></i><input type="checkbox" /></td>
                     <td>1</td>
                     <td>2</td>
@@ -306,15 +76,50 @@
                 </tr>
             </tbody>
         </table>
-        
+        <div class="picture_rotation">            
+            <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+                <div class="row fileupload-buttonbar">
+                    <div class="col-lg-12">
+                        <span class="btn btn-success fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>选择文件</span>
+                            <input type="file" name="files[]" multiple="">
+                        </span>
+                        <button type="submit" class="btn btn-primary start">
+                            <i class="glyphicon glyphicon-upload"></i>
+                            <span>开始上传</span>
+                        </button>
+                        <button type="reset" class="btn btn-warning cancel">
+                            <i class="glyphicon glyphicon-ban-circle"></i>
+                            <span>取消上传</span>
+                        </button>
+                        <button type="button" class="btn btn-danger delete">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span>删除</span>
+                        </button>
+                        <input type="checkbox" class="toggle">
+                        <span class="fileupload-process"></span>
+                    </div>
+                    <div class="col-lg-5 fileupload-progress fade">
+                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                        </div>
+                        <div class="progress-extended">&nbsp;</div>
+                    </div>
+                </div>
+                <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+            </form>
+        </div>
     </div>
-    <div class="picture_rotation">
+    <div style="clear:both;"></div>
 
-    </div>
-  
 </div>
 
 <script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/jquery.fileupload-ui.js"></script>
+<script src="~/Scripts/jquery.fileupload.js"></script>
+<script src="~/Scripts/jquery.iframe-transport.js"></script>
+
 <script>
     $(function () {
         //$(".nav").append("<li><a class=\"ion-ios-rose\" href=\"javascript:void(0);\"></a><span>联系我</span></li>");
@@ -384,6 +189,47 @@
         })
     };
 
-
-
+    //图片操作
+    $("#fileupload").fileupload({
+        dataType: 'json',
+        add: function (e, data) {
+            var numItems = $('.files .images_zone').length;
+            if (numItems >= 10) {
+                alert('提交照片不能超过3张');
+                return false;
+            }
+            $('.up_progress .progress-bar').css('width', '0px');
+            $('.up_progress').show();
+            $('.up_progress .progress-bar').html('Uploading...');
+            data.submit();
+        },
+        done: function (e, data) {
+            $('.up_progress').hide();
+            $('.upl').remove();
+            var d = data.result;
+            if (d.status == 0) {
+                alert("上传失败");
+            } else {
+                var imgshow = '<div class="images_zone"><input type="hidden" name="imgs[]" value="' + d.msg + '" /><span><img src="' + d.msg + '"  /></span><a href="javascript:;">删除</a></div>';
+                jQuery('.files').append(imgshow);
+            }
+        },
+        progressall: function (e, data) {
+            console.log(data);
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('.up_progress .progress-bar').css('width', progress + '%');
+        }
+    });
+    //图片删除
+    $('.files').on({
+        mouseenter: function () {
+            $(this).find('a').show();
+        },
+        mouseleave: function () {
+            $(this).find('a').hide();
+        },
+    }, '.images_zone');
+    $('.files').on('click', '.images_zone a', function () {
+        $(this).parent().remove();
+    });
 </script>
