@@ -144,6 +144,8 @@
     <Content Include="Scripts\pictureUpload.js" />
     <Content Include="Scripts\PrototypeAndClosures.js" />
     <Content Include="Scripts\three.js" />
+    <Content Include="Views\HtmlPage1.html" />
+    <Content Include="Views\square-to-circle.html" />
     <Content Include="Views\test\aaaa.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

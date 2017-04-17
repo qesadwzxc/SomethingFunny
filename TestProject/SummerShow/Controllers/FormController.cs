@@ -32,5 +32,14 @@ namespace SummerShow.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 响应式布局
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult MediasLayout()
+        {
+            return View();
+        }
     }
 }

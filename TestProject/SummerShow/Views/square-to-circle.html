@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body kdmzload="1" data-pinterest-extension-installed="cr2.0.5">
+    <div>
+
+    </div>
+
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            background-color: coral;
+            -webkit-animation: square-to-circle 2s .5s infinite cubic-bezier(1,.015,.295,1.225) alternate;
+        }
+
+        @-webkit-keyframes square-to-circle {
+            0% {
+                border-radius: 0 0 0 0;
+                background: coral;
+                transform: rotate(0deg);
+            }
+
+            25% {
+                border-radius: 50% 0 0 0;
+                background: darksalmon;
+                transform: rotate(45deg);
+            }
+
+            50% {
+                border-radius: 50% 50% 0 0;
+                background: indianred;
+                transform: rotate(90deg);
+            }
+
+            75% {
+                border-radius: 50% 50% 50% 0;
+                background: lightcoral;
+                transform: rotate(135deg);
+            }
+
+            100% {
+                border-radius: 50%;
+                background: darksalmon;
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+</body>
+</html>
