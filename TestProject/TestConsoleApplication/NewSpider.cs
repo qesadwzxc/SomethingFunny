@@ -102,6 +102,81 @@ namespace TestConsoleApplication
         }
 
         /// <summary>
+        /// chinaZ
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="round"></param>
+        public static async void Test5(int start, int round)
+        {
+            //http://http://pic.chinaz.com/thumb/
+        }
+
+        /// <summary>
+        /// yxgames
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="round"></param>
+        public static async void Test6()
+        {
+            for (int i = 29; i <= 29; i++)
+            {
+                var rootUrl = $"http://www.yxgames.com/album/{i}.html";
+                var rootHtml = HttpHelper.Get(rootUrl);//HttpHelper.Get(rootUrl, proxy: ProxyPool.GetProxy());
+
+                await Task.Run(() => FormatHtml.TopicFormat3(rootHtml));
+                //var topic = await FormatHtml.TopicFormat(rootHtml);
+                //暂时去掉这边的文字输出，太乱了
+                //try
+                //{
+                //    Console.WriteLine($"{j}\t{topic.Title}");
+                //}
+                //catch (Exception ex)
+                //{
+                //    Console.Write("error\r\n" + ex);
+                //}
+                Thread.Sleep(rand.Next(100, 200));
+            }
+        }
+
+        /// <summary>
+        /// k73
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="round"></param>
+        public static async void Test7(int start, int round)
+        {
+            //http://www.k73.com/pic/mv/list-54-1.html
+        }
+
+        /// <summary>
+        /// 3dmgame
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="round"></param>
+        public static async void Test8(List<string> urlList)
+        {
+            foreach (string url in urlList)
+            {
+                var rootHtml = HttpHelper.Get(url);
+                string host = url.Substring(0, url.LastIndexOf('/') + 1);
+                await Task.Run(() => FormatHtml.TopicFormat4(rootHtml, host));
+            }
+        }
+
+        /// <summary>
+        /// www.queenshow.org
+        /// </summary>
+        /// <param name="urlList"></param>
+        public static async void Test9(List<string> urlList)
+        {
+            foreach (string url in urlList)
+            {
+                var rootHtml = HttpHelper.Get(url, 10000);
+                await Task.Run(() => FormatHtml.TopicFormat5(rootHtml));
+            }
+        }
+
+        /// <summary>
         /// 获取待下载链接
         /// </summary>
         /// <param name="start">起始数字</param>

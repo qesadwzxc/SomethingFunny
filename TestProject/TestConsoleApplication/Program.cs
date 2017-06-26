@@ -8,6 +8,11 @@ using System.Data;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using TestConsoleApplication.DesignPettern;
+using System.Windows.Forms;
+using System.Threading;
+using System.Web;
+using System.Threading.Tasks;
+using Autofac;
 
 namespace TestConsoleApplication
 {
@@ -632,9 +637,85 @@ namespace TestConsoleApplication
             //c.Run();
             //Console.Read();
 
-            List<string> s = new List<string>() { };
-            Spider.FormatHtml.DownloadPic("lmlmwj", s);
-            Console.ReadLine();
+            //while (true)
+            //{
+            //    List<string> s = new List<string>() { };
+            //    string pattern = Clipboard.GetText();
+            //    if (pattern != null && pattern != string.Empty)
+            //    {
+            //        string round = Console.ReadLine();
+            //        for (int i = Convert.ToInt32(round); i > 0; i--)
+            //        {
+            //            if (i < 10)
+            //            {
+            //                s.Add(string.Format(HttpUtility.UrlDecode(pattern), "0" + i));
+            //            }
+            //            else
+            //            {
+            //                s.Add(string.Format(HttpUtility.UrlDecode(pattern), i));
+            //            }
+            //        }
+            //        Spider.FormatHtml.DownloadPic("lmlmwj", s);
+            //        Console.ReadLine();
+            //    }
+            //    Thread.Sleep(1000);
+            //}
+
+            //Console.WriteLine("Start!");
+            //List<string> url = new List<string>() {
+            //    "https://www.queenshow.org/detailnew/169/36482.html",
+            //    "https://www.queenshow.org/detailnew/170/54075.html",
+            //};
+            //NewSpider.Test9(url);
+
+            ////获取List<T>中T的类型
+            //Console.WriteLine("Start!");
+            //Queue<string> url = new Queue<string>();
+            //var inters = url.GetType().GetInterfaces();
+            //if (inters.Length > 0)
+            //{
+            //    var ts = inters[0].GetGenericArguments();
+            //    foreach (var t in ts)
+            //    {
+            //        Console.WriteLine(t.Name);
+            //    }
+            //}
+            Console.Read();
+        }
+
+        public static List<int[]> TwoSum(int[] nums, int target)
+        {
+            List<int[]> solveList = new List<int[]>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = i + 1; j < nums.Length; j++)
+                {
+                    if (nums[i] + nums[j] == target)
+                    {
+                        solveList.Add(new int[] { i, j });
+                    }
+                }
+            }
+            return solveList;
+        }
+
+        public static int[] TwoSum2(int[] nums, int target)
+        {
+            Dictionary<int, int> tracker = new Dictionary<int, int>();
+            int len = nums.Length;
+            for (int i = 0; i < len; i++)
+            {
+                if (tracker.ContainsKey(nums[i]))
+                {
+                    int left = tracker[nums[i]];
+                    return new int[] { left + 1, i + 1 };
+                }
+                else
+                {
+                    tracker[target - nums[i]] = i;
+                }
+            }
+            return new int[2];
         }
 
         public static int Puzzle(string s)

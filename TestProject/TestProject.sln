@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{70D22B86-4FB4-4F48-B7C8-A2A535FFAC73}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeklyReportService", "WeeklyReportService\WeeklyReportService.csproj", "{01CE4176-653B-4849-B143-CDE005253DCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerShow", "SummerShow\SummerShow.csproj", "{5C9F485A-771C-4C15-9748-5AFBAC16C251}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFImageViewer", "WPFImageViewer\WPFImageViewer\WPFImageViewer.csproj", "{1E414A9B-1B05-451E-B64B-FD62F38564D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{5C9F485A-771C-4C15-9748-5AFBAC16C251}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C9F485A-771C-4C15-9748-5AFBAC16C251}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C9F485A-771C-4C15-9748-5AFBAC16C251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E414A9B-1B05-451E-B64B-FD62F38564D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E414A9B-1B05-451E-B64B-FD62F38564D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E414A9B-1B05-451E-B64B-FD62F38564D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E414A9B-1B05-451E-B64B-FD62F38564D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

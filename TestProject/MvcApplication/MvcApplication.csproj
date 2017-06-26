@@ -199,6 +199,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MutiButtonController.cs" />
+    <Compile Include="Controllers\RedisController.cs" />
     <Compile Include="Controllers\ScoketServerController.cs" />
     <Compile Include="DAL\BaseData.cs" />
     <Compile Include="Global.asax.cs">
@@ -284,6 +285,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Redis\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

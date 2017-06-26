@@ -4,12 +4,14 @@ using System.IO.Compression;
 using System.Net;
 using System.Text;
 using System.Threading;
+using VinCode;
 
 namespace TestConsoleApplication.Spider
 {
     public static class HttpHelper
     {
         static Random _rand = new Random();
+        private static object objLock = "";
 
         public static string Get(string url, int timeout = 1000, int retry = 3, string referer = null, WebProxy proxy = null)
         {
@@ -30,7 +32,7 @@ namespace TestConsoleApplication.Spider
                 request.Headers.Add("Accept-Encoding", "gzip,deflate");
                 request.Accept = "text/plain, */*; q=0.01";
                 request.Host = new Uri(url).Host;
-                request.Referer = referer ?? "http://www.douban.com/group/asshole/discussion?start=0";
+                //request.Referer = referer ?? "http://www.douban.com/group/asshole/discussion?start=0";
                 var appleKitVersion = $"{ _rand.Next(477, 548)}.{_rand.Next(23, 40)}";
                 request.UserAgent = $"Mozilla/5.0 (Windows NT {_rand.Next(4, 7)}.1) AppleWebKit/{appleKitVersion} (KHTML, like Gecko) Maxthon/4.0 Chrome/30.0.1599.101 Safari/{appleKitVersion}";
 
@@ -48,6 +50,10 @@ namespace TestConsoleApplication.Spider
                     //    Console.Write($"Porxy:{proxy.Address}\t");
                     Console.WriteLine(ex.Message);
                 }
+            }
+            lock (objLock)
+            {
+                LogHelper.Write($"HttpGetFailure:{url}", "请求失败", "AutoImageSpider");
             }
             return string.Empty;
 

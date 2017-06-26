@@ -101,6 +101,81 @@ namespace TestConsoleApplication.Spider
             }
         }
 
+        public static Topic TopicFormat3(CQ dom)
+        {
+            List<string> listImgUrl = new List<string>();
+            Topic topic = new Topic();
+            var top = dom["h2"].Eq(3);
+            topic.Title = top.Text();
+            var imgList = dom["a"];
+            foreach (var img in imgList)
+            {
+                if (img.Attributes["class"] == "bb")
+                {
+                    listImgUrl.Add(img.Attributes.GetAttribute("href"));
+                }
+            }
+            DownloadPic(topic.Title, listImgUrl);
+            topic.ContentImageUrl = listImgUrl;
+            return topic;
+        }
+
+        public static Topic TopicFormat4(CQ dom, string host)
+        {
+
+            List<string> listImgUrl = new List<string>();
+            Topic topic = new Topic();
+            var top = dom["h1"].Eq(0);
+            topic.Title = top.Text();
+
+            List<string> pageUrl = new List<string>();
+            var pageList = dom["div[class='pagelistbox']"].Eq(0).Children("a");
+
+            foreach (var img in dom["img"])
+            {
+                if (img.Attributes["src"].Contains("_lit"))
+                {
+                    listImgUrl.Add(img.Attributes.GetAttribute("src").Replace("_lit.", "."));
+                }
+            }
+            foreach (var page in pageList)
+            {
+                CQ pageDom = HttpHelper.Get(host + page.Attributes.GetAttribute("href"));
+                foreach (var img in pageDom["img"])
+                {
+                    if (img.Attributes["src"].Contains("_lit"))
+                    {
+                        listImgUrl.Add(img.Attributes.GetAttribute("src").Replace("_lit.", "."));
+                    }
+                }
+            }
+            DownloadPic(topic.Title, listImgUrl);
+            topic.ContentImageUrl = listImgUrl;
+            return topic;
+        }
+
+        public static Topic TopicFormat5(CQ dom)
+        {
+
+            List<string> listImgUrl = new List<string>();
+            Topic topic = new Topic();
+            var top = dom[".detailtitle"].Eq(0);
+            topic.Title = top.Text();
+
+            List<string> pageUrl = new List<string>();
+            var pageList = dom[".areaalbum"].Eq(0).Find("img");
+            foreach (var page in pageList)
+            {
+                if (page.Attributes["src"].Contains("/small/"))
+                {
+                    listImgUrl.Add("http://www.queenshow.org" + page.Attributes.GetAttribute("src").Replace("/small/", "/big/"));
+                }
+            }
+            DownloadPic(topic.Title, listImgUrl);
+            topic.ContentImageUrl = listImgUrl;
+            return topic;
+        }
+
         public static List<string> GetRootDom()
         {
             List<string> firstListUrl = new List<string>();
