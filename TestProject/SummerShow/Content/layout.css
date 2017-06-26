@@ -17,6 +17,9 @@
     box-sizing:border-box;
     background-color:#fff;
     overflow:hidden;
+    /*使用flex-box布局*/
+    display:flexbox;
+    flex-direction:column;
 }
 
 .logoWrapper,

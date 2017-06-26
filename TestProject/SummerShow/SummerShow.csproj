@@ -115,14 +115,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FormController.cs" />
+    <Compile Include="Controllers\PictureUploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animation.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\ionicons.min.css" />
+    <Content Include="Content\fileupload\jquery.fileupload-ui.css" />
+    <Content Include="Content\fileupload\jquery.fileupload.css" />
     <Content Include="Content\layout.css" />
     <Content Include="Content\FormSyle.css" />
     <Content Include="favicon.ico" />
@@ -130,8 +135,18 @@
     <Content Include="Images\bkg-001.jpg" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\title.jpg" />
+    <Content Include="Scripts\actionScope.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.iframe-transport.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\pictureUpload.js" />
+    <Content Include="Scripts\PrototypeAndClosures.js" />
+    <Content Include="Scripts\three.js" />
+    <Content Include="Views\HtmlPage1.html" />
+    <Content Include="Views\square-to-circle.html" />
+    <Content Include="Views\test\aaaa.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -169,6 +184,18 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PictureUpload\PictureUploadView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Form\CanvasShow.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Form\AnimationView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Form\ThreeJS.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
