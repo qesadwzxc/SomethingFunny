@@ -680,7 +680,16 @@ namespace TestConsoleApplication
             //        Console.WriteLine(t.Name);
             //    }
             //}
+            List<string> a = new List<string>() { "a" };
+            Console.WriteLine(a[0]);
+            ChangeString(a);
+            Console.WriteLine(a[0]);
             Console.Read();
+        }
+
+        public static void ChangeString(List<string> a)
+        {
+            a[0] = "changed";
         }
 
         public static List<int[]> TwoSum(int[] nums, int target)
