@@ -94,6 +94,7 @@
     <Compile Include="DateBase\RedisHelper.cs" />
     <Compile Include="DateBase\SqlHelper.cs" />
     <Compile Include="DateBase\MySqlHelper.cs" />
+    <Compile Include="DateBase\XmlHelper.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="LogHelper.cs" />

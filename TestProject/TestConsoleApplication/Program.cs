@@ -13,6 +13,7 @@ using System.Threading;
 using System.Web;
 using System.Threading.Tasks;
 using Autofac;
+using System.Xml;
 
 namespace TestConsoleApplication
 {
@@ -680,10 +681,14 @@ namespace TestConsoleApplication
             //        Console.WriteLine(t.Name);
             //    }
             //}
-            List<string> a = new List<string>() { "a" };
-            Console.WriteLine(a[0]);
-            ChangeString(a);
-            Console.WriteLine(a[0]);
+
+            //List<string> a = new List<string>() { "a" };
+            //Console.WriteLine(a[0]);
+            //ChangeString(a);
+            //Console.WriteLine(a[0]);
+
+            string xml = "<root><Row> <TEST_NO>20170811SX1096</TEST_NO> <TEST_DATE>2017-08-11 00:00:00</TEST_DATE> <YBH>SX1096</YBH> <REPORT_ITEM_NAME>B型钠尿肽</REPORT_ITEM_NAME> <Result>20.0000</Result> <UNITS>pg/ml</UNITS> <RESULT_DATE_TIME>2017-08-11 00:00:00</RESULT_DATE_TIME> <REFERENCE_RESULT><![CDATA[<100]]></REFERENCE_RESULT> <ABNORMAL_INDICATOR>N</ABNORMAL_INDICATOR> </Row><Row> <TEST_NO>20170811SX1096</TEST_NO> <TEST_DATE>2017-08-11 00:00:00</TEST_DATE> <YBH>SX1096</YBH> <REPORT_ITEM_NAME>B型钠尿肽</REPORT_ITEM_NAME> <Result>20.0000</Result> <UNITS>pg/ml</UNITS> <RESULT_DATE_TIME>2017-08-11 00:00:00</RESULT_DATE_TIME> <REFERENCE_RESULT><![CDATA[<100]]></REFERENCE_RESULT> <ABNORMAL_INDICATOR>N</ABNORMAL_INDICATOR> </Row> </root>";
+            var dt = GetDataTable(xml,"/root/Row");
             Console.Read();
         }
 
