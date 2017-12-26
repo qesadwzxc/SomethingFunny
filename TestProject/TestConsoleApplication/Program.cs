@@ -14,6 +14,8 @@ using System.Web;
 using System.Threading.Tasks;
 using Autofac;
 using System.Xml;
+using System.Net;
+using System.Data.SqlClient;
 
 namespace TestConsoleApplication
 {
@@ -623,53 +625,53 @@ namespace TestConsoleApplication
         //{
         //    Application.EnableVisualStyles();
         //    Application.SetCompatibleTextRenderingDefault(false);
-        //    Application.Run(new TextEditor());
+        //    Application.Run(new TestConsoleApplication.Reconder.Reconder());
         //}
 
 
         [STAThread]
         static void Main(string[] args)
         {
-            //Console.WriteLine("输入起始数和圈数");
-            //int start = Convert.ToInt32(Console.ReadLine());
-            //int round = Convert.ToInt32(Console.ReadLine());
-            //NewSpider.Test(start, round);
-            //CustomIterator c = new CustomIterator();
-            //c.Run();
-            //Console.Read();
+            //    Console.WriteLine("输入起始数和圈数");
+            //    int start = Convert.ToInt32(Console.ReadLine());
+            //    int round = Convert.ToInt32(Console.ReadLine());
+            //    NewSpider.Test(start, round);
+            //    CustomIterator c = new CustomIterator();
+            //    c.Run();
+            //    Console.Read();
 
-            //while (true)
-            //{
-            //    List<string> s = new List<string>() { };
-            //    string pattern = Clipboard.GetText();
-            //    if (pattern != null && pattern != string.Empty)
+            //    while (true)
             //    {
-            //        string round = Console.ReadLine();
-            //        for (int i = Convert.ToInt32(round); i > 0; i--)
+            //        List<string> s = new List<string>() { };
+            //        string pattern = Clipboard.GetText();
+            //        if (pattern != null && pattern != string.Empty)
             //        {
-            //            if (i < 10)
+            //            string round = Console.ReadLine();
+            //            for (int i = Convert.ToInt32(round); i > 0; i--)
             //            {
-            //                s.Add(string.Format(HttpUtility.UrlDecode(pattern), "0" + i));
+            //                if (i < 10)
+            //                {
+            //                    s.Add(string.Format(HttpUtility.UrlDecode(pattern), "0" + i));
+            //                }
+            //                else
+            //                {
+            //                    s.Add(string.Format(HttpUtility.UrlDecode(pattern), i));
+            //                }
             //            }
-            //            else
-            //            {
-            //                s.Add(string.Format(HttpUtility.UrlDecode(pattern), i));
-            //            }
+            //            Spider.FormatHtml.DownloadPic("lmlmwj", s);
+            //            Console.ReadLine();
             //        }
-            //        Spider.FormatHtml.DownloadPic("lmlmwj", s);
-            //        Console.ReadLine();
+            //        Thread.Sleep(1000);
             //    }
-            //    Thread.Sleep(1000);
-            //}
 
-            //Console.WriteLine("Start!");
-            //List<string> url = new List<string>() {
+            //    Console.WriteLine("Start!");
+            //    List<string> url = new List<string>() {
             //    "https://www.queenshow.org/detailnew/169/36482.html",
             //    "https://www.queenshow.org/detailnew/170/54075.html",
             //};
-            //NewSpider.Test9(url);
+            //    NewSpider.Test9(url);
 
-            ////获取List<T>中T的类型
+            //获取List<T>中T的类型
             //Console.WriteLine("Start!");
             //Queue<string> url = new Queue<string>();
             //var inters = url.GetType().GetInterfaces();
@@ -682,19 +684,131 @@ namespace TestConsoleApplication
             //    }
             //}
 
-            //List<string> a = new List<string>() { "a" };
-            //Console.WriteLine(a[0]);
-            //ChangeString(a);
-            //Console.WriteLine(a[0]);
+            //string picUrl = "https://pgli8n.oloadcdn.net/dl/l/52tH1K1wgfKDv7rR/qgT38BddUos/88032.mp4?mime=true";
+            //string replaceUrl = "/stream/xsKUCINoyEc~1503125875~47.89.0.0~pJyr6kif?mime=true";
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://openload.co" + replaceUrl);
+            //request.AllowAutoRedirect = false;
+            //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            //if (response.Headers["Location"] != null)
+            //{
+            //    string picUrl = response.Headers["Location"];
+            //    string fileName = picUrl.Remove(picUrl.LastIndexOf('?')).Substring(picUrl.LastIndexOf('/'));
+            //    string filePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Temp" + fileName;
+            //    WebClient client = new WebClient();
+            //    client.DownloadFile(picUrl, filePath);
+            //}
+            //Console.WriteLine("下载完成");
 
-            string xml = "<root><Row> <TEST_NO>20170811SX1096</TEST_NO> <TEST_DATE>2017-08-11 00:00:00</TEST_DATE> <YBH>SX1096</YBH> <REPORT_ITEM_NAME>B型钠尿肽</REPORT_ITEM_NAME> <Result>20.0000</Result> <UNITS>pg/ml</UNITS> <RESULT_DATE_TIME>2017-08-11 00:00:00</RESULT_DATE_TIME> <REFERENCE_RESULT><![CDATA[<100]]></REFERENCE_RESULT> <ABNORMAL_INDICATOR>N</ABNORMAL_INDICATOR> </Row><Row> <TEST_NO>20170811SX1096</TEST_NO> <TEST_DATE>2017-08-11 00:00:00</TEST_DATE> <YBH>SX1096</YBH> <REPORT_ITEM_NAME>B型钠尿肽</REPORT_ITEM_NAME> <Result>20.0000</Result> <UNITS>pg/ml</UNITS> <RESULT_DATE_TIME>2017-08-11 00:00:00</RESULT_DATE_TIME> <REFERENCE_RESULT><![CDATA[<100]]></REFERENCE_RESULT> <ABNORMAL_INDICATOR>N</ABNORMAL_INDICATOR> </Row> </root>";
-            var dt = GetDataTable(xml,"/root/Row");
+            //Parent b2 = new Child();
+            //b2.A();b2.B();
+            Child c = new Child();
+            c.C();
+            IParent d = new Child();
+            d.C();
             Console.Read();
         }
 
-        public static void ChangeString(List<string> a)
+        public class Parent
         {
-            a[0] = "changed";
+            public virtual void A() { Console.WriteLine("Parent.A"); }
+
+            public void B()
+            {
+                Console.WriteLine("Parent.B");
+            }
+        }
+
+        public interface IParent
+        {
+            void C();
+        }
+
+        public class Child : Parent, IParent
+        {
+            public override void A()
+            {
+                Console.WriteLine("Child.A");
+            }
+
+            public new void B()
+            {
+                Console.WriteLine("Child.B");
+            }
+
+            public void C()
+            {
+                Console.WriteLine("Child.C");
+            }
+
+            void IParent.C()
+            {
+                Console.WriteLine("IParent.C");
+            }
+        }
+
+        private static int StringToInt(string str)
+        {
+            int result = 0;
+            if (Regex.IsMatch(str, @"^-?[0-9]\d*"))
+            {
+                bool isNegative = false;
+                if (str.IndexOf('-') != -1)
+                {
+                    str = str.Substring(1);
+                    isNegative = true;
+                }
+                for (int i = 0; i < str.Length; i++)
+                {
+                    result = result * 10 + (str[i] - '0');
+                }
+                result = isNegative ? result * -1 : result;
+            }
+            return result;
+        }
+
+        public static void PrintNum()
+        {
+            int num = 1, round = int.MinValue + 100;
+            try
+            {
+                Print(num, round);
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("End!");
+                return;
+            }
+            Console.Read();
+
+            void Print(int n, int r)
+            {
+                round = checked(round - 1);
+                Console.WriteLine(num);
+                num++;
+                Print(num, round);
+            }
+        }
+
+        public static void ShowTable(DataTable dt)
+        {
+            string show = string.Empty;
+            if (dt != null)
+            {
+                foreach (DataColumn col in dt.Columns)
+                {
+                    show += col.ColumnName + "  ";
+                }
+                show += "\n";
+                foreach (DataRow row in dt.Rows)
+                {
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        show += row[i] + " ";
+                    }
+                    show += "\n";
+                }
+                Console.WriteLine(show);
+            }
         }
 
         public static List<int[]> TwoSum(int[] nums, int target)

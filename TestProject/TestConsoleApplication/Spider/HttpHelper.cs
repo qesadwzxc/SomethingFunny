@@ -59,7 +59,7 @@ namespace TestConsoleApplication.Spider
 
         }
 
-        private static string GetResponseBody(HttpWebResponse response)
+        public static string GetResponseBody(HttpWebResponse response)
         {
 
             string responseBody = string.Empty;

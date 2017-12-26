@@ -14,10 +14,9 @@ namespace TestConsoleApplication
                 NativeMethods.Beep(Convert.ToInt32(item), 500);
                 //Console.ReadLine();
                 //Console.Read();
-                //MessageBeep(0x00000010);
-
+                //NativeMethods.MessageBeep(0x00000010);
             }
-            NativeMethods.PlaySound(@"e:/Music/login.wav", 0, 1);
+            //NativeMethods.PlaySound(@"e:/Music/login.wav", 0, 1);
 
             Console.Read();
         }

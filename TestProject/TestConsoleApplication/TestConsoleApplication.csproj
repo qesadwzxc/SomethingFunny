@@ -32,7 +32,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -80,6 +80,15 @@
     <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.DirectX">
+      <HintPath>..\dll\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.AudioVideoPlayback">
+      <HintPath>..\dll\Microsoft.DirectX.AudioVideoPlayback.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectSound">
+      <HintPath>..\dll\Microsoft.DirectX.DirectSound.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
@@ -148,6 +157,28 @@
       <DependentUpon>GluttonousSnake.cs</DependentUpon>
     </Compile>
     <Compile Include="PracticeTaskBarIcon.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reconder\playwav.cs" />
+    <Compile Include="Reconder\Reconder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reconder\Reconder.Designer.cs">
+      <DependentUpon>Reconder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reconder\SmSound.cs" />
+    <Compile Include="Reconder\SoundRecord.cs" />
+    <Compile Include="Reconder\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reconder\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reconder\wav.cs" />
+    <Compile Include="Reconder\wavfileplayer.cs" />
     <Compile Include="TestBeepFunc.cs" />
     <Compile Include="CodeTimer.cs" />
     <Compile Include="TestConsoleProgress.cs" />
@@ -174,7 +205,8 @@
     <Compile Include="SendMail.Designer.cs">
       <DependentUpon>SendMail.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestMultiThread.cs" />
+    <Compile Include="Threads\TCountdownEvent.cs" />
+    <Compile Include="Threads\TException.cs" />
     <Compile Include="TestSort.cs" />
     <Compile Include="Spider\ActionScheduler.cs" />
     <Compile Include="Spider\FormatHtml.cs" />
@@ -184,6 +216,14 @@
     <Compile Include="Spider\ProxyPool.cs" />
     <Compile Include="Spider\Model\Topic.cs" />
     <Compile Include="TestSystemInfo.cs" />
+    <Compile Include="Threads\TBarrier.cs" />
+    <Compile Include="Threads\TSemaphore.cs" />
+    <Compile Include="VinBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VinBrowser.Designer.cs">
+      <DependentUpon>VinBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +239,19 @@
   <ItemGroup>
     <EmbeddedResource Include="GluttonousSnake.resx">
       <DependentUpon>GluttonousSnake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reconder\Reconder.resx">
+      <DependentUpon>Reconder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reconder\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VinBrowser.resx">
+      <DependentUpon>VinBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
@@ -221,6 +274,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\声音对比_1.png" />
+    <None Include="Resources\stop.jpg" />
+    <None Include="Resources\rec.jpg" />
+    <None Include="Resources\play.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
