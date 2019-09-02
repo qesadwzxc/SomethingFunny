@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Data;
@@ -25,7 +25,7 @@ namespace VinCode.DateBase
         {
             if (string.IsNullOrWhiteSpace(connString))
             {
-                throw new Exception("»ñÈ¡sqlÁ¬½Ó×Ö·û´®Ê§°Ü");
+                throw new Exception("è·å–sqlè¿æ¥å­—ç¬¦ä¸²å¤±è´¥");
             }
             try
             {
@@ -66,10 +66,10 @@ namespace VinCode.DateBase
         }
         #endregion
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯½á¹ûµÚÒ»ĞĞµÚÒ»ÁĞ
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢ç»“æœç¬¬ä¸€è¡Œç¬¬ä¸€åˆ—
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public object ExecuteScalar(string commandString, SqlTransaction trans = null)
         {
@@ -77,11 +77,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯½á¹ûµÚÒ»ĞĞµÚÒ»ÁĞ
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢ç»“æœç¬¬ä¸€è¡Œç¬¬ä¸€åˆ—
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="param">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="param">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public object ExecuteScalar(string commandString, SqlParameter param, SqlTransaction trans = null)
         {
@@ -91,11 +91,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯½á¹ûµÚÒ»ĞĞµÚÒ»ÁĞ
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢ç»“æœç¬¬ä¸€è¡Œç¬¬ä¸€åˆ—
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="paramList">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="paramList">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public object ExecuteScalar(string commandString, List<SqlParameter> paramList, SqlTransaction trans = null)
         {
@@ -116,10 +116,10 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯½á¹ûµÚÒ»ĞĞµÚÒ»ÁĞ(ÊıÖµÀàĞÍ)
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢ç»“æœç¬¬ä¸€è¡Œç¬¬ä¸€åˆ—(æ•°å€¼ç±»å‹)
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteScalarByInt(string commandString, SqlTransaction trans = null)
         {
@@ -127,11 +127,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯½á¹ûµÚÒ»ĞĞµÚÒ»ÁĞ(ÊıÖµÀàĞÍ)
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢ç»“æœç¬¬ä¸€è¡Œç¬¬ä¸€åˆ—(æ•°å€¼ç±»å‹)
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="param">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="param">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public object ExecuteScalarByInt(string commandString, SqlParameter param, SqlTransaction trans = null)
         {
@@ -141,11 +141,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯½á¹ûµÚÒ»ĞĞµÚÒ»ÁĞ(ÊıÖµÀàĞÍ)
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢ç»“æœç¬¬ä¸€è¡Œç¬¬ä¸€åˆ—(æ•°å€¼ç±»å‹)
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="paramList">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="paramList">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteScalarByInt(string commandString, List<SqlParameter> paramList, SqlTransaction trans = null)
         {
@@ -156,10 +156,10 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»ØÊÜÓ°ÏìµÄĞĞÊı
+        /// æ‰§è¡Œè¯­å¥è¿”å›å—å½±å“çš„è¡Œæ•°
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteNonQuery(string commandString, SqlTransaction trans = null)
         {
@@ -167,11 +167,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»ØÊÜÓ°ÏìµÄĞĞÊı
+        /// æ‰§è¡Œè¯­å¥è¿”å›å—å½±å“çš„è¡Œæ•°
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="param">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="param">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteNonQuery(string commandString, SqlParameter param, SqlTransaction trans = null)
         {
@@ -181,11 +181,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»ØÊÜÓ°ÏìµÄĞĞÊı
+        /// æ‰§è¡Œè¯­å¥è¿”å›å—å½±å“çš„è¡Œæ•°
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="paramList">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="paramList">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteNonQuery(string commandString, List<SqlParameter> paramList, SqlTransaction trans = null)
         {
@@ -206,10 +206,10 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯µ½µÄ±í¸ñ
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢åˆ°çš„è¡¨æ ¼
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public DataTable ExecuteReader(string commandString, SqlTransaction trans = null)
         {
@@ -217,11 +217,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯µ½µÄ±í¸ñ
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢åˆ°çš„è¡¨æ ¼
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="param">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="param">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public DataTable ExecuteReader(string commandString, SqlParameter param, SqlTransaction trans = null)
         {
@@ -231,11 +231,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä·µ»Ø²éÑ¯µ½µÄ±í¸ñ
+        /// æ‰§è¡Œè¯­å¥è¿”å›æŸ¥è¯¢åˆ°çš„è¡¨æ ¼
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="param">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="param">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public DataTable ExecuteReader(string commandString, List<SqlParameter> paramList, SqlTransaction trans = null)
         {
@@ -261,10 +261,10 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä²¢·µ»ØÖ÷¼ü£¨¶àÌõ¼ÇÂ¼·µ»Ø×îºóÒ»ÌõµÄÖ÷¼ü£©
+        /// æ‰§è¡Œè¯­å¥å¹¶è¿”å›ä¸»é”®ï¼ˆå¤šæ¡è®°å½•è¿”å›æœ€åä¸€æ¡çš„ä¸»é”®ï¼‰
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteIdentity(string commandString, SqlTransaction trans = null)
         {
@@ -272,11 +272,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä²¢·µ»ØÖ÷¼ü£¨¶àÌõ¼ÇÂ¼·µ»Ø×îºóÒ»ÌõµÄÖ÷¼ü£©
+        /// æ‰§è¡Œè¯­å¥å¹¶è¿”å›ä¸»é”®ï¼ˆå¤šæ¡è®°å½•è¿”å›æœ€åä¸€æ¡çš„ä¸»é”®ï¼‰
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="param">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="param">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteIdentity(string commandString, SqlParameter param, SqlTransaction trans = null)
         {
@@ -286,11 +286,11 @@ namespace VinCode.DateBase
         }
 
         /// <summary>
-        /// Ö´ĞĞÓï¾ä²¢·µ»ØÖ÷¼ü£¨¶àÌõ¼ÇÂ¼·µ»Ø×îºóÒ»ÌõµÄÖ÷¼ü£©
+        /// æ‰§è¡Œè¯­å¥å¹¶è¿”å›ä¸»é”®ï¼ˆå¤šæ¡è®°å½•è¿”å›æœ€åä¸€æ¡çš„ä¸»é”®ï¼‰
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="paramList">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="paramList">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         public int ExecuteIdentity(string commandString, List<SqlParameter> paramList, SqlTransaction trans = null)
         {
@@ -299,12 +299,38 @@ namespace VinCode.DateBase
             return itemInt;
         }
 
+        public void ExcuteBulkCopy(DataTable dt)
+        {
+            Errorlog = string.Empty;
+            try
+            {
+                if (string.IsNullOrEmpty(dt.TableName)) throw new Exception("è¯·ç»™DataTableçš„TableNameå±æ€§é™„ä¸Šè¡¨åç§°");
+                using (SqlBulkCopy sbc = new SqlBulkCopy(conn))
+                {
+                    sbc.BatchSize = dt.Rows.Count;
+                    sbc.BulkCopyTimeout = 10;
+                    sbc.DestinationTableName = dt.TableName;
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        sbc.ColumnMappings.Add(dt.Columns[i].ColumnName, i);
+                    }
+                    //å…¨éƒ¨å†™å…¥æ•°æ®åº“
+                    sbc.WriteToServer(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                Errorlog = ex.Message;
+                throw;
+            }
+        }
+
         /// <summary>
-        /// »ñÈ¡SQLCommand
+        /// è·å–SQLCommand
         /// </summary>
-        /// <param name="commandString">sqlÓï¾ä</param>
-        /// <param name="param">²ÎÊı</param>
-        /// <param name="trans">ÊÂÎñ</param>
+        /// <param name="commandString">sqlè¯­å¥</param>
+        /// <param name="param">å‚æ•°</param>
+        /// <param name="trans">äº‹åŠ¡</param>
         /// <returns></returns>
         private SqlCommand GetCommand(string commandString, List<SqlParameter> param, SqlTransaction trans)
         {
