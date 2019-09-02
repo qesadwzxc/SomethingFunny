@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Web;
 using System.Threading.Tasks;
-using Autofac;
 using System.Xml;
 using System.Net;
 using System.Data.SqlClient;
@@ -632,75 +631,6 @@ namespace TestConsoleApplication
         [STAThread]
         static void Main(string[] args)
         {
-            //    Console.WriteLine("输入起始数和圈数");
-            //    int start = Convert.ToInt32(Console.ReadLine());
-            //    int round = Convert.ToInt32(Console.ReadLine());
-            //    NewSpider.Test(start, round);
-            //    CustomIterator c = new CustomIterator();
-            //    c.Run();
-            //    Console.Read();
-
-            //    while (true)
-            //    {
-            //        List<string> s = new List<string>() { };
-            //        string pattern = Clipboard.GetText();
-            //        if (pattern != null && pattern != string.Empty)
-            //        {
-            //            string round = Console.ReadLine();
-            //            for (int i = Convert.ToInt32(round); i > 0; i--)
-            //            {
-            //                if (i < 10)
-            //                {
-            //                    s.Add(string.Format(HttpUtility.UrlDecode(pattern), "0" + i));
-            //                }
-            //                else
-            //                {
-            //                    s.Add(string.Format(HttpUtility.UrlDecode(pattern), i));
-            //                }
-            //            }
-            //            Spider.FormatHtml.DownloadPic("lmlmwj", s);
-            //            Console.ReadLine();
-            //        }
-            //        Thread.Sleep(1000);
-            //    }
-
-            //    Console.WriteLine("Start!");
-            //    List<string> url = new List<string>() {
-            //    "https://www.queenshow.org/detailnew/169/36482.html",
-            //    "https://www.queenshow.org/detailnew/170/54075.html",
-            //};
-            //    NewSpider.Test9(url);
-
-            //获取List<T>中T的类型
-            //Console.WriteLine("Start!");
-            //Queue<string> url = new Queue<string>();
-            //var inters = url.GetType().GetInterfaces();
-            //if (inters.Length > 0)
-            //{
-            //    var ts = inters[0].GetGenericArguments();
-            //    foreach (var t in ts)
-            //    {
-            //        Console.WriteLine(t.Name);
-            //    }
-            //}
-
-            //string picUrl = "https://pgli8n.oloadcdn.net/dl/l/52tH1K1wgfKDv7rR/qgT38BddUos/88032.mp4?mime=true";
-            //string replaceUrl = "/stream/xsKUCINoyEc~1503125875~47.89.0.0~pJyr6kif?mime=true";
-            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://openload.co" + replaceUrl);
-            //request.AllowAutoRedirect = false;
-            //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            //if (response.Headers["Location"] != null)
-            //{
-            //    string picUrl = response.Headers["Location"];
-            //    string fileName = picUrl.Remove(picUrl.LastIndexOf('?')).Substring(picUrl.LastIndexOf('/'));
-            //    string filePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"Temp" + fileName;
-            //    WebClient client = new WebClient();
-            //    client.DownloadFile(picUrl, filePath);
-            //}
-            //Console.WriteLine("下载完成");
-
-            //Parent b2 = new Child();
-            //b2.A();b2.B();
             Child c = new Child();
             c.C();
             IParent d = new Child();

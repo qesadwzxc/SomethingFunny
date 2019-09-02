@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Reconder\wav.cs" />
     <Compile Include="Reconder\wavfileplayer.cs" />
+    <Compile Include="SendMobileMessage.cs" />
     <Compile Include="TestBeepFunc.cs" />
     <Compile Include="CodeTimer.cs" />
     <Compile Include="TestConsoleProgress.cs" />
