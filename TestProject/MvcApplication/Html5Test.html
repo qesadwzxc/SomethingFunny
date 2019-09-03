@@ -1,54 +1,71 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>None</title>
-    <link rel="stylesheet" type="text/css" href="Content/Html5Test/Reset.css" />
-    <link rel="stylesheet" type="text/css" href="Content/Html5Test/Style.css" />
-    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="Scripts/jquery.event.frame.js"></script>
-    <script type="text/javascript" src="Scripts/jquery.jparallax.min.js"></script>
-    <script type="text/javascript" src="Scripts/html5Test.js"></script>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Content/Html5Test/Site.css" />
+    <script type="text/javascript">
+        function changeURL() {
+            var url = document.getElementById('url').value;
+            window.history.pushState({}, 0, 'file:///C:/Users/lmw12960/Desktop/' + url);
+        }
+    </script>
+    <style>
+
+    </style>
 </head>
 <body>
-    <!-- IE 7&8 Warning Page -->
-    <div id="ieAlertPage">
-        <div class="browserIcons">
-            <a href="http://www.mozilla.org/tr/firefox/fx/" target="_blank" class="firefox"><span>Firefox</span></a>
-            <a href="https://www.google.com/intl/tr/chrome/browser/" target="_blank" class="crome"><span>Crome</span></a>
-            <a href="http://www.apple.com/safari/" target="_blank" class="safari"><span>Safari</span></a>
-            <a href="http://www.opera.com/tr/computer/windows" target="_blank" class="opera"><span>Opera</span></a>
-            <a href="http://windows.microsoft.com/tr-tr/internet-explorer/download-ie" target="_blank" class="ie9"><span>Internet Explorer 9+</span></a>
-        </div>
+    <div id="info" style="margin:30px 0;">
+        页面真实地址:
+        <span style="color:red;">
+            <script type="text/javascript">document.write(window.location.href);</script>
+        </span>
     </div>
-    <!-- //IE 7&8 Warning Page -->
-    <!-- Site Container -->
-    <div id="siteContainer">
-        <div class="promo">
-            <div id="parallax" class="port parallax-viewport">
-                <div class="bg1 parallax-layer"></div>
-                <div class="bg2 parallax-layer"></div>
-                <div class="sloganBox">
-                    <div class="slogan1 parallax-layer"></div>
-                    <div class="slogan2 parallax-layer"></div>
-                    <div class="slogan3 parallax-layer"></div>
-                </div>
-            </div>
-        </div>
+    <div>
+        请输入要改变地URL字符串：<input id='url' type="text" />
+        <button onclick="changeURL();">点击无刷改变url</button>
     </div>
-    <!-- //Site Container -->
 
-    <!--https://validator.w3.org/check?uri=refer;http://jigsaw.w3.org/css-validator/validator?uri=refer;-->
-    <p>
-        <a href="http://validator.w3.org/check?uri=referer">
-            <img src="http://www.w3.org/Icons/valid-xhtml20-blue" alt="Valid XHTML 2.0 Strict" height="31" width="88" />
-        </a>
-    </p>
-    <p>
-        <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px"
-                 src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-                 alt="Valid CSS!" />
-        </a>
-    </p>
+    <script type="text/javascript">
+        function changeURL() {
+            var url = document.getElementById('url').value;
+            window.history.pushState({}, 0, url);
+        }
+    </script>
+
+
+
+    <div style="padding-left:5px">
+        <p>原始图标</p>
+        <i class="icon icon-del"></i>
+        <p>可以变色的图标</p>
+        <i class="icon"><i class="icon icon-del"></i></i>
+        <br />
+    </div>
+
+
+
+    <div>
+        <button id="button">点我有惊喜~</button>
+        <p id="text"></p>
+        <script src="Scripts/alertMessage.js"></script>
+    </div>
+
+
+    <div>
+        <div id="starBg" class="star_bg">
+            <input type="radio" id="starScore1" class="score score_1" value="1" name="score">
+            <a href="#starScore1" class="star star_1" title="差"><label for="starScore1">差</label></a>
+            <input type="radio" id="starScore2" class="score score_2" value="2" name="score">
+            <a href="#starScore2" class="star star_2" title="较差"><label for="starScore2">较差</label></a>
+            <input type="radio" id="starScore3" class="score score_3" value="3" name="score">
+            <a href="#starScore3" class="star star_3" title="普通"><label for="starScore3">普通</label></a>
+            <input type="radio" id="starScore4" class="score score_4" value="4" name="score">
+            <a href="#starScore4" class="star star_4" title="较好"><label for="starScore4">较好</label></a>
+            <input type="radio" id="starScore5" class="score score_5" value="5" name="score">
+            <a href="#5" class="star star_5" title="好"><label for="starScore5">好</label></a>
+        </div>
+    </div>
 </body>
+
 </html>
+
