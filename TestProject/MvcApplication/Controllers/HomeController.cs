@@ -116,5 +116,22 @@ namespace MvcApplication.Controllers
                 Console.WriteLine(e.Message);
             }
         }
+
+        public void test(string data)
+        {
+            var f = HttpContext.Request.Form;
+            var d = HttpContext.Request.InputStream;
+            string re = string.Empty;
+            if (d != null && d.CanRead)
+            {
+                var httpStreamReader = new StreamReader(d, Encoding.UTF8);
+                re = httpStreamReader.ReadToEnd();
+                httpStreamReader.Close();
+            }
+
+            var j = HttpContext.Request.QueryString;
+            var k = HttpContext.Request.Params;
+            int i = 1;
+        }
     }
 }

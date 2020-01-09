@@ -631,11 +631,17 @@ namespace TestConsoleApplication
         [STAThread]
         static void Main(string[] args)
         {
-            Child c = new Child();
-            c.C();
-            IParent d = new Child();
-            d.C();
-            Console.Read();
+            //Child c = new Child();
+            //c.C();
+            //IParent d = new Child();
+            //d.C();
+            //Console.Read();
+            //VinCode.DateBase.MySqlHelper mysql = new VinCode.DateBase.MySqlHelper();
+            //DataTable dt = mysql.ExecuteReader("select * from map_merchant_info");
+
+            TestSalesman testSalesman = new TestSalesman();
+            testSalesman.GetData();
+            Console.ReadLine();
         }
 
         public class Parent

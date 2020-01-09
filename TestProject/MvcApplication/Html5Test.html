@@ -28,11 +28,9 @@
     <script type="text/javascript">
         function changeURL() {
             var url = document.getElementById('url').value;
-            window.history.pushState({}, 0, url);
+            window.history.pushState({}, 0, url); 
         }
     </script>
-
-
 
     <div style="padding-left:5px">
         <p>原始图标</p>
@@ -41,16 +39,11 @@
         <i class="icon"><i class="icon icon-del"></i></i>
         <br />
     </div>
-
-
-
     <div>
         <button id="button">点我有惊喜~</button>
         <p id="text"></p>
         <script src="Scripts/alertMessage.js"></script>
     </div>
-
-
     <div>
         <div id="starBg" class="star_bg">
             <input type="radio" id="starScore1" class="score score_1" value="1" name="score">

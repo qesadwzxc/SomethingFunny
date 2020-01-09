@@ -82,7 +82,6 @@
     <Content Include="Src\kernel.txt" />
     <Content Include="Styles\Hack-Type.css" />
     <Content Include="Styles\NewStyle.css" />
-    <Content Include="TestHtmlPage.html" />
     <Content Include="PersonalCase-XMLRead.aspx" />
     <Content Include="TestWebForm.aspx" />
     <Content Include="PersonalCase-GUIDandASP.AJAXandJSCode.aspx" />
